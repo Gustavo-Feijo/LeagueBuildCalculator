@@ -14,46 +14,61 @@
             background-color: rgb(27, 27, 29);
         }
 
-        .search-bar {
-            width: 400px;
-            margin: 0px auto 0;
-            border: 1px solid rgb(96, 39, 122);
-            background-color: rgb(43, 43, 46);
-            border-radius: 5px;
+        #logo {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 12vh;
         }
 
-        .search-container {
+        #top-bar {
+            height: 12vh;
+            background-color: rgb(59, 39, 59);
+            width: 100%;
             display: flex;
+            justify-content: space-evenly;
             align-items: center;
-            padding: 10px 20px;
+        }
+
+        #search-bar {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 60%;
+            width: 50%;
+            border-radius: 20px;
+            background-color: rgb(77, 38, 77);
+            border: 2px solid black;
+            box-shadow: 2px 2px 2px rgb(19, 17, 17);
         }
 
         #search-input {
             flex: 1;
-            color: white;
+            height: 100%;
+            width: 100%;
             background-color: transparent;
-            font-size: 1.5em;
             border: 0;
             outline: 0;
+            font-size: 2em;
+            text-align: center;
         }
 
-        button .fa-solid {
-            width: 25px;
-            font-size: 1.8em;
+        #btn-search {
+            background-color: transparent;
+            outline: 0;
+            border: 0;
             cursor: pointer;
+            height: 60%;
+            justify-content: center;
+            margin-bottom: 10px;
         }
 
-        #top-bar {
-            top: 0;
-            height: 100px;
-            display: flex;
-            align-items: center;
-        }
+        #btn-search img {
+            height: 100%;
 
-        .logo {
-            height: 80px;
-            margin: 10px 0px 0px 10px;
-            position: absolute;
+            border: 1px solid black;
+            padding: 5px;
+            border-radius: 90px;
         }
 
         .body {
@@ -69,13 +84,14 @@
             height: 100px;
             display: flex;
             align-items: center;
-        justify-content: space-between;   
-    border-bottom: 2px purple solid;    
-}
-.champion-container:hover{
-    cursor: pointer;
-    background-color: rgb(147, 100, 190);
-}
+            justify-content: space-between;
+            border-bottom: 2px purple solid;
+        }
+
+        .champion-container:hover {
+            cursor: pointer;
+            background-color: rgb(147, 100, 190);
+        }
 
         .champion-image {
             height: 100%;
@@ -85,7 +101,7 @@
             display: inline;
             font-size: 1.5em;
             text-align: left;
-            flex:1;
+            flex: 1;
         }
 
         .champion-name::first-letter {
@@ -94,7 +110,7 @@
         }
 
 
-        
+
 
         @media (max-width: 768px) {
             .logo {
@@ -115,13 +131,13 @@
 </head>
 
 <body>
-    <img class="logo" src="icon.png">
     <div id="top-bar">
-        <div class="search-bar">
-            <div class="search-container">
-                <input type="text" id="search-input" oninput="handleSearch()" placeholder="Search...">
-                <button id="searchButton"><i class="fa-solid fa-magnifying-glass"></i></button>
-            </div>
+        <img src="icons/icon.png" id="logo">
+        <div id="search-bar">
+            <input type="text" id="search-input" oninput="handleSearch()" placeholder="Search...">
+            <button id="btn-search">
+                <img src="icons/search-icon.webp">
+            </button>
         </div>
     </div>
     <div class="body">
