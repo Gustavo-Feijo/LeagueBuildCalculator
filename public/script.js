@@ -1,11 +1,10 @@
-document.getElementById('searchButton').addEventListener('click', function (event) {
+document.getElementById('btn-search').addEventListener('click', function (event) {
     event.preventDefault();
 
     const searchQuery = document.getElementById('search-input').value;
 
     window.location.href = '/' + encodeURIComponent(searchQuery);
 });
-
 document.addEventListener('DOMContentLoaded', function () {
     const bodyContainer = document.querySelector('.body');
 
