@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        html,
+        body {
+            margin: 0;
+            height: 100%;
+            background-color: rgb(27, 27, 29);
+        }
+
+        #logo {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 12vh;
+        }
+
+        #top-bar {
+            height: 12vh;
+            background-color: rgb(59, 39, 59);
+            width: 100%;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+        }
+
+        #search-bar {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 60%;
+            width: 50%;
+            border-radius: 20px;
+            background-color: rgb(77, 38, 77);
+            border: 2px solid black;
+            box-shadow: 2px 2px 2px rgb(19, 17, 17);
+        }
+
+        #search-input {
+            flex: 1;
+            height: 100%;
+            width: 100%;
+            background-color: transparent;
+            border: 0;
+            outline: 0;
+            font-size: 2em;
+            text-align: center;
+        }
+
+        #btn-search {
+            background-color: transparent;
+            outline: 0;
+            border: 0;
+            cursor: pointer;
+            height: 60%;
+            justify-content: center;
+            margin-bottom: 10px;
+        }
+
+        #btn-search img {
+            height: 100%;
+
+            border: 1px solid black;
+            padding: 5px;
+            border-radius: 90px;
+        }
+
+
+
+        /*--------------------------------------------------------------------------------------------*/
+        /*--------------------------------------------------------------------------------------------*/
+        /*--------------------------------------------------------------------------------------------*/
+        /*-----------------------------------------__BODY__-------------------------------------------*/
+
+        #body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #grid-container {
+            box-sizing: border-box;
+            margin-top: 4%;
+            height: 1500px;
+            width: 1300px;
+            background-color: rgb(77, 38, 77);
+            border-radius: 20px;
+            border: 2px solid white;
+            display: grid;
+            grid-template-columns: repeat(1, 1fr);
+            grid-template-rows: repeat(4, 1fr);
+            padding: 20px;
+        }
+
+        .grid-item {
+            height: 100%;
+            width: 100%;
+            box-sizing: border-box;
+            border: 1px solid white;
+            background-color: red;
+        }
+
+        #champion-container {
+            height: 40%;
+            background-color: green;
+            width: 100%;
+            display: flex;
+        }
+
+        #champion-image {
+            height: 100%;
+        }
+
+        #right-champion-container {
+            background-color: aqua;
+            display: flex;
+            flex-direction: column;
+            margin-left: 0px;
+            flex: 1;
+        }
+
+        #top-right {
+            background-color: yellow;
+            height: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+            font-size: 3em;
+        }
+
+
+        #bottom-right {
+            background-color: green;
+            height: 50%;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+        }
+
+
+
+        .skill-container {
+            height: 80%;
+            width: 10%;
+            position: relative;
+            background-color: red;
+        }
+
+        .skill-container img {
+            height: 100%;
+            box-sizing: border-box;
+            border-radius: 20px;
+            border: 2px solid black;
+            position: relative;
+            left: 50%;
+            transform: translateX(-50%)
+        }
+
+        .skill-container .letter {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 50%;
+            height: 50%;
+            aspect-ratio: 1/1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid black;
+            background-color: rgb(52, 12, 56);
+            color: rgb(236, 236, 236);
+            font-size: 2vh;
+        }
+
+        .tooltip {
+            top: 60px;
+            visibility: visible;
+            width: 200px;
+            background-color: #555;
+            color: #fff;
+            text-align: center;
+            padding: 5px 0;
+            border-radius: 6px;
+            word-break: normal;
+            /* Position the tooltip text */
+            position: absolute;
+            z-index: 1;
+            left: 50%;
+            margin-left: -100px;
+            opacity: 0;
+            transition: opacity 500ms ease;
+
+        }
+
+        .skill-container .tooltip::after {
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            margin-left: -5px;
+            border-width: 5px;
+            border-style: solid;
+            border-color: #555 transparent transparent transparent;
+        }
+
+        .skill-container img:hover~.tooltip {
+            visibility: visible;
+            opacity: 1;
+            /* Additional styles for the tooltip when the image is hovered */
+        }
+
+
+
+
+        .stats-container {
+            height: 60%;
+            background-color: aquamarine;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        #stats-list {
+            list-style: none;
+            height: 100%;
+            columns: 2;
+        }
+
+        #stats-list img {
+            filter: invert(100%);
+            float: left;
+        }
+
+        #stats-list li {
+            text-align: center;
+        }
+
+        #stats-list li span:nth-child(3) {
+            background-color: red;
+            float: right;
+            width: 100px;
+        }
+
+        #level-container{
+            display: flex;
+            align-items: center;
+            justify-content: right;
+        }
+        #level-label {
+            font-size: 0.5em;
+        }
+        #select-level{
+            height: 30px;
+        }
+
+
+        @media (max-width: 800px) {
+            #grid-container {
+                grid-template-columns: repeat(1, 1fr);
+                grid-template-rows: repeat(4, 1fr);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="top-bar">
+        <img src="icons/icon.png" id="logo">
+        <div id="search-bar">
+            <input type="text" id="search-input" placeholder="Search...">
+            <button id="btn-search">
+                <img src="icons/search-icon.webp">
+            </button>
+        </div>
+    </div>
+    <div id="body">
+        <div id="grid-container">
+            <div class="grid-item">
+                <div id="champion-container">
+                    <img id="champion-image">
+                    <div id="right-champion-container">
+                        <div id="top-right">
+                            <span id="champion-name"></span>
+                            <div id="level-container">
+                                <label for="select-level" id="level-label">Level:</label>
+                                <select id="select-level" onchange="adjustlevelstats(this.value)"></select>
+                            </div>
+                            <script>
+                                // Use JavaScript to generate options from 1 to 18
+                                var selectElement = document.getElementById('select-level');
+
+                                for (var i = 1; i <= 18; i++) {
+                                    var option = document.createElement('option');
+                                    option.value = i;
+                                    option.text = i;
+                                    selectElement.add(option);
+                                }
+                            </script>
+                        </div>
+                        <div id="bottom-right">
+                            <div class="skill-container">
+                                <img id="champion-passive">
+                                <span class="letter">P</span>
+                                <span id="tooltip-P" class="tooltip">batatalarfawfawfwafwafa</span>
+                            </div>
+                            <div class="skill-container">
+                                <img id="champion-Q">
+                                <span class="letter">Q</span>
+                                <span id="tooltip-Q" class="tooltip">batatalara</span>
+                            </div>
+                            <div class="skill-container">
+                                <img id="champion-W">
+                                <span class="letter">W</span>
+                                <span id="tooltip-W" class="tooltip">batatalara</span>
+                            </div>
+                            <div class="skill-container">
+                                <img id="champion-E">
+                                <span class="letter">E</span>
+                                <span id="tooltip-E" class="tooltip">batatalara</span>
+                            </div>
+                            <div class="skill-container">
+                                <img id="champion-R">
+                                <span class="letter">R</span>
+                                <span id="tooltip-R" class="tooltip">batatalara</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="stats-container">
+                    <ul id="stats-list">
+                        <li id="ad">
+                            <img src='./icons/AD.webp'>
+                            <span>Attack Damage: </span>
+                            <span></span>
+                        </li>
+                        <li id="ah">
+                            <img src='./icons/AH.webp'>
+                            <span>Ability Haste: </span>
+                            <span></span>
+                        </li>
+                        <li id="ap">
+                            <img src='./icons/AP.webp'>
+                            <span>Ability Power: </span>
+                            <span></span>
+                        </li>
+                        <li id="armor">
+                            <img src='./icons/Armor.webp'>
+                            <span>Armor: </span>
+                            <span></span>
+                        </li>
+                        <li id="armorpen">
+                            <img src='./icons/ArmorPenetration.webp'>
+                            <span>Armor Penetration: </span>
+                            <span></span>
+                        </li>
+                        <li id="attackspeed">
+                            <img src='./icons/AS.webp'>
+                            <span>Attack Speed: </span>
+                            <span></span>
+                        </li>
+                        <li id="critical">
+                            <img src='./icons/Critical.webp'>
+                            <span>Critical Chance: </span>
+                            <span></span>
+                        </li>
+                        <li id="criticaldamage">
+                            <img src='./icons/CriticalDamage.webp'>
+                            <span>Critical Damage: </span>
+                            <span></span>
+                        </li>
+                        <li id="healpower">
+                            <img src='./icons/HealPower.webp'>
+                            <span>Heal Power: </span>
+                            <span></span>
+                        </li>
+                        <li id="hp">
+                            <img src='./icons/HP.webp'>
+                            <span>Health: </span>
+                            <span></span>
+                        </li>
+                        <li id="hpregen">
+                            <img src='./icons/HPRegen.webp'>
+                            <span>Health Regeneration: </span>
+                            <span></span>
+                        </li>
+                        <li id="hsp">
+                            <img src='./icons/HSP.webp'>
+                            <span>Heal and Shield Power: </span>
+                            <span></span>
+                        </li>
+                        <li id="lifesteal">
+                            <img src='./icons/LifeSteal.webp'>
+                            <span>Lifesteal: </span>
+                            <span></span>
+                        </li>
+                        <li id="lethality">
+                            <img src='./icons/ArmorPenetration.webp'>
+                            <span>Lethality: </span>
+                            <span></span>
+                        </li>
+                        <li id="magicpen">
+                            <img src='./icons/MagicPenetration.webp'>
+                            <span>Magic Penetration: </span>
+                            <span></span>
+                        </li>
+                        <li id="mana">
+                            <img src='./icons/Mana.webp'>
+                            <span>Mana: </span>
+                            <span></span>
+                        </li>
+                        <li id="manaregen">
+                            <img src='./icons/ManaRegen.webp'>
+                            <span>Mana Regeneration: </span>
+                            <span></span>
+                        </li>
+                        <li id="mr">
+                            <img src='./icons/MR.webp'>
+                            <span>Magic Resistance: </span>
+                            <span></span>
+                        </li>
+                        <li id="ms">
+                            <img src='./icons/MS.webp'>
+                            <span>Movement Speed: </span>
+                            <span></span>
+                        </li>
+                        <li id="omnivamp">
+                            <img src='./icons/Omnivamp.webp'>
+                            <span>Omnivamp: </span>
+                            <span></span>
+                        </li>
+                        <li id="range">
+                            <img src='./icons/Range.webp'>
+                            <span>Range: </span>
+                            <span></span>
+                        </li>
+                        <li id="slowresist">
+                            <img src='./icons/Slow.webp'>
+                            <span>Slow Resist: </span>
+                            <span></span>
+                        </li>
+                        <li id="tenacity">
+                            <img src='./icons/Tenacity_icon.webp'>
+                            <span>Tenacity: </span>
+                            <span></span>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <div class="grid-item"></div>
+            <div class="grid-item"></div>
+            <div class="grid-item"></div>
+        </div>
+    </div>
+    <script src="champions copy.js"></script>
+</body>
+
+</html>
