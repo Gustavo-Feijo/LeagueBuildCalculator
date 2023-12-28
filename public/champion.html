@@ -12,24 +12,23 @@
             height: 100%;
             background-color: rgb(27, 27, 29);
         }
-
+        #logo,
+        #top-bar {
+            height: 12vh;
+        }
         #logo {
             position: absolute;
             top: 0;
             left: 0;
-            height: 12vh;
         }
-
         #top-bar {
-            height: 12vh;
             background-color: rgb(59, 39, 59);
             width: 100%;
             display: flex;
             justify-content: space-evenly;
             align-items: center;
         }
-
-        #search-bar {
+        .search-bar {
             display: flex;
             justify-content: center;
             align-items: center;
@@ -40,8 +39,7 @@
             border: 2px solid black;
             box-shadow: 2px 2px 2px rgb(19, 17, 17);
         }
-
-        #search-input {
+        .search-input {
             flex: 1;
             height: 100%;
             width: 100%;
@@ -51,8 +49,8 @@
             font-size: 2em;
             text-align: center;
         }
-
-        #btn-search {
+        .btn-search {
+            width: 50px;
             background-color: transparent;
             outline: 0;
             border: 0;
@@ -61,22 +59,17 @@
             justify-content: center;
             margin-bottom: 10px;
         }
-
-        #btn-search img {
+        .btn-search img {
             height: 100%;
 
             border: 1px solid black;
             padding: 5px;
             border-radius: 90px;
         }
-
-
-
         /*--------------------------------------------------------------------------------------------*/
         /*--------------------------------------------------------------------------------------------*/
         /*--------------------------------------------------------------------------------------------*/
         /*-----------------------------------------__BODY__-------------------------------------------*/
-
         #body {
             display: flex;
             justify-content: center;
@@ -100,6 +93,7 @@
         .grid-item {
             height: 100%;
             width: 100%;
+            overflow: hidden;
             box-sizing: border-box;
             border: 1px solid white;
             background-color: red;
@@ -124,25 +118,13 @@
             flex: 1;
         }
 
-        #top-right {
+        #top-right,#bottom-right {
             background-color: yellow;
             height: 50%;
             display: flex;
             align-items: center;
             justify-content: space-evenly;
-            font-size: 3em;
         }
-
-
-        #bottom-right {
-            background-color: green;
-            height: 50%;
-            display: flex;
-            justify-content: space-evenly;
-            align-items: center;
-        }
-
-
 
         .skill-container {
             height: 80%;
@@ -188,7 +170,6 @@
             padding: 5px 0;
             border-radius: 6px;
             word-break: normal;
-            /* Position the tooltip text */
             position: absolute;
             z-index: 1;
             left: 50%;
@@ -211,11 +192,7 @@
         .skill-container img:hover~.tooltip {
             visibility: visible;
             opacity: 1;
-            /* Additional styles for the tooltip when the image is hovered */
         }
-
-
-
 
         .stats-container {
             height: 60%;
@@ -227,9 +204,12 @@
         }
 
         #stats-list {
+            margin: 0;
+            float: left;
             list-style: none;
             height: 100%;
-            columns: 2;
+            columns: 4;
+            padding: 0;
         }
 
         #stats-list img {
@@ -239,6 +219,11 @@
 
         #stats-list li {
             text-align: center;
+            border: 2px black solid;
+            padding: 5px;
+            font-size: 0.9em;
+            margin-bottom: 4px;
+
         }
 
         #stats-list li span:nth-child(3) {
@@ -247,24 +232,58 @@
             width: 100px;
         }
 
-        #level-container{
+        #level-container {
             display: flex;
             align-items: center;
             justify-content: right;
         }
+
         #level-label {
             font-size: 0.5em;
         }
-        #select-level{
+
+        #select-level {
             height: 30px;
         }
 
+        #items-container {
+            height: 100%;
+            background-color: gold;
+            display: flex;
+        }
 
-        @media (max-width: 800px) {
-            #grid-container {
-                grid-template-columns: repeat(1, 1fr);
-                grid-template-rows: repeat(4, 1fr);
-            }
+        #selected-items {
+            background-color: red;
+            width: 300px;
+            height: 100%;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            /* Two columns with equal width */
+            grid-template-rows: repeat(3, 1fr);
+            /* Three rows with equal height */
+            overflow: hidden;
+        }
+
+        .item {
+            background-color: black;
+            width: 100px;
+            height: 100px;
+            margin: 10px 0 0 25px
+        }
+
+        #item-list {
+            background-color: aqua;
+            height: 100%;
+            width: 500px;
+        }
+
+        #item-search {
+            height: 20%;
+            background-color: rgb(59, 39, 59);
+            width: 100%;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
         }
     </style>
 </head>
@@ -272,11 +291,8 @@
 <body>
     <div id="top-bar">
         <img src="icons/icon.png" id="logo">
-        <div id="search-bar">
-            <input type="text" id="search-input" placeholder="Search...">
-            <button id="btn-search">
-                <img src="icons/search-icon.webp">
-            </button>
+        <div class="search-bar">
+            <input type="text" class="search-input" placeholder="Search...">
         </div>
     </div>
     <div id="body">
@@ -286,9 +302,9 @@
                     <img id="champion-image">
                     <div id="right-champion-container">
                         <div id="top-right">
-                            <span id="champion-name"></span>
+                            <span id="champion-name" style="font-size: 3em;"></span>
                             <div id="level-container">
-                                <label for="select-level" id="level-label">Level:</label>
+                                <label for="select-level" id="level-label" style="font-size: 2em;">Level:</label>
                                 <select id="select-level" onchange="adjustlevelstats(this.value)"></select>
                             </div>
                             <script>
@@ -334,6 +350,11 @@
                 </div>
                 <div class="stats-container">
                     <ul id="stats-list">
+                        <li id="level">
+                            <img src="./icons/EXP.webp">
+                            <span>Level:</span>
+                            <span>1</span>
+                        </li>
                         <li id="ad">
                             <img src='./icons/AD.webp'>
                             <span>Attack Damage: </span>
@@ -451,15 +472,37 @@
                         </li>
                     </ul>
                 </div>
-
             </div>
+            <div class="grid-item" id="items-container">
+                <div id="selected-items">
+                    <div class='item'></div>
+                    <div class='item'></div>
+                    <div class='item'></div>
+                    <div class='item'></div>
+                    <div class='item'></div>
+                    <div class='item'></div>
+                </div>
+                <div id="item-list">
 
-            <div class="grid-item"></div>
+                    <div id="item-search">
+                        <div class="search-bar" style="width: 80%;">
+                            <input type="text" class="search-input" placeholder="Search...">
+                            <button class="btn-search">
+                                <img src="icons/search-icon.webp">
+                            </button>
+                        </div>
+                    </div>
+
+                    <div id="item-options">
+
+                    </div>
+                </div>
+            </div>
             <div class="grid-item"></div>
             <div class="grid-item"></div>
         </div>
     </div>
-    <script src="champions copy.js"></script>
+    <script src="champions.js"></script>
 </body>
 
 </html>

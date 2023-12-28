@@ -36,5 +36,18 @@ document.addEventListener('DOMContentLoaded', function () {
         })
         .catch(error => console.error('Error fetching champion data:', error));
 });
+function handleSearch(input) {
+    let championContainers = document.getElementsByClassName('champion-container');
+
+    Array.from(championContainers).forEach(championContainer => {
+        let championName = championContainer.querySelector('.champion-name').textContent;
+        if (!championName.includes(input)) {
+            championContainer.style.display = 'none';
+        } else {
+            championContainer.style.display = 'flex'; 
+        }
+    });
+}
+
 
 
