@@ -41,7 +41,7 @@ function handleSearch(input) {
 
     Array.from(championContainers).forEach(championContainer => {
         let championName = championContainer.querySelector('.champion-name').textContent;
-        if (!championName.includes(input)) {
+        if (!championName.startsWith(input)) {
             championContainer.style.display = 'none';
         } else {
             championContainer.style.display = 'flex'; 
