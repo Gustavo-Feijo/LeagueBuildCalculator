@@ -46,11 +46,23 @@ app.get('/api/champions', async (req, res) => {
 
 app.get('/api/champions/:search', async (req, res) => {
   const search = req.params.search;
-  const championDirectory = path.join(__dirname, 'FullJsons',  search + '.json');
+  const championDirectory = path.join(__dirname, 'APIfiles', 'championsData',  search + '.json');
 
   try {
     const champion = await fs.readFile(championDirectory, 'utf8');
     const data = JSON.parse(champion);
+    res.json(data);
+  } catch (error) {
+    console.error('Error reading champion files:', error);
+    res.status(500).send('Internal Server Error');
+  }
+});
+
+app.get('/api/items', async (req, res) => {
+  const itemDirectory = path.join(__dirname, 'APIfiles/item.json');
+  try {
+    const item = await fs.readFile(itemDirectory, 'utf8');
+    const data = JSON.parse(item);
     res.json(data);
   } catch (error) {
     console.error('Error reading champion files:', error);

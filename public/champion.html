@@ -107,7 +107,7 @@
         }
 
         #champion-container {
-            height: 40%;
+            height: 120px;
             background-color: green;
             width: 100%;
             display: flex;
@@ -238,6 +238,7 @@
             background-color: red;
             float: right;
             width: 100px;
+            text-align: center;
         }
 
         #level-container {
@@ -272,7 +273,10 @@
             justify-content: space-evenly
         }
 
+        
         .item {
+            position: relative;
+            z-index: 0;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -302,6 +306,55 @@
             align-items: center;
         }
 
+        #item-options {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            height: 80%;
+            flex-wrap: wrap;
+            overflow: auto;
+            font-size: 0;
+        }
+        #item-options div{
+            width: 10%;
+            aspect-ratio: 1/1;
+            position: relative;
+            overflow: visible;
+        }
+        .item-images {
+            width: 100%;
+            margin: 0;
+
+        }
+
+        .item-tooltip {
+
+            visibility: visible;
+
+            width: 200px;
+            margin-left: -125px;
+            margin-top: 50px;
+
+            background-color: #555;
+
+            color: #fff;
+            text-align: center;
+            padding: 5px 0;
+            border-radius: 6px;
+            word-break: normal;
+            position: absolute;
+            z-index: 1;
+            opacity: 0;
+            transition: opacity 500ms ease;
+            font-size: 12px;
+            user-select: none;
+            pointer-events: none;
+        }
+
+        .item-container img:hover~.item-tooltip {
+            visibility: visible;
+            opacity: 1;
+        }
 
 
         @media (max-width:1300px) {
@@ -311,8 +364,105 @@
         }
 
         @media (max-width:930px) {
+            #top-bar {
+                display: flex;
+                align-items: center;
+                justify-items: center;
+                height: 8vh;
+            }
+
+            #search-top {
+                display: none;
+            }
+
+            #logo {
+                height: 8vh;
+            }
+
+            #grid-container {
+                height: auto;
+                width: 80vw;
+            }
+
+            #champion-image {
+                margin-left: 50%;
+                transform: translateX(-50%);
+            }
+
+            #champion-container {
+                height: auto;
+                width: auto;
+                display: block;
+            }
+
+            #right-champion-container {
+                display: block
+            }
+
+            #top-right,
+            #bottom-right {
+                height: 100%;
+            }
+
+            .skill-container {
+                width: 20%;
+            }
+
+            .skill-container img {
+                height: 40px;
+            }
+
+            .tooltip {
+                width: 150px;
+                margin-left: -75px;
+            }
+
             #stats-list {
+                height: auto;
                 columns: 2;
+                font-size: 0;
+            }
+
+            #stats-list img {
+                height: 15px;
+            }
+
+            #stats-list li {
+                font-size: 9px;
+                box-sizing: border-box;
+                width: 149px;
+                margin: 0;
+            }
+
+            #stats-list li span:nth-child(3) {
+                width: 25px;
+            }
+
+            #select-level {
+                height: 20px;
+                width: 35px;
+            }
+
+            #items-container {
+                display: block;
+            }
+
+            #selected-items {
+                width: auto;
+                height: 200px;
+                grid-template-columns: repeat(3, 1fr);
+                grid-template-rows: repeat(2, 1fr);
+            }
+
+            .item-content {
+                width: 80px;
+                height: 80px;
+            }
+
+            #item-list {
+                height: 300px;
+                width: auto;
+                overflow: scroll;
             }
         }
     </style>
@@ -321,7 +471,7 @@
 <body>
     <div id="top-bar">
         <img src="icons/icon.png" id="logo">
-        <div class="search-bar">
+        <div class="search-bar" id="search-top">
             <input type="text" class="search-input" placeholder="Search...">
         </div>
     </div>
@@ -353,27 +503,27 @@
                             <div class="skill-container">
                                 <img id="champion-passive">
                                 <span class="letter">P</span>
-                                <span id="tooltip-P" class="tooltip">batatalarfawfawfwafwafa</span>
+                                <span id="tooltip-P" class="tooltip"></span>
                             </div>
                             <div class="skill-container">
                                 <img id="champion-Q">
                                 <span class="letter">Q</span>
-                                <span id="tooltip-Q" class="tooltip">batatalara</span>
+                                <span id="tooltip-Q" class="tooltip"></span>
                             </div>
                             <div class="skill-container">
                                 <img id="champion-W">
                                 <span class="letter">W</span>
-                                <span id="tooltip-W" class="tooltip">batatalara</span>
+                                <span id="tooltip-W" class="tooltip"></span>
                             </div>
                             <div class="skill-container">
                                 <img id="champion-E">
                                 <span class="letter">E</span>
-                                <span id="tooltip-E" class="tooltip">batatalara</span>
+                                <span id="tooltip-E" class="tooltip"></span>
                             </div>
                             <div class="skill-container">
                                 <img id="champion-R">
                                 <span class="letter">R</span>
-                                <span id="tooltip-R" class="tooltip">batatalara</span>
+                                <span id="tooltip-R" class="tooltip"></span>
                             </div>
                         </div>
                     </div>
