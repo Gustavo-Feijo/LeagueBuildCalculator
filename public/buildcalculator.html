@@ -9,6 +9,7 @@
     <style>
         html,
         body {
+            cursor: url(icons/Cursor.png),auto;
             margin: 0;
             height: 100%;
             background-color: rgb(27, 27, 29);
@@ -53,24 +54,6 @@
             text-align: center;
         }
 
-        #btn-search {
-            background-color: transparent;
-            outline: 0;
-            border: 0;
-            cursor: pointer;
-            height: 60%;
-            justify-content: center;
-            margin-bottom: 10px;
-        }
-
-        #btn-search img {
-            height: 100%;
-
-            border: 1px solid black;
-            padding: 5px;
-            border-radius: 90px;
-        }
-
         .body {
             background-color: rgb(44, 44, 63);
             border-radius: 5px;
@@ -79,6 +62,7 @@
             margin: 100px 200px;
             overflow: scroll;
         }
+        
 
         .champion-container {
             height: 100px;
@@ -136,9 +120,6 @@
         <img src="icons/icon.png" id="logo">
         <div id="search-bar">
             <input type="text" id="search-input" oninput="handleSearch(this.value)" placeholder="Search...">
-            <button id="btn-search">
-                <img src="icons/search-icon.webp">
-            </button>
         </div>
     </div>
     <div class="body">

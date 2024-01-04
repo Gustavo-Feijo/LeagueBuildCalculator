@@ -4,7 +4,7 @@ const API_ENDPOINT = '/api/champions/';
 
 //Object with champion variables.
 let champion = {
-    level: 1,
+    level: 1, //Start level.
     ad: null,
     adperlevel: null,
     ah: null,
@@ -43,38 +43,49 @@ let champion = {
     tenacity: null,
 };
 
+//Function to make the spans object declaration more readable.
+function getLastSpanByID(identifier) {
+    return document.getElementById(identifier).querySelector('span:last-child');
+}
+
 //Champion variables that are going to be visible, the spans are used to change the values on the HTML.
 const spans = {
-    ad: getSpanByIdentifier('ad'),
-    ah: getSpanByIdentifier('ah'),
-    ap: getSpanByIdentifier('ap'),
-    armor: getSpanByIdentifier('armor'),
-    armorpen: getSpanByIdentifier('armorpen'),
-    attackspeed: getSpanByIdentifier('attackspeed'),
-    critical: getSpanByIdentifier('critical'),
-    criticaldamage: getSpanByIdentifier('criticaldamage'),
-    healpower: getSpanByIdentifier('healpower'),
-    hp: getSpanByIdentifier('hp'),
-    hpregen: getSpanByIdentifier('hpregen'),
-    hsp: getSpanByIdentifier('hsp'),
-    lifesteal: getSpanByIdentifier('lifesteal'),
-    lethality: getSpanByIdentifier('lethality'),
-    magicpen: getSpanByIdentifier('magicpen'),
-    mana: getSpanByIdentifier('mana'),
-    manaregen: getSpanByIdentifier('manaregen'),
-    mr: getSpanByIdentifier('mr'),
-    ms: getSpanByIdentifier('ms'),
-    omnivamp: getSpanByIdentifier('omnivamp'),
-    range: getSpanByIdentifier('range'),
-    slowresist: getSpanByIdentifier('slowresist'),
-    tenacity: getSpanByIdentifier('tenacity'),
+    ad: getLastSpanByID('ad'),
+    ah: getLastSpanByID('ah'),
+    ap: getLastSpanByID('ap'),
+    armor: getLastSpanByID('armor'),
+    armorpen: getLastSpanByID('armorpen'),
+    attackspeed: getLastSpanByID('attackspeed'),
+    critical: getLastSpanByID('critical'),
+    criticaldamage: getLastSpanByID('criticaldamage'),
+    healpower: getLastSpanByID('healpower'),
+    hp: getLastSpanByID('hp'),
+    hpregen: getLastSpanByID('hpregen'),
+    hsp: getLastSpanByID('hsp'),
+    lifesteal: getLastSpanByID('lifesteal'),
+    lethality: getLastSpanByID('lethality'),
+    magicpen: getLastSpanByID('magicpen'),
+    mana: getLastSpanByID('mana'),
+    manaregen: getLastSpanByID('manaregen'),
+    mr: getLastSpanByID('mr'),
+    ms: getLastSpanByID('ms'),
+    omnivamp: getLastSpanByID('omnivamp'),
+    range: getLastSpanByID('range'),
+    slowresist: getLastSpanByID('slowresist'),
+    tenacity: getLastSpanByID('tenacity'),
 };
 
 //Start the base values and images on the content loading.
 document.addEventListener('DOMContentLoaded', function () {
 
+    //Fetch the champion JSON and initialize the informations of the champion.
     fetch(API_ENDPOINT + lastPartOfURL)
-        .then(response => response.json())
+        .then(response => {
+            if (response.ok) {
+                return response.json(); // Add the return statement here
+            }
+            throw new Error('Network response was not ok.');
+        })
         .then(championData => {
             let skills = championData['data'][lastPartOfURL].spells;
             document.getElementById('champion-name').innerHTML = championData['data'][lastPartOfURL].name;
@@ -91,10 +102,11 @@ document.addEventListener('DOMContentLoaded', function () {
             document.getElementById('champion-R').src = `spellImages/${skills[3].image.full}`;
 
 
-            updateChampionStats(championData['data'][lastPartOfURL].stats);
+            initializeChampionStats(championData['data'][lastPartOfURL].stats);
         })
         .catch(error => console.error('Error fetching champion data:', error));
 
+    //Fetch the item JSON, loop through each item and add it to the list.
     fetch('/api/items')
         .then(response => response.json())
         .then(itemData => {
@@ -109,19 +121,20 @@ document.addEventListener('DOMContentLoaded', function () {
 
                 const itemTooltip = document.createElement('span');
                 itemTooltip.classList.add('item-tooltip');
-                itemTooltip.innerHTML=itemData.data[item].description;
+                itemTooltip.innerHTML = itemData.data[item].description;
 
                 imageContainer.appendChild(itemimage);
                 imageContainer.appendChild(itemTooltip);
                 imageContainer.classList.add('item-container')
                 itemContainer.appendChild(imageContainer);
-                
+
             }
         })
         .catch(error => console.error('Error fetching items:', error));
 });
 
-function updateChampionStats(championStats) {
+//Initialize the champion stats with the JSON Data.
+function initializeChampionStats(championStats) {
     const {
         attackdamage, attackdamageperlevel, armor, armorperlevel, attackspeed, attackspeedperlevel, attackspeedratio, crit, critperlevel, hp,
         hpperlevel, hpregen, hpregenperlevel, mp, mpperlevel, mpregen, mpregenperlevel, spellblock,
@@ -165,25 +178,32 @@ function updateChampionStats(championStats) {
     updateChampionStatsHTML();
 };
 
+//Go through each of the stats spans and update accordingly.
 function updateChampionStatsHTML() {
     for (const key in spans) {
         spans[key].innerHTML = champion[key].toFixed(2);
     }
 }
-function getSpanByIdentifier(identifier) {
-    return document.getElementById(identifier).querySelector('span:last-child');
-}
+
+//Adjust the stats of the champion based on the stat growth per level up.
 function adjustlevelstats(level) {
-    getSpanByIdentifier('level').innerHTML = level;
-    let levelCalc = level - champion.level;
+    //Get current level.
+    getLastSpanByID('level').innerHTML = level;
+    let levelCalc = level - champion.level;//Calculate the change between the current level and the selected level.
+
+    //The stats are increased based in the difference between both levels, if the change is negative, then the stats are reduced accordingly, avoiding the need to create base stats for the champion.
     champion.hp += champion.hpperlevel * levelCalc;
     champion.ad += champion.adperlevel * levelCalc;
     champion.armor += champion.armorperlevel * levelCalc;
     champion.mr += champion.mrperlevel * levelCalc;
     champion.mana += champion.manaperlevel * levelCalc;
     champion.manaregen += champion.manaregenperlevel * levelCalc;
-    champion.attackspeed = champion.baseas + (champion.bonusas + ((champion.attackspeedperlevel / 100) * (level - 1)) * (0.7025 + (0.0175 * (level - 1)))) * champion.attackspeedratio;
     champion.hpregen += champion.hpregenperlevel * levelCalc;
+
+    //The attackspeed is calculated based on the base attackspeed in order to simplify the code, since the AS growth is more complex than the others.
+    champion.attackspeed = champion.baseas + (champion.bonusas + ((champion.attackspeedperlevel / 100) * (level - 1)) * (0.7025 + (0.0175 * (level - 1)))) * champion.attackspeedratio;
+
+    //Set the current champion level to the selected one and update the stats.
     champion.level = level;
     updateChampionStatsHTML();
 }

@@ -1,0 +1,22 @@
+--------------------------------------------------TODO--------------------------------------------------
+Refactor both HTMLs, changing class names, ids, improving readability and removing redundancy.
+
+Change Tooltip structure to the items, in order to make the item list scrollable without having issues
+with the overflow. For now, using bigger width without overflow to avoid those problems.
+
+Need to change the size of the content for the champion name, level selection, champion image and skills
+in order to improve mobile compatibility, currently overflowing on some resolutions.
+Currently when below 450px width, the rightmost border shrinks to the left and, when below 400px, it gets
+smaller than the content container.
+
+Add item selection, first visually, doesn't need to worry about mythic items limitations, since in season
+14 they are not present. Limitations to amount of items could be done with JS, however is needed to look
+for other data providers, such as community dragon, since their Items.json provides max amount limitations.
+Link to the JSON: "https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default/v1/items.json"
+
+Check for other data providers to champions and items, such as community dragon, lol wiki (Data can be stracted from
+the LUA table they provide), also: "http://cdn.merakianalytics.com/riot/lol/resources/latest/en-US/" can be a good 
+provider due to more detailed information for both items and champions, with champion stats more well defined and 
+organized.
+
+Improve error treatment on server and on client side.
