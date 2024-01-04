@@ -64,6 +64,7 @@
             height: 60%;
             justify-content: center;
             margin-bottom: 10px;
+            cursor: url(icons/ClickCursor.png), auto;
         }
 
         .btn-search img {
@@ -82,6 +83,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            cursor: url('icons/Cursor.png') 5 5, auto;
         }
 
         #grid-container {
@@ -99,16 +101,14 @@
         }
 
         .grid-item {
+            width: 1260px;
             height: fit-content;
-            width: 100%;
             box-sizing: border-box;
             border: 1px solid white;
-            background-color: red;
         }
 
         #champion-container {
             height: 120px;
-            background-color: green;
             width: 100%;
             display: flex;
         }
@@ -118,7 +118,6 @@
         }
 
         #right-champion-container {
-            background-color: aqua;
             display: flex;
             flex-direction: column;
             margin-left: 0px;
@@ -127,7 +126,6 @@
 
         #top-right,
         #bottom-right {
-            background-color: yellow;
             height: 50%;
             display: flex;
             align-items: center;
@@ -138,14 +136,13 @@
             height: 80%;
             width: 10%;
             position: relative;
-            background-color: red;
         }
 
         .skill-container img {
             height: 100%;
             box-sizing: border-box;
             border-radius: 20px;
-            border: 2px solid black;
+            border: 1px solid rgb(255, 255, 255);
             position: relative;
             left: 50%;
             transform: translateX(-50%)
@@ -172,7 +169,7 @@
             top: 60px;
             visibility: visible;
             width: 200px;
-            background-color: #555;
+            background-color: #222121;
             color: #fff;
             text-align: center;
             padding: 5px 0;
@@ -194,7 +191,7 @@
             margin-left: -5px;
             border-width: 5px;
             border-style: solid;
-            border-color: #555 transparent transparent transparent;
+            border-color: #222121 transparent transparent transparent;
         }
 
         .skill-container img:hover~.tooltip {
@@ -203,8 +200,9 @@
         }
 
         .stats-container {
+            border-top: 2px white solid;
+            box-sizing: border-box;
             height: auto;
-            background-color: aquamarine;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -217,7 +215,7 @@
             list-style: none;
             height: 100%;
             columns: 4;
-            padding: 0;
+            padding: 20px;
         }
 
         #stats-list img {
@@ -235,7 +233,8 @@
         }
 
         #stats-list li span:nth-child(3) {
-            background-color: red;
+            background-color: rgb(41, 37, 37);
+            color: rgb(255, 255, 255);
             float: right;
             width: 100px;
             text-align: center;
@@ -253,16 +252,15 @@
 
         #select-level {
             height: 30px;
+            cursor: url(icons/ClickCursor.png), auto;
         }
 
         #items-container {
             height: 500px;
-            background-color: gold;
             display: flex;
         }
 
         #selected-items {
-            background-color: red;
             width: 300px;
             height: 100%;
             display: grid;
@@ -270,17 +268,18 @@
             grid-template-rows: repeat(3, 1fr);
             overflow: hidden;
             align-items: center;
-            justify-content: space-evenly
+            justify-content: space-evenly;
+            border-right: 1px solid white;
+            box-sizing: border-box;
         }
 
-        
+
         .item {
             position: relative;
             z-index: 0;
             display: flex;
             justify-content: center;
             align-items: center;
-            background-color: green;
             width: 100%;
             height: 100%;
         }
@@ -292,9 +291,8 @@
         }
 
         #item-list {
-            background-color: aqua;
             height: 100%;
-            width: 500px;
+            width: 1000px;
         }
 
         #item-search {
@@ -308,52 +306,56 @@
 
         #item-options {
             display: flex;
-            justify-content: flex-start;
-            align-items: center;
+            justify-content: left;
+            align-items: flex-start;
             height: 80%;
             flex-wrap: wrap;
-            overflow: auto;
+            overflow: visible;
             font-size: 0;
         }
-        #item-options div{
-            width: 10%;
+
+        #item-options div {
+            width: 4%;
+            border: 2px solid black;
+            box-sizing: border-box;
             aspect-ratio: 1/1;
             position: relative;
             overflow: visible;
         }
+
         .item-images {
             width: 100%;
             margin: 0;
+            cursor: url(icons/ClickCursor.png), auto;
 
         }
 
         .item-tooltip {
-
+            position: absolute;
             visibility: visible;
-
             width: 200px;
             margin-left: -125px;
             margin-top: 50px;
-
-            background-color: #555;
-
+            background-color: #222121;
             color: #fff;
             text-align: center;
             padding: 5px 0;
             border-radius: 6px;
             word-break: normal;
-            position: absolute;
             z-index: 1;
             opacity: 0;
             transition: opacity 500ms ease;
             font-size: 12px;
             user-select: none;
             pointer-events: none;
+            list-style: none;
         }
+
 
         .item-container img:hover~.item-tooltip {
             visibility: visible;
             opacity: 1;
+
         }
 
 
