@@ -90,7 +90,7 @@
             box-sizing: border-box;
             margin-top: 4%;
             height: auto;
-            width: fit-content;
+            width: 70%;
             background-color: rgb(77, 38, 77);
             border-radius: 20px;
             border: 2px solid white;
@@ -105,7 +105,7 @@
         }
 
         #champion-container {
-            height: 120px;
+            height: 150px;
             width: 100%;
             display: flex;
         }
@@ -130,8 +130,8 @@
         }
 
         .skill-container {
-            height: 80%;
-            width: 10%;
+            height: 100%;
+            width: 20%;
             position: relative;
         }
 
@@ -199,9 +199,8 @@
         .stats-container {
             border-top: 2px white solid;
             box-sizing: border-box;
-            height: auto;
+            height: 400px;
             display: flex;
-            align-items: center;
             justify-content: center;
             flex-direction: column;
             padding: 20px;
@@ -209,11 +208,11 @@
 
         #stats-list {
             margin: 0;
-            float: left;
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
             list-style: none;
-            height: 100%;
-            columns: 4;
-            padding: 20px;
+            height: 300px;
         }
 
         #stats-list img {
@@ -225,7 +224,7 @@
             text-align: left;
             border: 2px black solid;
             padding: 5px;
-            font-size: 0.9em;
+            font-size: 1em;
             margin-bottom: 4px;
 
         }
@@ -254,13 +253,12 @@
         }
 
         #items-container {
-            height: 500px;
+            height: auto;
             display: flex;
         }
 
         #selected-items {
             width: 300px;
-            height: 100%;
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             grid-template-rows: repeat(3, 1fr);
@@ -284,13 +282,13 @@
 
         .item-content {
             background-color: black;
-            width: 100px;
-            height: 100px;
+            width: 80px;
+            height: 80px;
         }
 
         #item-list {
             height: 100%;
-            width: 1000px;
+            flex: 1;
         }
 
         #item-search {
@@ -304,8 +302,8 @@
 
         #item-options {
             display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
+            justify-content: flex-start;
+            align-items: center;
             height: 80%;
             flex-wrap: wrap;
             overflow: visible;
@@ -313,7 +311,7 @@
         }
 
         #item-options div {
-            width: 8%;
+            width: 4%;
             border: 2px solid black;
             box-sizing: border-box;
             aspect-ratio: 1/1;
@@ -357,9 +355,18 @@
         }
 
 
-        @media (max-width:1300px) {
-            #stats-list {
-                columns: 3;
+        @media (max-width:1678px) {
+            #stats-list li {
+                font-size: 0.9em;
+            }
+        }
+
+        @media (max-width:1100px) {
+            #stats-list li {
+                font-size: 0.7em;
+            }
+            #item-options div{
+                width: 6%;
             }
         }
 
@@ -418,15 +425,18 @@
             }
 
             .stats-container {
-                width: 100%;
+                display: flex;
+                justify-content: space-between;
+                flex-wrap: wrap;
             }
 
             #stats-list {
-                height: auto;
-                columns: 2;
+                display: flex;
+                flex-basis: 50%;
                 font-size: 0;
                 padding: 0;
-                width: 100%;
+                height: 100%;
+
             }
 
             #stats-list img {
@@ -438,7 +448,6 @@
                 padding: 0;
                 margin: 0;
                 display: flex;
-                flex-basis: calc(50%);
                 font-size: 9px;
                 padding: 5px;
             }
@@ -471,6 +480,7 @@
             #items-container {
                 height: fit-content;
             }
+
             #item-list {
                 height: auto;
                 width: auto;
@@ -478,7 +488,8 @@
             }
         }
 
-        @media (max-width:368px) {
+
+        @media (max-width:413px) {
             #stats-list li {
                 font-size: 7px;
             }
