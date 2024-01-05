@@ -57,6 +57,3 @@ function handleSearch(input) {
         }
     });
 }
-
-
-
