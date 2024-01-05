@@ -20,3 +20,7 @@ provider due to more detailed information for both items and champions, with cha
 organized.
 
 Improve error treatment on server and on client side.
+
+Add item search.
+
+Separete CSS stylesheets for further readability and code organization.

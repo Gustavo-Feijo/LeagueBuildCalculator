@@ -86,21 +86,18 @@
             cursor: url('icons/Cursor.png') 5 5, auto;
         }
 
-        #grid-container {
+        #content-container {
             box-sizing: border-box;
             margin-top: 4%;
-            height: 1500px;
+            height: auto;
             width: fit-content;
             background-color: rgb(77, 38, 77);
             border-radius: 20px;
             border: 2px solid white;
-            display: grid;
-            grid-template-columns: repeat(1, 1fr);
-            grid-template-rows: repeat(4, 1fr);
             padding: 20px;
         }
 
-        .grid-item {
+        .content-item {
             width: 100%;
             height: fit-content;
             box-sizing: border-box;
@@ -207,6 +204,7 @@
             align-items: center;
             justify-content: center;
             flex-direction: column;
+            padding: 20px;
         }
 
         #stats-list {
@@ -235,8 +233,8 @@
         #stats-list li span:nth-child(3) {
             background-color: rgb(41, 37, 37);
             color: rgb(255, 255, 255);
-            float: right;
-            width: 100px;
+            margin-left: auto;
+            width: fit-content;
             text-align: center;
         }
 
@@ -296,7 +294,7 @@
         }
 
         #item-search {
-            height: 20%;
+            height: 70px;
             background-color: rgb(59, 39, 59);
             width: 100%;
             display: flex;
@@ -306,7 +304,7 @@
 
         #item-options {
             display: flex;
-            justify-content: left;
+            justify-content: space-between;
             align-items: flex-start;
             height: 80%;
             flex-wrap: wrap;
@@ -315,7 +313,7 @@
         }
 
         #item-options div {
-            width: 4%;
+            width: 8%;
             border: 2px solid black;
             box-sizing: border-box;
             aspect-ratio: 1/1;
@@ -381,7 +379,7 @@
                 height: 8vh;
             }
 
-            #grid-container {
+            #content-container {
                 height: auto;
                 width: 90vw;
             }
@@ -407,7 +405,7 @@
             }
 
             .skill-container {
-                width: 20%;
+                width: 10%;
             }
 
             .skill-container img {
@@ -419,10 +417,16 @@
                 margin-left: -75px;
             }
 
+            .stats-container {
+                width: 100%;
+            }
+
             #stats-list {
                 height: auto;
                 columns: 2;
                 font-size: 0;
+                padding: 0;
+                width: 100%;
             }
 
             #stats-list img {
@@ -430,14 +434,17 @@
             }
 
             #stats-list li {
-                font-size: 9px;
-                box-sizing: border-box;
-                width: 149px;
+                list-style: none;
+                padding: 0;
                 margin: 0;
+                display: flex;
+                flex-basis: calc(50%);
+                font-size: 9px;
+                padding: 5px;
             }
 
             #stats-list li span:nth-child(3) {
-                width: 25px;
+                width: 30px;
             }
 
             #select-level {
@@ -461,10 +468,19 @@
                 height: 80px;
             }
 
+            #items-container {
+                height: fit-content;
+            }
             #item-list {
-                height: 300px;
+                height: auto;
                 width: auto;
-                overflow: scroll;
+                overflow: visible;
+            }
+        }
+
+        @media (max-width:368px) {
+            #stats-list li {
+                font-size: 7px;
             }
         }
     </style>
@@ -478,13 +494,13 @@
         </div>
     </div>
     <div id="body">
-        <div id="grid-container">
-            <div class="grid-item">
+        <div id="content-container">
+            <div class="content-item">
                 <div id="champion-container">
                     <img id="champion-image">
                     <div id="right-champion-container">
                         <div id="top-right">
-                            <span id="champion-name" style="font-size: 3em;"></span>
+                            <span id="champion-name" style="font-size: 2em;"></span>
                             <div id="level-container">
                                 <label for="select-level" id="level-label" style="font-size: 2em;">Level:</label>
                                 <select id="select-level" onchange="adjustlevelstats(this.value)"></select>
@@ -594,7 +610,7 @@
                         </li>
                         <li id="hsp">
                             <img src='./icons/HSP.webp'>
-                            <span>Heal&Shield Power: </span>
+                            <span>H&Shield Power: </span>
                             <span></span>
                         </li>
                         <li id="lifesteal">
@@ -619,7 +635,7 @@
                         </li>
                         <li id="manaregen">
                             <img src='./icons/ManaRegen.webp'>
-                            <span>Mana Regeneration: </span>
+                            <span>Mana Regen: </span>
                             <span></span>
                         </li>
                         <li id="mr">
@@ -655,7 +671,7 @@
                     </ul>
                 </div>
             </div>
-            <div class="grid-item" id="items-container">
+            <div class="content-item" id="items-container">
                 <div id="selected-items">
                     <div class='item'>
                         <div class='item-content'></div>
@@ -692,8 +708,8 @@
                     </div>
                 </div>
             </div>
-            <div class="grid-item"></div>
-            <div class="grid-item"></div>
+            <div class="content-item"></div>
+            <div class="content-item"></div>
         </div>
     </div>
     <script src="champions.js"></script>
