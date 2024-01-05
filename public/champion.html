@@ -79,7 +79,8 @@
         /*--------------------------------------------------------------------------------------------*/
         /*--------------------------------------------------------------------------------------------*/
         /*-----------------------------------------__BODY__-------------------------------------------*/
-        #body {
+        
+        #main-content {
             display: flex;
             justify-content: center;
             align-items: center;
@@ -104,6 +105,7 @@
             border: 1px solid white;
         }
 
+        /*Champion  IMG and Skills*/
         #champion-container {
             height: 150px;
             width: 100%;
@@ -127,6 +129,21 @@
             display: flex;
             align-items: center;
             justify-content: space-evenly;
+        }
+
+        #level-container {
+            display: flex;
+            align-items: center;
+            justify-content: right;
+        }
+
+        #level-label {
+            font-size: 0.5em;
+        }
+
+        #select-level {
+            height: 30px;
+            cursor: url(icons/ClickCursor.png), auto;
         }
 
         .skill-container {
@@ -196,23 +213,18 @@
             opacity: 1;
         }
 
-        .stats-container {
-            border-top: 2px white solid;
-            box-sizing: border-box;
-            height: 400px;
-            display: flex;
-            justify-content: center;
-            flex-direction: column;
-            padding: 20px;
-        }
+        /*Stats Container*/
 
         #stats-list {
+            border-top: 2px white solid;
             margin: 0;
             display: flex;
-            flex-direction: column;
+            flex-direction: row;
             flex-wrap: wrap;
             list-style: none;
-            height: 300px;
+            height: auto;
+            padding: 20px;
+            justify-content: space-between;
         }
 
         #stats-list img {
@@ -221,6 +233,7 @@
         }
 
         #stats-list li {
+            flex-basis: calc(33% - 20px);
             text-align: left;
             border: 2px black solid;
             padding: 5px;
@@ -232,25 +245,13 @@
         #stats-list li span:nth-child(3) {
             background-color: rgb(41, 37, 37);
             color: rgb(255, 255, 255);
-            margin-left: auto;
-            width: fit-content;
+            width: 70px;
             text-align: center;
+            margin-left: auto;
+            float: right;
         }
 
-        #level-container {
-            display: flex;
-            align-items: center;
-            justify-content: right;
-        }
-
-        #level-label {
-            font-size: 0.5em;
-        }
-
-        #select-level {
-            height: 30px;
-            cursor: url(icons/ClickCursor.png), auto;
-        }
+        /*Items container*/
 
         #items-container {
             height: auto;
@@ -269,8 +270,7 @@
             box-sizing: border-box;
         }
 
-
-        .item {
+        .selected-item {
             position: relative;
             z-index: 0;
             display: flex;
@@ -280,7 +280,7 @@
             height: 100%;
         }
 
-        .item-content {
+        .item {
             background-color: black;
             width: 80px;
             height: 80px;
@@ -347,7 +347,6 @@
             list-style: none;
         }
 
-
         .item-container img:hover~.item-tooltip {
             visibility: visible;
             opacity: 1;
@@ -355,15 +354,9 @@
         }
 
 
-        @media (max-width:1678px) {
-            #stats-list li {
-                font-size: 0.9em;
-            }
-        }
-
-        @media (max-width:1100px) {
-            #stats-list li {
-                font-size: 0.7em;
+        @media (max-width:1280px) {
+            #stats-list li{
+                flex-basis: calc(50% - 20px);
             }
             #item-options div{
                 width: 6%;
@@ -424,19 +417,8 @@
                 margin-left: -75px;
             }
 
-            .stats-container {
-                display: flex;
-                justify-content: space-between;
-                flex-wrap: wrap;
-            }
-
-            #stats-list {
-                display: flex;
-                flex-basis: 50%;
-                font-size: 0;
+            #stats-list{
                 padding: 0;
-                height: 100%;
-
             }
 
             #stats-list img {
@@ -448,12 +430,12 @@
                 padding: 0;
                 margin: 0;
                 display: flex;
-                font-size: 9px;
                 padding: 5px;
+                font-size: 0.8em;
             }
 
             #stats-list li span:nth-child(3) {
-                width: 30px;
+                width: 50px;
             }
 
             #select-level {
@@ -489,9 +471,12 @@
         }
 
 
-        @media (max-width:413px) {
+        @media (max-width:565px) {
             #stats-list li {
                 font-size: 7px;
+            }
+            #item-options div{
+                width: 20%;
             }
         }
     </style>
@@ -504,11 +489,12 @@
             <input type="text" class="search-input" placeholder="Search...">
         </div>
     </div>
-    <div id="body">
+    <div id="main-content">
         <div id="content-container">
             <div class="content-item">
                 <div id="champion-container">
                     <img id="champion-image">
+
                     <div id="right-champion-container">
                         <div id="top-right">
                             <span id="champion-name" style="font-size: 2em;"></span>
@@ -528,36 +514,41 @@
                                 }
                             </script>
                         </div>
+
                         <div id="bottom-right">
                             <div class="skill-container">
                                 <img id="champion-passive">
                                 <span class="letter">P</span>
                                 <span id="tooltip-P" class="tooltip"></span>
                             </div>
+
                             <div class="skill-container">
                                 <img id="champion-Q">
                                 <span class="letter">Q</span>
                                 <span id="tooltip-Q" class="tooltip"></span>
                             </div>
+
                             <div class="skill-container">
                                 <img id="champion-W">
                                 <span class="letter">W</span>
                                 <span id="tooltip-W" class="tooltip"></span>
                             </div>
+
                             <div class="skill-container">
                                 <img id="champion-E">
                                 <span class="letter">E</span>
                                 <span id="tooltip-E" class="tooltip"></span>
                             </div>
+
                             <div class="skill-container">
                                 <img id="champion-R">
                                 <span class="letter">R</span>
                                 <span id="tooltip-R" class="tooltip"></span>
                             </div>
+
                         </div>
                     </div>
                 </div>
-                <div class="stats-container">
                     <ul id="stats-list">
                         <li id="level">
                             <img src="./icons/EXP.webp">
@@ -680,27 +671,26 @@
                             <span></span>
                         </li>
                     </ul>
-                </div>
             </div>
             <div class="content-item" id="items-container">
                 <div id="selected-items">
-                    <div class='item'>
-                        <div class='item-content'></div>
+                    <div class='selected-item'>
+                        <div class='item'></div>
                     </div>
-                    <div class='item'>
-                        <div class='item-content'></div>
+                    <div class='selected-item'>
+                        <div class='item'></div>
                     </div>
-                    <div class='item'>
-                        <div class='item-content'></div>
+                    <div class='selected-item'>
+                        <div class='item'></div>
                     </div>
-                    <div class='item'>
-                        <div class='item-content'></div>
+                    <div class='selected-item'>
+                        <div class='item'></div>
                     </div>
-                    <div class='item'>
-                        <div class='item-content'></div>
+                    <div class='selected-item'>
+                        <div class='item'></div>
                     </div>
-                    <div class='item'>
-                        <div class='item-content'></div>
+                    <div class='selected-item'>
+                        <div class='item'></div>
                     </div>
                 </div>
                 <div id="item-list">
