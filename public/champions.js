@@ -1,6 +1,7 @@
 //Variables used by the fetch function to retrieve a JSON from the API.
 const lastPartOfURL = window.location.pathname.split('/').pop();
 const API_ENDPOINT = '/api/champions/';
+const itemsArray = [0, 1, 2, 3, 4, 5]
 
 //Object with champion variables.
 let champion = {
@@ -75,63 +76,35 @@ const spans = {
     tenacity: getLastSpanByID('tenacity'),
 };
 
-//Start the base values and images on the content loading.
-document.addEventListener('DOMContentLoaded', function () {
+//Go through each of the stats spans and update accordingly.
+function updateChampionStatsHTML() {
+    for (const key in spans) {
+        spans[key].innerHTML = champion[key].toFixed(2);
+    }
+}
 
-    //Fetch the champion JSON and initialize the informations of the champion.
-    fetch(API_ENDPOINT + lastPartOfURL)
-        .then(response => {
-            if (response.ok) {
-                return response.json(); // Add the return statement here
-            }
-            throw new Error('Network response was not ok.');
-        })
-        .then(championData => {
-            let skills = championData['data'][lastPartOfURL].spells;
-            document.getElementById('champion-name').innerHTML = championData['data'][lastPartOfURL].name;
-            document.getElementById('tooltip-P').innerHTML = championData['data'][lastPartOfURL].passive.description;
-            document.getElementById('tooltip-Q').innerHTML = skills[0].description;
-            document.getElementById('tooltip-W').innerHTML = skills[1].description;
-            document.getElementById('tooltip-E').innerHTML = skills[2].description;
-            document.getElementById('tooltip-R').innerHTML = skills[3].description;
-            document.getElementById('champion-image').src = `championsImages/${championData['data'][lastPartOfURL].image.full}`;
-            document.getElementById('champion-passive').src = `passiveImages/${championData['data'][lastPartOfURL].passive.image.full}`;
-            document.getElementById('champion-Q').src = `spellImages/${skills[0].image.full}`;
-            document.getElementById('champion-W').src = `spellImages/${skills[1].image.full}`;
-            document.getElementById('champion-E').src = `spellImages/${skills[2].image.full}`;
-            document.getElementById('champion-R').src = `spellImages/${skills[3].image.full}`;
+//Adjust the stats of the champion based on the stat growth per level up.
+function adjustlevelstats(level) {
+    //Get current level.
+    getLastSpanByID('level').innerHTML = level;
+    let levelCalc = level - champion.level;//Calculate the change between the current level and the selected level.
 
+    //The stats are increased based in the difference between both levels, if the change is negative, then the stats are reduced accordingly, avoiding the need to create base stats for the champion.
+    champion.hp += champion.hpperlevel * levelCalc;
+    champion.ad += champion.adperlevel * levelCalc;
+    champion.armor += champion.armorperlevel * levelCalc;
+    champion.mr += champion.mrperlevel * levelCalc;
+    champion.mana += champion.manaperlevel * levelCalc;
+    champion.manaregen += champion.manaregenperlevel * levelCalc;
+    champion.hpregen += champion.hpregenperlevel * levelCalc;
 
-            initializeChampionStats(championData['data'][lastPartOfURL].stats);
-        })
-        .catch(error => console.error('Error fetching champion data:', error));
+    //The attackspeed is calculated based on the base attackspeed in order to simplify the code, since the AS growth is more complex than the others.
+    champion.attackspeed = champion.baseas + (champion.bonusas + ((champion.attackspeedperlevel / 100) * (level - 1)) * (0.7025 + (0.0175 * (level - 1)))) * champion.attackspeedratio;
 
-    //Fetch the item JSON, loop through each item and add it to the list.
-    fetch('/api/items')
-        .then(response => response.json())
-        .then(itemData => {
-            for (const item in itemData.data) {
-                const itemContainer = document.getElementById('item-options');
-
-                const imageContainer = document.createElement('div');
-                const itemimage = document.createElement('img');
-
-                itemimage.src = `itemsImages/${itemData.data[item].image.full}`;
-                itemimage.classList.add('item-images');
-
-                const itemTooltip = document.createElement('span');
-                itemTooltip.classList.add('item-tooltip');
-                itemTooltip.innerHTML = itemData.data[item].description;
-
-                imageContainer.appendChild(itemimage);
-                imageContainer.appendChild(itemTooltip);
-                imageContainer.classList.add('item-container')
-                itemContainer.appendChild(imageContainer);
-
-            }
-        })
-        .catch(error => console.error('Error fetching items:', error));
-});
+    //Set the current champion level to the selected one and update the stats.
+    champion.level = level;
+    updateChampionStatsHTML();
+}
 
 //Initialize the champion stats with the JSON Data.
 function initializeChampionStats(championStats) {
@@ -178,32 +151,115 @@ function initializeChampionStats(championStats) {
     updateChampionStatsHTML();
 };
 
-//Go through each of the stats spans and update accordingly.
-function updateChampionStatsHTML() {
-    for (const key in spans) {
-        spans[key].innerHTML = champion[key].toFixed(2);
+
+//Checks for the minimum position in the array, representing the position on the query selector.
+//Guarantes that it always add a new item to the selection list in the correct order.
+function handleItemSelectionChange(item) {
+    let minValue = Math.min(...itemsArray);
+    let minIndex = itemsArray.indexOf(minValue);
+    try { document.querySelectorAll('.item')[itemsArray.splice(minIndex, 1)].src = `itemsImages/${item}.png`; }
+    catch(e)
+    {
+        if(minIndex === -1)
+        {
+            console.log("All the items were already selected");
+        }
+        else{
+            console.log(e);
+        }
     }
+    
 }
 
-//Adjust the stats of the champion based on the stat growth per level up.
-function adjustlevelstats(level) {
-    //Get current level.
-    getLastSpanByID('level').innerHTML = level;
-    let levelCalc = level - champion.level;//Calculate the change between the current level and the selected level.
+//Start the base values and images on the content loading.
+document.addEventListener('DOMContentLoaded', function () {
 
-    //The stats are increased based in the difference between both levels, if the change is negative, then the stats are reduced accordingly, avoiding the need to create base stats for the champion.
-    champion.hp += champion.hpperlevel * levelCalc;
-    champion.ad += champion.adperlevel * levelCalc;
-    champion.armor += champion.armorperlevel * levelCalc;
-    champion.mr += champion.mrperlevel * levelCalc;
-    champion.mana += champion.manaperlevel * levelCalc;
-    champion.manaregen += champion.manaregenperlevel * levelCalc;
-    champion.hpregen += champion.hpregenperlevel * levelCalc;
+    //Fetch the champion JSON and initialize the informations of the champion.
+    fetch(API_ENDPOINT + lastPartOfURL)
+        .then(response => {
+            if (response.ok) {
+                return response.json(); // Add the return statement here
+            }
+            throw new Error('Network response was not ok.');
+        })
+        .then(championData => {
+            
+            let skills = championData['data'][lastPartOfURL].spells;
+            document.getElementById('champion-name').innerHTML = championData['data'][lastPartOfURL].name;
+            document.getElementById('tooltip-P').innerHTML = championData['data'][lastPartOfURL].passive.description;
+            document.getElementById('tooltip-Q').innerHTML = skills[0].description;
+            document.getElementById('tooltip-W').innerHTML = skills[1].description;
+            document.getElementById('tooltip-E').innerHTML = skills[2].description;
+            document.getElementById('tooltip-R').innerHTML = skills[3].description;
+            document.getElementById('champion-image').src = `championsImages/${championData['data'][lastPartOfURL].image.full}`;
+            document.getElementById('champion-passive').src = `passiveImages/${championData['data'][lastPartOfURL].passive.image.full}`;
+            document.getElementById('champion-Q').src = `spellImages/${skills[0].image.full}`;
+            document.getElementById('champion-W').src = `spellImages/${skills[1].image.full}`;
+            document.getElementById('champion-E').src = `spellImages/${skills[2].image.full}`;
+            document.getElementById('champion-R').src = `spellImages/${skills[3].image.full}`;
 
-    //The attackspeed is calculated based on the base attackspeed in order to simplify the code, since the AS growth is more complex than the others.
-    champion.attackspeed = champion.baseas + (champion.bonusas + ((champion.attackspeedperlevel / 100) * (level - 1)) * (0.7025 + (0.0175 * (level - 1)))) * champion.attackspeedratio;
 
-    //Set the current champion level to the selected one and update the stats.
-    champion.level = level;
-    updateChampionStatsHTML();
-}
+            initializeChampionStats(championData['data'][lastPartOfURL].stats);
+        })
+        .catch(error => console.error('Error fetching champion data:', error));
+
+    //Fetch the item JSON, loop through each item and add it to the list.
+    fetch('/api/items')
+        .then(response => response.json())
+        .then(itemData => {
+            for (const item in itemData.data) {
+                const itemlist = document.getElementById('item-options');
+                const itemContainer = document.createElement('div');
+
+                const itemImage = document.createElement('img');
+                itemImage.src = `itemsImages/${itemData.data[item].image.full}`;
+                itemImage.classList.add('item-images');
+
+                const itemKey = document.createElement('item');
+                itemKey.innerHTML = item;
+
+                const itemTooltip = document.createElement('span');
+                itemTooltip.classList.add('item-tooltip');
+                itemTooltip.innerHTML = itemData.data[item].description;
+
+                itemContainer.appendChild(itemImage);
+                itemContainer.appendChild(itemTooltip);
+                itemContainer.appendChild(itemKey);
+                itemContainer.classList.add('item-container')
+
+                itemContainer.addEventListener('click', function () {
+                    handleItemSelectionChange(this.lastElementChild.innerHTML)
+                });
+
+                itemlist.appendChild(itemContainer);
+            }
+        })
+        .catch(error => console.error('Error fetching items:', error));
+
+    const selectedItemsList = document.getElementById('selected-items');
+    function createItemElement(identifier) {
+
+        const itemContainer = document.createElement('div');
+        itemContainer.classList.add('selected-item');
+
+        const itemImage = document.createElement('img');
+        itemImage.classList.add('item');
+        itemImage.dataset.identifier = identifier;
+
+        itemImage.addEventListener('click', () => {
+            itemImage.src = '';
+            const clickedIdentifier = parseInt(itemImage.dataset.identifier);
+            if (!itemsArray.includes(clickedIdentifier)) {
+                itemsArray.push(clickedIdentifier);
+            }
+        });
+
+        itemContainer.appendChild(itemImage);
+        return itemContainer;
+    }
+
+    for (let i = 0; i < 6; i++) {
+        const itemElement = createItemElement(i);
+        selectedItemsList.appendChild(itemElement);
+    }
+});
