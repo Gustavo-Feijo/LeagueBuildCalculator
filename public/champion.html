@@ -11,6 +11,7 @@
             margin: 0;
             height: 100%;
             background-color: rgb(27, 27, 29);
+            cursor: url('icons/Cursor.png') 5 5, auto;
         }
 
         #logo,
@@ -79,12 +80,12 @@
         /*--------------------------------------------------------------------------------------------*/
         /*--------------------------------------------------------------------------------------------*/
         /*-----------------------------------------__BODY__-------------------------------------------*/
-        
+
         #main-content {
             display: flex;
             justify-content: center;
             align-items: center;
-            cursor: url('icons/Cursor.png') 5 5, auto;
+            
         }
 
         #content-container {
@@ -348,6 +349,9 @@
             pointer-events: none;
             list-style: none;
         }
+        .item{
+            cursor: url('icons/ClickCursor.png'),auto;
+        }
 
         .item-container img:hover~.item-tooltip {
             visibility: visible;
@@ -357,10 +361,11 @@
 
 
         @media (max-width:1280px) {
-            #stats-list li{
+            #stats-list li {
                 flex-basis: calc(50% - 20px);
             }
-            #item-options div{
+
+            #item-options div {
                 width: 6%;
             }
         }
@@ -419,7 +424,7 @@
                 margin-left: -75px;
             }
 
-            #stats-list{
+            #stats-list {
                 padding: 0;
             }
 
@@ -477,7 +482,8 @@
             #stats-list li {
                 font-size: 7px;
             }
-            #item-options div{
+
+            #item-options div {
                 width: 20%;
             }
         }
@@ -551,152 +557,133 @@
                         </div>
                     </div>
                 </div>
-                    <ul id="stats-list">
-                        <li id="level">
-                            <img src="./icons/EXP.webp">
-                            <span>Level:</span>
-                            <span>1</span>
-                        </li>
-                        <li id="ad">
-                            <img src='./icons/AD.webp'>
-                            <span>Attack Damage: </span>
-                            <span></span>
-                        </li>
-                        <li id="ah">
-                            <img src='./icons/AH.webp'>
-                            <span>Ability Haste: </span>
-                            <span></span>
-                        </li>
-                        <li id="ap">
-                            <img src='./icons/AP.webp'>
-                            <span>Ability Power: </span>
-                            <span></span>
-                        </li>
-                        <li id="armor">
-                            <img src='./icons/Armor.webp'>
-                            <span>Armor: </span>
-                            <span></span>
-                        </li>
-                        <li id="armorpen">
-                            <img src='./icons/ArmorPenetration.webp'>
-                            <span>Armor Penetration: </span>
-                            <span></span>
-                        </li>
-                        <li id="attackspeed">
-                            <img src='./icons/AS.webp'>
-                            <span>Attack Speed: </span>
-                            <span></span>
-                        </li>
-                        <li id="critical">
-                            <img src='./icons/Critical.webp'>
-                            <span>Critical Chance: </span>
-                            <span></span>
-                        </li>
-                        <li id="criticaldamage">
-                            <img src='./icons/CriticalDamage.webp'>
-                            <span>Critical Damage: </span>
-                            <span></span>
-                        </li>
-                        <li id="healpower">
-                            <img src='./icons/HealPower.webp'>
-                            <span>Heal Power: </span>
-                            <span></span>
-                        </li>
-                        <li id="hp">
-                            <img src='./icons/HP.webp'>
-                            <span>Health: </span>
-                            <span></span>
-                        </li>
-                        <li id="hpregen">
-                            <img src='./icons/HPRegen.webp'>
-                            <span>Health Regen: </span>
-                            <span></span>
-                        </li>
-                        <li id="hsp">
-                            <img src='./icons/HSP.webp'>
-                            <span>H&Shield Power: </span>
-                            <span></span>
-                        </li>
-                        <li id="lifesteal">
-                            <img src='./icons/LifeSteal.webp'>
-                            <span>Lifesteal: </span>
-                            <span></span>
-                        </li>
-                        <li id="lethality">
-                            <img src='./icons/ArmorPenetration.webp'>
-                            <span>Lethality: </span>
-                            <span></span>
-                        </li>
-                        <li id="magicpen">
-                            <img src='./icons/MagicPenetration.webp'>
-                            <span>Magic Penetration: </span>
-                            <span></span>
-                        </li>
-                        <li id="mana">
-                            <img src='./icons/Mana.webp'>
-                            <span>Mana: </span>
-                            <span></span>
-                        </li>
-                        <li id="manaregen">
-                            <img src='./icons/ManaRegen.webp'>
-                            <span>Mana Regen: </span>
-                            <span></span>
-                        </li>
-                        <li id="mr">
-                            <img src='./icons/MR.webp'>
-                            <span>Magic Resistance: </span>
-                            <span></span>
-                        </li>
-                        <li id="ms">
-                            <img src='./icons/MS.webp'>
-                            <span>Movement Speed: </span>
-                            <span></span>
-                        </li>
-                        <li id="omnivamp">
-                            <img src='./icons/Omnivamp.webp'>
-                            <span>Omnivamp: </span>
-                            <span></span>
-                        </li>
-                        <li id="range">
-                            <img src='./icons/Range.webp'>
-                            <span>Range: </span>
-                            <span></span>
-                        </li>
-                        <li id="slowresist">
-                            <img src='./icons/Slow.webp'>
-                            <span>Slow Resist: </span>
-                            <span></span>
-                        </li>
-                        <li id="tenacity">
-                            <img src='./icons/Tenacity_icon.webp'>
-                            <span>Tenacity: </span>
-                            <span></span>
-                        </li>
-                    </ul>
+                <ul id="stats-list">
+                    <li id="level">
+                        <img src="./icons/EXP.webp">
+                        <span>Level:</span>
+                        <span>1</span>
+                    </li>
+                    <li id="ad">
+                        <img src='./icons/AD.webp'>
+                        <span>Attack Damage: </span>
+                        <span></span>
+                    </li>
+                    <li id="ah">
+                        <img src='./icons/AH.webp'>
+                        <span>Ability Haste: </span>
+                        <span></span>
+                    </li>
+                    <li id="ap">
+                        <img src='./icons/AP.webp'>
+                        <span>Ability Power: </span>
+                        <span></span>
+                    </li>
+                    <li id="armor">
+                        <img src='./icons/Armor.webp'>
+                        <span>Armor: </span>
+                        <span></span>
+                    </li>
+                    <li id="armorpen">
+                        <img src='./icons/ArmorPenetration.webp'>
+                        <span>Armor Penetration: </span>
+                        <span></span>
+                    </li>
+                    <li id="attackspeed">
+                        <img src='./icons/AS.webp'>
+                        <span>Attack Speed: </span>
+                        <span></span>
+                    </li>
+                    <li id="critical">
+                        <img src='./icons/Critical.webp'>
+                        <span>Critical Chance: </span>
+                        <span></span>
+                    </li>
+                    <li id="criticaldamage">
+                        <img src='./icons/CriticalDamage.webp'>
+                        <span>Critical Damage: </span>
+                        <span></span>
+                    </li>
+                    <li id="healpower">
+                        <img src='./icons/HealPower.webp'>
+                        <span>Heal Power: </span>
+                        <span></span>
+                    </li>
+                    <li id="hp">
+                        <img src='./icons/HP.webp'>
+                        <span>Health: </span>
+                        <span></span>
+                    </li>
+                    <li id="hpregen">
+                        <img src='./icons/HPRegen.webp'>
+                        <span>Health Regen: </span>
+                        <span></span>
+                    </li>
+                    <li id="hsp">
+                        <img src='./icons/HSP.webp'>
+                        <span>H&Shield Power: </span>
+                        <span></span>
+                    </li>
+                    <li id="lifesteal">
+                        <img src='./icons/LifeSteal.webp'>
+                        <span>Lifesteal: </span>
+                        <span></span>
+                    </li>
+                    <li id="lethality">
+                        <img src='./icons/ArmorPenetration.webp'>
+                        <span>Lethality: </span>
+                        <span></span>
+                    </li>
+                    <li id="magicpen">
+                        <img src='./icons/MagicPenetration.webp'>
+                        <span>Magic Penetration: </span>
+                        <span></span>
+                    </li>
+                    <li id="mana">
+                        <img src='./icons/Mana.webp'>
+                        <span>Mana: </span>
+                        <span></span>
+                    </li>
+                    <li id="manaregen">
+                        <img src='./icons/ManaRegen.webp'>
+                        <span>Mana Regen: </span>
+                        <span></span>
+                    </li>
+                    <li id="mr">
+                        <img src='./icons/MR.webp'>
+                        <span>Magic Resistance: </span>
+                        <span></span>
+                    </li>
+                    <li id="ms">
+                        <img src='./icons/MS.webp'>
+                        <span>Movement Speed: </span>
+                        <span></span>
+                    </li>
+                    <li id="omnivamp">
+                        <img src='./icons/Omnivamp.webp'>
+                        <span>Omnivamp: </span>
+                        <span></span>
+                    </li>
+                    <li id="range">
+                        <img src='./icons/Range.webp'>
+                        <span>Range: </span>
+                        <span></span>
+                    </li>
+                    <li id="slowresist">
+                        <img src='./icons/Slow.webp'>
+                        <span>Slow Resist: </span>
+                        <span></span>
+                    </li>
+                    <li id="tenacity">
+                        <img src='./icons/Tenacity_icon.webp'>
+                        <span>Tenacity: </span>
+                        <span></span>
+                    </li>
+                </ul>
             </div>
             <div class="content-item" id="items-container">
                 <div id="selected-items">
-                    <div class='selected-item'>
-                        <div class='item'></div>
-                    </div>
-                    <div class='selected-item'>
-                        <div class='item'></div>
-                    </div>
-                    <div class='selected-item'>
-                        <div class='item'></div>
-                    </div>
-                    <div class='selected-item'>
-                        <div class='item'></div>
-                    </div>
-                    <div class='selected-item'>
-                        <div class='item'></div>
-                    </div>
-                    <div class='selected-item'>
-                        <div class='item'></div>
-                    </div>
                 </div>
                 <div id="item-list">
-
                     <div id="item-search">
                         <div class="search-bar" style="width: 80%;">
                             <input type="text" class="search-input" placeholder="Search...">
@@ -705,9 +692,7 @@
                             </button>
                         </div>
                     </div>
-
                     <div id="item-options">
-
                     </div>
                 </div>
             </div>
