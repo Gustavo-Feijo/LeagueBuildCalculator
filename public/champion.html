@@ -55,7 +55,6 @@
             font-size: 2em;
             text-align: center;
         }
-
         .btn-search {
             width: 50px;
             background-color: transparent;
@@ -81,11 +80,33 @@
         /*--------------------------------------------------------------------------------------------*/
         /*-----------------------------------------__BODY__-------------------------------------------*/
 
+        /*Tooltip base design*/
+        .tooltip{
+            position: absolute;
+            visibility: visible;
+            width: 200px;
+            background-color: #222121;
+            color: #fff;
+            text-align: center;
+            padding: 5px 5px;
+            border-radius: 6px;
+            word-break: normal;
+            z-index: 1;
+            opacity: 0;
+            transition: opacity 500ms ease;
+            font-size: 12px;
+            user-select: none;
+            pointer-events: none;
+            list-style: none;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
         #main-content {
             display: flex;
             justify-content: center;
             align-items: center;
-            
         }
 
         #content-container {
@@ -180,35 +201,6 @@
             font-size: 1.5em;
         }
 
-        .tooltip {
-            top: 60px;
-            visibility: visible;
-            width: 200px;
-            background-color: #222121;
-            color: #fff;
-            text-align: center;
-            padding: 5px 0;
-            border-radius: 6px;
-            word-break: normal;
-            position: absolute;
-            z-index: 1;
-            left: 50%;
-            margin-left: -100px;
-            opacity: 0;
-            transition: opacity 500ms ease;
-
-        }
-
-        .skill-container .tooltip::after {
-            position: absolute;
-            top: 100%;
-            left: 50%;
-            margin-left: -5px;
-            border-width: 5px;
-            border-style: solid;
-            border-color: #222121 transparent transparent transparent;
-        }
-
         .skill-container img:hover~.tooltip {
             visibility: visible;
             opacity: 1;
@@ -266,7 +258,7 @@
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             grid-template-rows: repeat(3, 1fr);
-            overflow: hidden;
+            overflow: visible;
             align-items: center;
             justify-content: space-evenly;
             border-right: 1px solid white;
@@ -275,7 +267,6 @@
 
         .selected-item {
             position: relative;
-            z-index: 0;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -287,6 +278,7 @@
             background-color: black;
             width: 80px;
             height: 80px;
+            overflow: visible;
         }
 
         #item-list {
@@ -329,31 +321,17 @@
 
         }
 
-        .item-tooltip {
-            position: absolute;
-            visibility: visible;
-            width: 200px;
-            margin-left: -125px;
-            margin-top: 50px;
-            background-color: #222121;
-            color: #fff;
-            text-align: center;
-            padding: 5px 0;
-            border-radius: 6px;
-            word-break: normal;
-            z-index: 1;
-            opacity: 0;
-            transition: opacity 500ms ease;
-            font-size: 12px;
-            user-select: none;
-            pointer-events: none;
-            list-style: none;
-        }
+        
         .item{
             cursor: url('icons/ClickCursor.png'),auto;
         }
 
-        .item-container img:hover~.item-tooltip {
+        .item-container img:hover~.tooltip {
+            visibility: visible;
+            opacity: 1;
+
+        }
+        .selected-item img:hover~.tooltip {
             visibility: visible;
             opacity: 1;
 
@@ -508,7 +486,7 @@
                             <span id="champion-name" style="font-size: 2em;"></span>
                             <div id="level-container">
                                 <label for="select-level" id="level-label" style="font-size: 2em;">Level:</label>
-                                <select id="select-level" onchange="adjustlevelstats(this.value)"></select>
+                                <select id="select-level" onchange="updateStatsOnLevelChange(this.value)"></select>
                             </div>
                             <script>
                                 // Use JavaScript to generate options from 1 to 18
@@ -553,7 +531,6 @@
                                 <span class="letter">R</span>
                                 <span id="tooltip-R" class="tooltip"></span>
                             </div>
-
                         </div>
                     </div>
                 </div>
@@ -702,5 +679,4 @@
     </div>
     <script src="champions.js"></script>
 </body>
-
 </html>
