@@ -3,6 +3,9 @@ const lastPartOfURL = window.location.pathname.split('/').pop();
 const API_ENDPOINT = '/api/champions/';
 const itemsArray = [0, 1, 2, 3, 4, 5]
 
+//Const used to store the JSON fetched from the item API endpoint.
+let itemsListObject = null;
+
 //Object with champion variables.
 let champion = {
     level: 1, //Start level.
@@ -44,37 +47,24 @@ let champion = {
     tenacity: null,
 };
 
+
 //Function to make the spans object declaration more readable.
 function getLastSpanByID(identifier) {
     return document.getElementById(identifier).querySelector('span:last-child');
 }
+// List of champion stats that are going to be shown in the HTML.
+const championVisibleStats = [
+    'ad', 'ah', 'ap', 'armor', 'armorpen', 'attackspeed', 'critical', 'criticaldamage',
+    'healpower', 'hp', 'hpregen', 'hsp', 'lifesteal', 'lethality', 'magicpen', 'mana',
+    'manaregen', 'mr', 'ms', 'omnivamp', 'range', 'slowresist', 'tenacity'
+];
 
-//Champion variables that are going to be visible, the spans are used to change the values on the HTML.
+//Initialize the spans object dinamically.
 const spans = {
-    ad: getLastSpanByID('ad'),
-    ah: getLastSpanByID('ah'),
-    ap: getLastSpanByID('ap'),
-    armor: getLastSpanByID('armor'),
-    armorpen: getLastSpanByID('armorpen'),
-    attackspeed: getLastSpanByID('attackspeed'),
-    critical: getLastSpanByID('critical'),
-    criticaldamage: getLastSpanByID('criticaldamage'),
-    healpower: getLastSpanByID('healpower'),
-    hp: getLastSpanByID('hp'),
-    hpregen: getLastSpanByID('hpregen'),
-    hsp: getLastSpanByID('hsp'),
-    lifesteal: getLastSpanByID('lifesteal'),
-    lethality: getLastSpanByID('lethality'),
-    magicpen: getLastSpanByID('magicpen'),
-    mana: getLastSpanByID('mana'),
-    manaregen: getLastSpanByID('manaregen'),
-    mr: getLastSpanByID('mr'),
-    ms: getLastSpanByID('ms'),
-    omnivamp: getLastSpanByID('omnivamp'),
-    range: getLastSpanByID('range'),
-    slowresist: getLastSpanByID('slowresist'),
-    tenacity: getLastSpanByID('tenacity'),
 };
+championVisibleStats.forEach(attribute => {
+    spans[attribute] = getLastSpanByID(attribute);
+});
 
 //Go through each of the stats spans and update accordingly.
 function updateChampionStatsHTML() {
@@ -82,13 +72,11 @@ function updateChampionStatsHTML() {
         spans[key].innerHTML = champion[key].toFixed(2);
     }
 }
-
 //Adjust the stats of the champion based on the stat growth per level up.
-function adjustlevelstats(level) {
+function updateStatsOnLevelChange(level) {
     //Get current level.
     getLastSpanByID('level').innerHTML = level;
-    let levelCalc = level - champion.level;//Calculate the change between the current level and the selected level.
-
+    const levelCalc = level - champion.level;//Calculate the change between the current level and the selected level.
     //The stats are increased based in the difference between both levels, if the change is negative, then the stats are reduced accordingly, avoiding the need to create base stats for the champion.
     champion.hp += champion.hpperlevel * levelCalc;
     champion.ad += champion.adperlevel * levelCalc;
@@ -155,20 +143,22 @@ function initializeChampionStats(championStats) {
 //Checks for the minimum position in the array, representing the position on the query selector.
 //Guarantes that it always add a new item to the selection list in the correct order.
 function handleItemSelectionChange(item) {
-    let minValue = Math.min(...itemsArray);
-    let minIndex = itemsArray.indexOf(minValue);
-    try { document.querySelectorAll('.item')[itemsArray.splice(minIndex, 1)].src = `itemsImages/${item}.png`; }
-    catch(e)
-    {
-        if(minIndex === -1)
-        {
+    const minValue = Math.min(...itemsArray);
+    const minIndex = itemsArray.indexOf(minValue);
+    try {
+        const position = itemsArray.splice(minIndex, 1);
+        document.querySelectorAll('.item')[position].src = `itemsImages/${item}.png`;
+        document.querySelectorAll('.selected-item')[position].lastElementChild.innerHTML = itemsListObject[item].description;
+    }
+    catch (e) {
+        if (minIndex === -1) {
             console.log("All the items were already selected");
         }
-        else{
+        else {
             console.log(e);
         }
     }
-    
+
 }
 
 //Start the base values and images on the content loading.
@@ -183,7 +173,7 @@ document.addEventListener('DOMContentLoaded', function () {
             throw new Error('Network response was not ok.');
         })
         .then(championData => {
-            
+
             let skills = championData['data'][lastPartOfURL].spells;
             document.getElementById('champion-name').innerHTML = championData['data'][lastPartOfURL].name;
             document.getElementById('tooltip-P').innerHTML = championData['data'][lastPartOfURL].passive.description;
@@ -207,7 +197,10 @@ document.addEventListener('DOMContentLoaded', function () {
     fetch('/api/items')
         .then(response => response.json())
         .then(itemData => {
+            itemsListObject = itemData.data;
+
             for (const item in itemData.data) {
+
                 const itemlist = document.getElementById('item-options');
                 const itemContainer = document.createElement('div');
 
@@ -219,7 +212,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 itemKey.innerHTML = item;
 
                 const itemTooltip = document.createElement('span');
-                itemTooltip.classList.add('item-tooltip');
+                itemTooltip.classList.add('tooltip');
                 itemTooltip.innerHTML = itemData.data[item].description;
 
                 itemContainer.appendChild(itemImage);
@@ -230,13 +223,14 @@ document.addEventListener('DOMContentLoaded', function () {
                 itemContainer.addEventListener('click', function () {
                     handleItemSelectionChange(this.lastElementChild.innerHTML)
                 });
-
                 itemlist.appendChild(itemContainer);
             }
         })
         .catch(error => console.error('Error fetching items:', error));
 
+
     const selectedItemsList = document.getElementById('selected-items');
+
     function createItemElement(identifier) {
 
         const itemContainer = document.createElement('div');
@@ -245,6 +239,11 @@ document.addEventListener('DOMContentLoaded', function () {
         const itemImage = document.createElement('img');
         itemImage.classList.add('item');
         itemImage.dataset.identifier = identifier;
+
+        const itemDescription = document.createElement('span');
+        itemDescription.classList.add('tooltip');
+        itemDescription.style.top = '100px';
+
 
         itemImage.addEventListener('click', () => {
             itemImage.src = '';
@@ -255,6 +254,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
 
         itemContainer.appendChild(itemImage);
+        itemContainer.appendChild(itemDescription);
         return itemContainer;
     }
 
