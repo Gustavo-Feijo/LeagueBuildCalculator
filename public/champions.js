@@ -47,7 +47,6 @@ let champion = {
     tenacity: null,
 };
 
-
 //Function to make the spans object declaration more readable.
 function getLastSpanByID(identifier) {
     return document.getElementById(identifier).querySelector('span:last-child');
@@ -149,6 +148,8 @@ function handleItemSelectionChange(item) {
         const position = itemsArray.splice(minIndex, 1);
         document.querySelectorAll('.item')[position].src = `itemsImages/${item}.png`;
         document.querySelectorAll('.selected-item')[position].lastElementChild.innerHTML = itemsListObject[item].description;
+        document.querySelectorAll('.selected-item')[position].lastElementChild.style.display = 'block';
+
     }
     catch (e) {
         if (minIndex === -1) {
@@ -201,6 +202,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
             for (const item in itemData.data) {
 
+                //Add each item to the list with it respective image, tooltip and key.
                 const itemlist = document.getElementById('item-options');
                 const itemContainer = document.createElement('div');
 
@@ -243,10 +245,12 @@ document.addEventListener('DOMContentLoaded', function () {
         const itemDescription = document.createElement('span');
         itemDescription.classList.add('tooltip');
         itemDescription.style.top = '100px';
-
+        itemDescription.style.display = 'none';
 
         itemImage.addEventListener('click', () => {
             itemImage.src = '';
+            itemDescription.innerHTML = '';
+            itemDescription.style.display = 'none';
             const clickedIdentifier = parseInt(itemImage.dataset.identifier);
             if (!itemsArray.includes(clickedIdentifier)) {
                 itemsArray.push(clickedIdentifier);
