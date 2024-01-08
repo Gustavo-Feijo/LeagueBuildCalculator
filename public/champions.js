@@ -71,10 +71,13 @@ function updateChampionStatsHTML() {
         spans[key].innerHTML = champion[key].toFixed(2);
     }
 }
-//Adjust the stats of the champion based on the stat growth per level up.
-function updateStatsOnLevelChange(level) {
-    //Get current level.
+function updateStats() {
+
+    const level = document.getElementById('select-level').value;
+
+    //Change current level on the table.
     getLastSpanByID('level').innerHTML = level;
+
     const levelCalc = level - champion.level;//Calculate the change between the current level and the selected level.
     //The stats are increased based in the difference between both levels, if the change is negative, then the stats are reduced accordingly, avoiding the need to create base stats for the champion.
     champion.hp += champion.hpperlevel * levelCalc;
@@ -146,10 +149,10 @@ function handleItemSelectionChange(item) {
     const minIndex = itemsArray.indexOf(minValue);
     try {
         const position = itemsArray.splice(minIndex, 1);
+        handleItemStats(item, addStats);
         document.querySelectorAll('.item')[position].src = `itemsImages/${item}.png`;
         document.querySelectorAll('.selected-item')[position].lastElementChild.innerHTML = itemsListObject[item].description;
         document.querySelectorAll('.selected-item')[position].lastElementChild.style.display = 'block';
-
     }
     catch (e) {
         if (minIndex === -1) {
@@ -159,8 +162,25 @@ function handleItemSelectionChange(item) {
             console.log(e);
         }
     }
-
 }
+
+function handleItemStats(item, callback) {
+    const itemStats = itemsListObject[item].stats;
+    champion.armor = callback(champion.armor, itemStats.FlatArmorMod);
+    champion.hp = callback(champion.hp, itemStats.FlatHPPoolMod);
+    champion.hpregen = callback(champion.hpregen, itemStats.FlatHPRegenMod);
+    champion.ap = callback(champion.ap, itemStats.FlatMagicDamageMod);
+    champion.ms = callback(champion.ms, itemStats.FlatMovementSpeedMod);
+    champion.mana = callback(champion.mana, itemStats.FlatMPPoolMod);
+    champion.bonusad = callback(champion.bonusad, itemStats.FlatPhysicalDamageMod);
+    champion.mr = callback(champion.mr, itemStats.FlatSpellBlockMod);
+    champion.critical = callback(champion.critical, itemStats.FlatCritChanceMod);
+    champion.bonusas = callback(champion.bonusas, itemStats.PercentAttackSpeedMod);
+    champion.lifesteal = callback(champion.lifesteal, itemStats.PercentLifeStealMod);
+    updateStats();
+}
+const addStats = (a, b) => a + (b || 0);
+const subtractStats = (a, b) => a - (b || 0);
 
 //Start the base values and images on the content loading.
 document.addEventListener('DOMContentLoaded', function () {
@@ -248,7 +268,13 @@ document.addEventListener('DOMContentLoaded', function () {
         itemDescription.style.display = 'none';
 
         itemImage.addEventListener('click', () => {
-            itemImage.src = '';
+
+            //Gets the item key from the src url and removes it stats.
+            if (itemImage.src) {
+                handleItemStats(itemImage.src.split('.')[0].split('/').pop(), subtractStats)
+            };
+
+            itemImage.removeAttribute('src');
             itemDescription.innerHTML = '';
             itemDescription.style.display = 'none';
             const clickedIdentifier = parseInt(itemImage.dataset.identifier);
