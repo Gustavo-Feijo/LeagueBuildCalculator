@@ -144,7 +144,6 @@ function initializeChampionStats(championStats) {
     updateChampionStatsHTML();
 };
 
-
 //Checks for the minimum position in the array, representing the position on the query selector.
 //Guarantes that it always add a new item to the selection list in the correct order.
 function handleItemSelectionChange(item) {
@@ -152,10 +151,12 @@ function handleItemSelectionChange(item) {
     const minIndex = itemsArray.indexOf(minValue);
     try {
         const position = itemsArray.splice(minIndex, 1);
-        handleItemStats(item, addStats);
         document.querySelectorAll('.item')[position].src = `itemsImages/${item}.png`;
         document.querySelectorAll('.selected-item')[position].lastElementChild.innerHTML = itemsListObject[item].description;
         document.querySelectorAll('.selected-item')[position].lastElementChild.style.display = 'block';
+        
+        if(minIndex!==1)
+            handleItemStats(item, addStats);
     }
     catch (e) {
         if (minIndex === -1) {
