@@ -9,21 +9,17 @@ document.addEventListener('DOMContentLoaded', function () {
             championsData.forEach(champion => {
 
                 const championContainer = document.createElement('div');
-
-                //Gets the data for each champion.
-                const key = Object.keys(champion['data'])[0];
-                const data = champion['data'][key];
                 championContainer.classList.add('champion-container');
 
                 //Create the champion image and use the image provided via public/ to show the champion.
                 const championImage = document.createElement('img');
                 championImage.classList.add('champion-image');
-                championImage.src = `championsImages/${data.image.full}`;
+                championImage.src = champion.icon;
 
 
                 const championName = document.createElement('div');
                 championName.classList.add('champion-name');
-                championName.textContent = data.name;
+                championName.textContent = champion.name;
 
                 championContainer.appendChild(championImage);
                 championContainer.appendChild(championName);
