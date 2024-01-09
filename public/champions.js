@@ -99,43 +99,46 @@ function updateStats() {
 //Initialize the champion stats with the JSON Data.
 function initializeChampionStats(championStats) {
     const {
-        attackdamage, attackdamageperlevel, armor, armorperlevel, attackspeed, attackspeedperlevel, attackspeedratio, crit, critperlevel, hp,
-        hpperlevel, hpregen, hpregenperlevel, mp, mpperlevel, mpregen, mpregenperlevel, spellblock,
-        spellblockperlevel, movespeed, attackrange
+        health, healthRegen, mana, manaRegen, armor, magicResistance,
+        attackDamage, movespeed, acquisitionRadius, selectionRadius, pathingRadius,
+        gameplayRadius, criticalStrikeDamage, criticalStrikeDamageModifier,
+        attackSpeed, attackSpeedRatio, attackCastTime, attackTotalTime,
+        attackDelayOffset, attackRange
     } = championStats;
-    champion.ad = attackdamage;
-    champion.adperlevel = attackdamageperlevel;
+    champion.ad = attackDamage.flat;
+    champion.adperlevel = attackDamage.perLevel;
     champion.ah = 0;
     champion.ap = 0;
-    champion.armor = armor;
-    champion.armorperlevel = armorperlevel;
+    champion.armor = armor.flat;
+    champion.armorperlevel = armor.perLevel;
     champion.armorpen = 0;
-    champion.baseas = attackspeed;
-    champion.attackspeed = attackspeed;
-    champion.attackspeedperlevel = attackspeedperlevel;
-    champion.attackspeedratio = attackspeedratio;
+    champion.baseas = attackSpeed.flat;
+    champion.attackspeed = attackSpeed.flat;
+    champion.attackspeedperlevel = attackSpeed.perLevel;
+    champion.attackspeedratio = attackSpeedRatio.flat;
     champion.bonusad = 0;
-    champion.critical = crit;
+    champion.critical = 0;
     champion.criticaldamage = 1.75; //Base damage multiplier for critical.
-    champion.criticalperlevel = critperlevel;
+    champion.criticalmodifier = criticalStrikeDamageModifier.flat;
     champion.healpower = 0;
-    champion.hp = hp;
-    champion.hpperlevel = hpperlevel;
-    champion.hpregen = hpregen;
-    champion.hpregenperlevel = hpregenperlevel;
+    champion.hp = health.flat;
+    champion.hpperlevel = health.perLevel;
+    champion.hpregen = healthRegen.flat;
+    champion.hpregenperlevel = healthRegen.perLevel;
     champion.hsp = 0;
     champion.lifesteal = 0;
     champion.lethality = 0;
     champion.magicpen = 0;
-    champion.mana = mp;
-    champion.manaperlevel = mpperlevel;
-    champion.manaregen = mpregen;
-    champion.manaregenperlevel = mpregenperlevel;
-    champion.mr = spellblock;
-    champion.mrperlevel = spellblockperlevel;
-    champion.ms = movespeed;
+    champion.mana = mana.flat;
+    champion.manaperlevel = mana.perLevel;
+    champion.manaregen = manaRegen.flat;
+    champion.manaregenperlevel = manaRegen.perLevel;
+    champion.mr = magicResistance.flat;
+    champion.mrperlevel = magicResistance.perLevel;
+    champion.ms = movespeed.flat;
+    champion.msperlevel = movespeed.perLevel;
     champion.omnivamp = 0;
-    champion.range = attackrange;
+    champion.range = attackRange.flat;
     champion.slowresist = 0;
     champion.tenacity = 0;
     updateChampionStatsHTML();
@@ -195,22 +198,23 @@ document.addEventListener('DOMContentLoaded', function () {
         })
         .then(championData => {
 
-            let skills = championData['data'][lastPartOfURL].spells;
-            document.getElementById('champion-name').innerHTML = championData['data'][lastPartOfURL].name;
-            document.getElementById('tooltip-P').innerHTML = championData['data'][lastPartOfURL].passive.description;
-            document.getElementById('tooltip-Q').innerHTML = skills[0].description;
-            document.getElementById('tooltip-W').innerHTML = skills[1].description;
-            document.getElementById('tooltip-E').innerHTML = skills[2].description;
-            document.getElementById('tooltip-R').innerHTML = skills[3].description;
-            document.getElementById('champion-image').src = `championsImages/${championData['data'][lastPartOfURL].image.full}`;
-            document.getElementById('champion-passive').src = `passiveImages/${championData['data'][lastPartOfURL].passive.image.full}`;
-            document.getElementById('champion-Q').src = `spellImages/${skills[0].image.full}`;
-            document.getElementById('champion-W').src = `spellImages/${skills[1].image.full}`;
-            document.getElementById('champion-E').src = `spellImages/${skills[2].image.full}`;
-            document.getElementById('champion-R').src = `spellImages/${skills[3].image.full}`;
+            let skills = championData.abilities;
+
+            document.getElementById('champion-name').innerHTML = championData.name;
+            document.getElementById('tooltip-P').innerHTML = skills.P[0].blurb;
+            document.getElementById('tooltip-Q').innerHTML = skills.Q[0].blurb;
+            document.getElementById('tooltip-W').innerHTML = skills.W[0].blurb;
+            document.getElementById('tooltip-E').innerHTML = skills.E[0].blurb;
+            document.getElementById('tooltip-R').innerHTML = skills.R[0].blurb;
+            document.getElementById('champion-image').src = championData.icon;
+            document.getElementById('champion-passive').src = skills.P[0].icon;
+            document.getElementById('champion-Q').src = skills.Q[0].icon;
+            document.getElementById('champion-W').src = skills.W[0].icon;
+            document.getElementById('champion-E').src = skills.E[0].icon;
+            document.getElementById('champion-R').src = skills.R[0].icon;
 
 
-            initializeChampionStats(championData['data'][lastPartOfURL].stats);
+            initializeChampionStats(championData.stats);
         })
         .catch(error => console.error('Error fetching champion data:', error));
 
