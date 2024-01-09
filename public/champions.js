@@ -223,16 +223,16 @@ document.addEventListener('DOMContentLoaded', function () {
     fetch('/api/items')
         .then(response => response.json())
         .then(itemData => {
-            itemsListObject = itemData.data;
+            itemsListObject = itemData;
 
-            for (const item in itemData.data) {
+            for (const item in itemData) {
 
                 //Add each item to the list with it respective image, tooltip and key.
                 const itemlist = document.getElementById('item-options');
                 const itemContainer = document.createElement('div');
 
                 const itemImage = document.createElement('img');
-                itemImage.src = `itemsImages/${itemData.data[item].image.full}`;
+                itemImage.src = itemData[item].icon;
                 itemImage.classList.add('item-images');
 
                 const itemKey = document.createElement('item');
@@ -240,7 +240,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
                 const itemTooltip = document.createElement('span');
                 itemTooltip.classList.add('tooltip');
-                itemTooltip.innerHTML = itemData.data[item].description;
+                itemTooltip.innerHTML = itemData[item].simpleDescription;
 
                 itemContainer.appendChild(itemImage);
                 itemContainer.appendChild(itemTooltip);

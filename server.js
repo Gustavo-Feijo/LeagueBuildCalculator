@@ -61,7 +61,19 @@ app.get('/api/champions/:search', async (req, res) => {
 
 //Read the items JSON and send it to the client.
 app.get('/api/items', async (req, res) => {
-  const itemDirectory = path.join(__dirname, 'APIfiles/item.json');
+  const itemDirectory = path.join(__dirname, 'APIfiles/items.json');
+  try {
+    const item = await fs.readFile(itemDirectory, 'utf8');
+    const data = JSON.parse(item);
+    res.json(data);
+  } catch (error) {
+    console.error('Error reading champion files:', error);
+    res.status(500).send('Internal Server Error');
+  }
+});
+//Read the tooltips JSON and send it to the client.
+app.get('/api/tooltips', async (req, res) => {
+  const itemDirectory = path.join(__dirname, 'APIfiles/tooltips.json');
   try {
     const item = await fs.readFile(itemDirectory, 'utf8');
     const data = JSON.parse(item);
