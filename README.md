@@ -4,7 +4,7 @@ Mostly using only nodeJS, HTML and CSS, as a first project, I do not pretend to 
   
 The main idea of the project is develop a build calculator for League of Legends, by taking data provided by Riot Games about various aspects of the game.
 
-The calculator should work by fetching the data from the JSONs avaible at DataDragon (https://ddragon.leagueoflegends.com/cdn/13.24.1/data/en_US/champion/+ Name of the champion.json).
+The calculator should work by fetching the data with https://github.com/meraki-analytics/lolstaticdata/tree/master, previously was using DDragon, but was changed due to some problems with tha data provided by DDragon.
 
 The Data with the necessary JSON's is provided in the folder API files, some of the data was treated before, still need to at the code used for that, but mainly was adding some information that was missing on the original files, like AS Ratio.
 
