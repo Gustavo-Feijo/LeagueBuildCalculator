@@ -9,43 +9,107 @@ let itemsListObject = null;
 //Object with champion variables.
 let champion = {
     level: 1, //Start level.
-    ad: null,
-    adperlevel: null,
-    ah: null,
-    ap: null,
-    armor: null,
-    armorperlevel: null,
-    armorpen: null,
-    attackspeed: null,
-    attackspeedperlevel: null,
-    attackspeedratio: null,
-    baseas: null,
-    bonusas: 0,
-    bonusad: null,
-    critical: null,
-    criticaldamage: null,
-    criticalperlevel: null,
-    healpower: null,
-    hp: null,
-    hpperlevel: null,
-    hpregen: null,
-    hpregenperlevel: null,
-    hsp: null,
-    lifesteal: null,
-    lethality: null,
-    magicpen: null,
-    magicpenpercent:null,
-    mana: null,
-    manaperlevel: null,
-    manaregen: null,
-    manaregenperlevel: null,
-    mr: null,
-    mrperlevel: null,
-    ms: null,
-    omnivamp: null,
-    range: null,
-    slowresist: null,
-    tenacity: null,
+    base: {
+        ad: null,
+        armor: null,
+        asratio: null,
+        attackspeed: null,
+        hp: null,
+        hpregen: null,
+        mana: null,
+        manaregen: null,
+        mr: null,
+    },
+    bonus: {
+        ad: 0,
+        armor: 0,
+        attackspeed: 0,
+        hp: 0,
+        hpregen: 0,
+        mana: 0,
+        manaregen: 0,
+        mr: 0,
+        ms: 0,
+    },
+    perlevel: {
+        ad: null,
+        armor: null,
+        attackspeed: null,
+        hp: null,
+        hpregen: null,
+        mana: null,
+        manaregen: null,
+        mr: null,
+
+    },
+    total: {
+        ad: null,
+        ah: 0,
+        ap: 0,
+        armor: null,
+        armorpen: 0,
+        attackspeed: null,
+        critical: 0,
+        criticaldamage: 1.75,
+        healpower: 0,
+        hp: null,
+        hpregen: null,
+        hsp: 0,
+        lethality: 0,
+        lifesteal: 0,
+        mana: null,
+        manaregen: null,
+        magicpen: 0,
+        magicpenpercent: 0,
+        mr: null,
+        ms: null,
+        omnivamp: 0,
+        range: null,
+        tenacity: 0,
+    },
+    penetration: {
+        magic: {
+            flat: 0,
+            percent: 0,
+        },
+        armor: {
+            flat: 0,
+            percent: 0,
+        }
+    }
+};
+
+//Initialize the champion stats with the JSON Data.
+function initializeChampionStats(championStats) {
+    const {
+        health, healthRegen, mana, manaRegen, armor, magicResistance,
+        attackDamage, movespeed, attackSpeed,
+        attackSpeedRatio, attackRange
+    } = championStats;
+    //Base stats
+    champion.base.ad = attackDamage.flat;
+    champion.base.armor = armor.flat;
+    champion.base.asratio = attackSpeedRatio.flat;
+    champion.base.attackspeed = attackSpeed.flat;
+    champion.base.hp = health.flat;
+    champion.base.hpregen = healthRegen.flat;
+    champion.base.mana = mana.flat;
+    champion.base.manaregen = manaRegen.flat;
+    champion.base.mr = magicResistance.flat;
+
+    //PerLevelStats
+    champion.perlevel.ad = attackDamage.perLevel;
+    champion.perlevel.armor = armor.perLevel;
+    champion.perlevel.attackspeed = attackSpeed.perLevel;
+    champion.perlevel.hp = health.perLevel;
+    champion.perlevel.hpregen = healthRegen.perLevel;
+    champion.perlevel.mana = mana.perLevel;
+    champion.perlevel.manaregen = manaRegen.perLevel;
+    champion.perlevel.mr = magicResistance.perLevel;
+
+    champion.total.range = attackRange.flat;
+    champion.total.ms = movespeed.flat;
+    updateStats();
 };
 
 //Function to make the spans object declaration more readable.
@@ -55,8 +119,9 @@ function getLastSpanByID(identifier) {
 // List of champion stats that are going to be shown in the HTML.
 const championVisibleStats = [
     'ad', 'ah', 'ap', 'armor', 'armorpen', 'attackspeed', 'critical', 'criticaldamage',
-    'healpower', 'hp', 'hpregen', 'hsp', 'lifesteal', 'lethality', 'magicpen', 'mana',
-    'manaregen', 'mr', 'ms', 'omnivamp', 'range', 'slowresist', 'tenacity'
+    'healpower', 'hp', 'hpregen', 'hsp', 'lethality', 'lifesteal', 'magicpen', 'magicpenpercent', 'mana',
+    'manaregen', 'mr', 'ms', 'omnivamp', 'range', 'tenacity',
+
 ];
 
 //Initialize the spans object dinamically.
@@ -69,81 +134,34 @@ championVisibleStats.forEach(attribute => {
 //Go through each of the stats spans and update accordingly.
 function updateChampionStatsHTML() {
     for (const key in spans) {
-        spans[key].innerHTML = champion[key].toFixed(2);
+        spans[key].innerHTML = champion.total[key].toFixed(2);
     }
 }
+
 function updateStats() {
-
     const level = document.getElementById('select-level').value;
-
     //Change current level on the table.
     getLastSpanByID('level').innerHTML = level;
 
-    const levelCalc = level - champion.level;//Calculate the change between the current level and the selected level.
     //The stats are increased based in the difference between both levels, if the change is negative, then the stats are reduced accordingly, avoiding the need to create base stats for the champion.
-    champion.hp += champion.hpperlevel * levelCalc;
-    champion.ad += champion.adperlevel * levelCalc;
-    champion.armor += champion.armorperlevel * levelCalc;
-    champion.mr += champion.mrperlevel * levelCalc;
-    champion.mana += champion.manaperlevel * levelCalc;
-    champion.manaregen += champion.manaregenperlevel * levelCalc;
-    champion.hpregen += champion.hpregenperlevel * levelCalc;
+    champion.total.ad = calculateStats('ad', level);
+    champion.total.armor = calculateStats('armor', level);
+    champion.total.hp = calculateStats('hp', level);
+    champion.total.hpregen = calculateStats('hpregen', level);
+    champion.total.mana = calculateStats('mana', level);
+    champion.total.manaregen = calculateStats('manaregen', level);
+    champion.total.mr = calculateStats('mr', level);
 
     //The attackspeed is calculated based on the base attackspeed in order to simplify the code, since the AS growth is more complex than the others.
-    champion.attackspeed = champion.baseas + (champion.bonusas + ((champion.attackspeedperlevel / 100) * (level - 1)) * (0.7025 + (0.0175 * (level - 1)))) * champion.attackspeedratio;
+    champion.total.attackspeed = champion.base.attackspeed + (champion.bonus.attackspeed + ((champion.perlevel.attackspeed / 100) * (level - 1)) * (0.7025 + (0.0175 * (level - 1)))) * champion.base.asratio;
 
     //Set the current champion level to the selected one and update the stats.
     champion.level = level;
     updateChampionStatsHTML();
 }
-
-//Initialize the champion stats with the JSON Data.
-function initializeChampionStats(championStats) {
-    const {
-        health, healthRegen, mana, manaRegen, armor, magicResistance,
-        attackDamage, movespeed, acquisitionRadius, selectionRadius, pathingRadius,
-        gameplayRadius, criticalStrikeDamage, criticalStrikeDamageModifier,
-        attackSpeed, attackSpeedRatio, attackCastTime, attackTotalTime,
-        attackDelayOffset, attackRange
-    } = championStats;
-    champion.ad = attackDamage.flat;
-    champion.adperlevel = attackDamage.perLevel;
-    champion.ah = 0;
-    champion.ap = 0;
-    champion.armor = armor.flat;
-    champion.armorperlevel = armor.perLevel;
-    champion.armorpen = 0;
-    champion.baseas = attackSpeed.flat;
-    champion.attackspeed = attackSpeed.flat;
-    champion.attackspeedperlevel = attackSpeed.perLevel;
-    champion.attackspeedratio = attackSpeedRatio.flat;
-    champion.bonusad = 0;
-    champion.critical = 0;
-    champion.criticaldamage = 1.75; //Base damage multiplier for critical.
-    champion.criticalmodifier = criticalStrikeDamageModifier.flat;
-    champion.healpower = 0;
-    champion.hp = health.flat;
-    champion.hpperlevel = health.perLevel;
-    champion.hpregen = healthRegen.flat;
-    champion.hpregenperlevel = healthRegen.perLevel;
-    champion.hsp = 0;
-    champion.lifesteal = 0;
-    champion.lethality = 0;
-    champion.magicpen = 0;
-    champion.mana = mana.flat;
-    champion.manaperlevel = mana.perLevel;
-    champion.manaregen = manaRegen.flat;
-    champion.manaregenperlevel = manaRegen.perLevel;
-    champion.mr = magicResistance.flat;
-    champion.mrperlevel = magicResistance.perLevel;
-    champion.ms = movespeed.flat;
-    champion.msperlevel = movespeed.perLevel;
-    champion.omnivamp = 0;
-    champion.range = attackRange.flat;
-    champion.slowresist = 0;
-    champion.tenacity = 0;
-    updateChampionStatsHTML();
-};
+function calculateStats(stat, level) {
+    return champion.base[stat] + (champion.bonus[stat] + ((champion.perlevel[stat]) * (level - 1)) * (0.7025 + (0.0175 * (level - 1))));
+}
 
 //Checks for the minimum position in the array, representing the position on the query selector.
 //Guarantes that it always add a new item to the selection list in the correct order.
@@ -155,8 +173,8 @@ function handleItemSelectionChange(item) {
         document.querySelectorAll('.item')[position].src = `itemsImages/${item}.png`;
         document.querySelectorAll('.selected-item')[position].lastElementChild.innerHTML = itemsListObject[item].description;
         document.querySelectorAll('.selected-item')[position].lastElementChild.style.display = 'block';
-        
-        if(minIndex!==1)
+
+        if (minIndex !== 1)
             handleItemStats(item, addStats);
     }
     catch (e) {
@@ -169,32 +187,34 @@ function handleItemSelectionChange(item) {
     }
 }
 
-function handleItemStats(item, callback) {
-    const itemStats = itemsListObject[item].stats;
-    champion.ah = callback(champion.ah, itemStats.abilityHaste.flat);
-    champion.armor = callback(champion.armor, itemStats.armor.flat);
-    champion.armorpen = callback(champion.armorpen, itemStats.armorPenetration.percent);
-    champion.ap = callback(champion.ap, itemStats.abilityPower.flat);
-    champion.bonusad = callback(champion.bonusad, itemStats.attackDamage.flat);
-    champion.bonusas = callback(champion.bonusas, itemStats.attackSpeed.flat);
-    champion.critical = callback(champion.critical, itemStats.criticalStrikeChance.flat);
-    champion.hp = callback(champion.hp, itemStats.health.flat);
-    champion.hsp = callback(champion.hsp, itemStats.healAndShieldPower.flat);
-    champion.lethality= callback(champion.lethality, itemStats.lethality.flat);
-    champion.lifesteal = callback(champion.lifesteal, itemStats.lifesteal.flat);
-    champion.magicpen=callback(champion.magicpen, itemStats.magicPenetration.flat);
-    champion.magicpenpercent = callback(champion.magicpenpercent, itemStats.magicPenetration.percent);
-    champion.mana = callback(champion.mana, itemStats.mana.flat);
-    champion.manaregen = callback(champion.manaregen, itemStats.manaRegen.percent);
-    champion.mr = callback(champion.mr, itemStats.magicResistance.flat);
-    champion.ms = callback(champion.ms, itemStats.movespeed.flat);
-    champion.omnivamp;
-    champion.slowresist;
-    champion.tenacity = callback(champion.tenacity, itemStats.tenacity.flat);
-    updateStats();
-}
+//Callback functions for handleItemStats.
 const addStats = (a, b) => a + (b || 0);
 const subtractStats = (a, b) => a - (b || 0);
+
+function handleItemStats(item, callback) {
+    const itemStats = itemsListObject[item].stats;
+    champion.bonus.ah = callback(champion.bonus.ah, itemStats.abilityHaste.flat);
+    champion.bonus.armor = callback(champion.bonus.armor, itemStats.armor.flat);
+    champion.total.armorpen = callback(champion.total.armorpen, itemStats.armorPenetration.percent);
+    champion.total.ap = callback(champion.total.ap, itemStats.abilityPower.flat);
+    champion.bonus.ad = callback(champion.bonus.ad, itemStats.attackDamage.flat);
+    champion.bonus.attackspeed = callback(champion.bonus.attackspeed, itemStats.attackSpeed.flat);
+    champion.total.critical = callback(champion.total.critical, itemStats.criticalStrikeChance.percent);
+    champion.bonus.hp = callback(champion.bonus.hp, itemStats.health.flat);
+    champion.bonus.hpregen = callback(champion.bonus.hpregen, itemStats.healthRegen.percent/100);
+    champion.total.hsp = callback(champion.total.hsp, itemStats.healAndShieldPower.flat);
+    champion.total.lethality = callback(champion.total.lethality, itemStats.lethality.flat);
+    champion.total.lifesteal = callback(champion.total.lifesteal, itemStats.lifesteal.flat);
+    champion.total.magicpen = callback(champion.total.magicpen, itemStats.magicPenetration.flat);
+    champion.total.magicpenpercent = callback(champion.total.magicpenpercent, itemStats.magicPenetration.percent);
+    champion.bonus.mana = callback(champion.bonus.mana, itemStats.mana.flat);
+    champion.bonus.manaregen = callback(champion.bonus.manaregen, itemStats.manaRegen.percent/100);
+    champion.bonus.mr = callback(champion.bonus.mr, itemStats.magicResistance.flat);
+    champion.total.ms = callback(champion.total.ms, itemStats.movespeed.flat);
+    champion.total.omnivamp = callback(champion.total.omnivamp, itemStats.omnivamp.flat);
+    champion.total.tenacity = callback(champion.total.tenacity, itemStats.tenacity.flat);
+    updateStats();
+}
 
 //Start the base values and images on the content loading.
 document.addEventListener('DOMContentLoaded', function () {
@@ -264,10 +284,11 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         })
         .catch(error => console.error('Error fetching items:', error));
+    createSelectedItemsList();
+});
 
-
+function createSelectedItemsList() {
     const selectedItemsList = document.getElementById('selected-items');
-
     function createItemElement(identifier) {
 
         const itemContainer = document.createElement('div');
@@ -307,4 +328,4 @@ document.addEventListener('DOMContentLoaded', function () {
         const itemElement = createItemElement(i);
         selectedItemsList.appendChild(itemElement);
     }
-});
+}
