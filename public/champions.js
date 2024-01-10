@@ -34,6 +34,7 @@ let champion = {
     lifesteal: null,
     lethality: null,
     magicpen: null,
+    magicpenpercent:null,
     mana: null,
     manaperlevel: null,
     manaregen: null,
@@ -170,17 +171,26 @@ function handleItemSelectionChange(item) {
 
 function handleItemStats(item, callback) {
     const itemStats = itemsListObject[item].stats;
-    champion.armor = callback(champion.armor, itemStats.FlatArmorMod);
-    champion.hp = callback(champion.hp, itemStats.FlatHPPoolMod);
-    champion.hpregen = callback(champion.hpregen, itemStats.FlatHPRegenMod);
-    champion.ap = callback(champion.ap, itemStats.FlatMagicDamageMod);
-    champion.ms = callback(champion.ms, itemStats.FlatMovementSpeedMod);
-    champion.mana = callback(champion.mana, itemStats.FlatMPPoolMod);
-    champion.bonusad = callback(champion.bonusad, itemStats.FlatPhysicalDamageMod);
-    champion.mr = callback(champion.mr, itemStats.FlatSpellBlockMod);
-    champion.critical = callback(champion.critical, itemStats.FlatCritChanceMod);
-    champion.bonusas = callback(champion.bonusas, itemStats.PercentAttackSpeedMod);
-    champion.lifesteal = callback(champion.lifesteal, itemStats.PercentLifeStealMod);
+    champion.ah = callback(champion.ah, itemStats.abilityHaste.flat);
+    champion.armor = callback(champion.armor, itemStats.armor.flat);
+    champion.armorpen = callback(champion.armorpen, itemStats.armorPenetration.percent);
+    champion.ap = callback(champion.ap, itemStats.abilityPower.flat);
+    champion.bonusad = callback(champion.bonusad, itemStats.attackDamage.flat);
+    champion.bonusas = callback(champion.bonusas, itemStats.attackSpeed.flat);
+    champion.critical = callback(champion.critical, itemStats.criticalStrikeChance.flat);
+    champion.hp = callback(champion.hp, itemStats.health.flat);
+    champion.hsp = callback(champion.hsp, itemStats.healAndShieldPower.flat);
+    champion.lethality= callback(champion.lethality, itemStats.lethality.flat);
+    champion.lifesteal = callback(champion.lifesteal, itemStats.lifesteal.flat);
+    champion.magicpen=callback(champion.magicpen, itemStats.magicPenetration.flat);
+    champion.magicpenpercent = callback(champion.magicpenpercent, itemStats.magicPenetration.percent);
+    champion.mana = callback(champion.mana, itemStats.mana.flat);
+    champion.manaregen = callback(champion.manaregen, itemStats.manaRegen.percent);
+    champion.mr = callback(champion.mr, itemStats.magicResistance.flat);
+    champion.ms = callback(champion.ms, itemStats.movespeed.flat);
+    champion.omnivamp;
+    champion.slowresist;
+    champion.tenacity = callback(champion.tenacity, itemStats.tenacity.flat);
     updateStats();
 }
 const addStats = (a, b) => a + (b || 0);
@@ -232,7 +242,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 const itemContainer = document.createElement('div');
 
                 const itemImage = document.createElement('img');
-                itemImage.src = itemData[item].icon;
+                itemImage.src = `itemsImages/${item}.png`;
                 itemImage.classList.add('item-images');
 
                 const itemKey = document.createElement('item');
@@ -240,7 +250,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
                 const itemTooltip = document.createElement('span');
                 itemTooltip.classList.add('tooltip');
-                itemTooltip.innerHTML = itemData[item].simpleDescription;
+                itemTooltip.innerHTML = itemData[item].description;
 
                 itemContainer.appendChild(itemImage);
                 itemContainer.appendChild(itemTooltip);
