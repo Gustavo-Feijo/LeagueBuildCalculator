@@ -171,8 +171,10 @@ function handleItemSelectionChange(item) {
     try {
         const position = itemsArray.splice(minIndex, 1);
         document.querySelectorAll('.item')[position].src = `itemsImages/${item}.png`;
+        document.querySelectorAll('.selected-item')[position].firstElementChild.dataset.item=parseInt(item);
         document.querySelectorAll('.selected-item')[position].lastElementChild.innerHTML = itemsListObject[item].description;
         document.querySelectorAll('.selected-item')[position].lastElementChild.style.display = 'block';
+        
 
         if (minIndex !== 1)
             handleItemStats(item, addStats);
@@ -201,14 +203,14 @@ function handleItemStats(item, callback) {
     champion.bonus.attackspeed = callback(champion.bonus.attackspeed, itemStats.attackSpeed.flat);
     champion.total.critical = callback(champion.total.critical, itemStats.criticalStrikeChance.percent);
     champion.bonus.hp = callback(champion.bonus.hp, itemStats.health.flat);
-    champion.bonus.hpregen = callback(champion.bonus.hpregen, itemStats.healthRegen.percent/100);
+    champion.bonus.hpregen = callback(champion.bonus.hpregen, itemStats.healthRegen.percent / 100);
     champion.total.hsp = callback(champion.total.hsp, itemStats.healAndShieldPower.flat);
     champion.total.lethality = callback(champion.total.lethality, itemStats.lethality.flat);
     champion.total.lifesteal = callback(champion.total.lifesteal, itemStats.lifesteal.flat);
     champion.total.magicpen = callback(champion.total.magicpen, itemStats.magicPenetration.flat);
     champion.total.magicpenpercent = callback(champion.total.magicpenpercent, itemStats.magicPenetration.percent);
     champion.bonus.mana = callback(champion.bonus.mana, itemStats.mana.flat);
-    champion.bonus.manaregen = callback(champion.bonus.manaregen, itemStats.manaRegen.percent/100);
+    champion.bonus.manaregen = callback(champion.bonus.manaregen, itemStats.manaRegen.percent / 100);
     champion.bonus.mr = callback(champion.bonus.mr, itemStats.magicResistance.flat);
     champion.total.ms = callback(champion.total.ms, itemStats.movespeed.flat);
     champion.total.omnivamp = callback(champion.total.omnivamp, itemStats.omnivamp.flat);
@@ -302,12 +304,14 @@ function createSelectedItemsList() {
         itemDescription.classList.add('tooltip');
         itemDescription.style.top = '100px';
         itemDescription.style.display = 'none';
+        
+        
 
         itemImage.addEventListener('click', () => {
 
             //Gets the item key from the src url and removes it stats.
             if (itemImage.src) {
-                handleItemStats(itemImage.src.split('.')[0].split('/').pop(), subtractStats)
+                handleItemStats(itemImage.getAttribute('data-item'), subtractStats)
             };
 
             itemImage.removeAttribute('src');
