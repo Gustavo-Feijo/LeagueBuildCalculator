@@ -6,7 +6,7 @@ const itemsArray = [0, 1, 2, 3, 4, 5]
 //Const used to store the JSON fetched from the item API endpoint.
 let itemsListObject = null;
 
-//Object with champion variables.
+//Object with the champions stats variables.
 let champion = {
     level: 1, //Start level.
     base: {
@@ -67,19 +67,9 @@ let champion = {
         range: null,
         tenacity: 0,
     },
-    penetration: {
-        magic: {
-            flat: 0,
-            percent: 0,
-        },
-        armor: {
-            flat: 0,
-            percent: 0,
-        }
-    }
 };
 
-//Initialize the champion stats with the JSON Data.
+//Initialize the champion stats with the JSON data provided.
 function initializeChampionStats(championStats) {
     const {
         health, healthRegen, mana, manaRegen, armor, magicResistance,
@@ -124,9 +114,10 @@ const championVisibleStats = [
 
 ];
 
-//Initialize the spans object dinamically.
+//Initialize the spans object.
 const spans = {
 };
+//Loop through each attribute on championVisibleStats and set a span key to the respective span in the HTML.
 championVisibleStats.forEach(attribute => {
     spans[attribute] = getLastSpanByID(attribute);
 });
@@ -138,12 +129,13 @@ function updateChampionStatsHTML() {
     }
 }
 
+//Update the total stats for each attribute needed and call the updateChampionsStatsHTML.
 function updateStats() {
     const level = document.getElementById('select-level').value;
     //Change current level on the table.
     getLastSpanByID('level').innerHTML = level;
 
-    //The stats are increased based in the difference between both levels, if the change is negative, then the stats are reduced accordingly, avoiding the need to create base stats for the champion.
+    //Each stat below has a perLevel growth, making it need to be calculated separately, stats such as AH, AP, etc are just added to the total stats.
     champion.total.ad = calculateStats('ad', level);
     champion.total.armor = calculateStats('armor', level);
     champion.total.hp = calculateStats('hp', level);
@@ -152,13 +144,15 @@ function updateStats() {
     champion.total.manaregen = calculateStats('manaregen', level);
     champion.total.mr = calculateStats('mr', level);
 
-    //The attackspeed is calculated based on the base attackspeed in order to simplify the code, since the AS growth is more complex than the others.
+    //Different calculation due to the the AS Ration variable on the calculation
     champion.total.attackspeed = champion.base.attackspeed + (champion.bonus.attackspeed + ((champion.perlevel.attackspeed / 100) * (level - 1)) * (0.7025 + (0.0175 * (level - 1)))) * champion.base.asratio;
 
     //Set the current champion level to the selected one and update the stats.
     champion.level = level;
     updateChampionStatsHTML();
 }
+
+//Base function to calculate stats with growth per level.
 function calculateStats(stat, level) {
     return champion.base[stat] + (champion.bonus[stat] + ((champion.perlevel[stat]) * (level - 1)) * (0.7025 + (0.0175 * (level - 1))));
 }
@@ -171,11 +165,14 @@ function handleItemSelectionChange(item) {
     try {
         const position = itemsArray.splice(minIndex, 1);
         document.querySelectorAll('.item')[position].src = `itemsImages/${item}.png`;
+
+        //Add a data attribute to the selected item that will be the item key, in order to simplify the strats subtraction when removing the item.
         document.querySelectorAll('.selected-item')[position].firstElementChild.dataset.item=parseInt(item);
+
+        //Add the tooltip to the selected item and make it visible.(It's by default display: none to avoid being shown when there is no item selected).
         document.querySelectorAll('.selected-item')[position].lastElementChild.innerHTML = itemsListObject[item].description;
         document.querySelectorAll('.selected-item')[position].lastElementChild.style.display = 'block';
-        
-
+    
         if (minIndex !== 1)
             handleItemStats(item, addStats);
     }
@@ -193,28 +190,34 @@ function handleItemSelectionChange(item) {
 const addStats = (a, b) => a + (b || 0);
 const subtractStats = (a, b) => a - (b || 0);
 
+//Does the calcualtion of the stats for each item, passing the callback addStats when the item is selected, and subtractStats when the item is deselected.
 function handleItemStats(item, callback) {
     const itemStats = itemsListObject[item].stats;
-    champion.bonus.ah = callback(champion.bonus.ah, itemStats.abilityHaste.flat);
+
+    //Stats that need to be calculated by level or that are used by the bonus values.
     champion.bonus.armor = callback(champion.bonus.armor, itemStats.armor.flat);
-    champion.total.armorpen = callback(champion.total.armorpen, itemStats.armorPenetration.percent);
-    champion.total.ap = callback(champion.total.ap, itemStats.abilityPower.flat);
     champion.bonus.ad = callback(champion.bonus.ad, itemStats.attackDamage.flat);
     champion.bonus.attackspeed = callback(champion.bonus.attackspeed, itemStats.attackSpeed.flat);
-    champion.total.critical = callback(champion.total.critical, itemStats.criticalStrikeChance.percent);
     champion.bonus.hp = callback(champion.bonus.hp, itemStats.health.flat);
     champion.bonus.hpregen = callback(champion.bonus.hpregen, itemStats.healthRegen.percent / 100);
+    champion.bonus.mana = callback(champion.bonus.mana, itemStats.mana.flat);
+    champion.bonus.manaregen = callback(champion.bonus.manaregen, itemStats.manaRegen.percent / 100);
+    champion.bonus.mr = callback(champion.bonus.mr, itemStats.magicResistance.flat);
+    
+    //Update directly the total values, since those are mostly only obtained through items and doesn't need to be calculated.
+    champion.total.ah = callback(champion.bonus.ah, itemStats.abilityHaste.flat);
+    champion.total.ap = callback(champion.total.ap, itemStats.abilityPower.flat);
+    champion.total.armorpen = callback(champion.total.armorpen, itemStats.armorPenetration.percent);
+    champion.total.critical = callback(champion.total.critical, itemStats.criticalStrikeChance.percent);
     champion.total.hsp = callback(champion.total.hsp, itemStats.healAndShieldPower.flat);
     champion.total.lethality = callback(champion.total.lethality, itemStats.lethality.flat);
     champion.total.lifesteal = callback(champion.total.lifesteal, itemStats.lifesteal.flat);
     champion.total.magicpen = callback(champion.total.magicpen, itemStats.magicPenetration.flat);
     champion.total.magicpenpercent = callback(champion.total.magicpenpercent, itemStats.magicPenetration.percent);
-    champion.bonus.mana = callback(champion.bonus.mana, itemStats.mana.flat);
-    champion.bonus.manaregen = callback(champion.bonus.manaregen, itemStats.manaRegen.percent / 100);
-    champion.bonus.mr = callback(champion.bonus.mr, itemStats.magicResistance.flat);
     champion.total.ms = callback(champion.total.ms, itemStats.movespeed.flat);
     champion.total.omnivamp = callback(champion.total.omnivamp, itemStats.omnivamp.flat);
     champion.total.tenacity = callback(champion.total.tenacity, itemStats.tenacity.flat);
+
     updateStats();
 }
 
@@ -232,7 +235,6 @@ document.addEventListener('DOMContentLoaded', function () {
         .then(championData => {
 
             let skills = championData.abilities;
-
             document.getElementById('champion-name').innerHTML = championData.name;
             document.getElementById('tooltip-P').innerHTML = skills.P[0].blurb;
             document.getElementById('tooltip-Q').innerHTML = skills.Q[0].blurb;
@@ -246,7 +248,6 @@ document.addEventListener('DOMContentLoaded', function () {
             document.getElementById('champion-E').src = skills.E[0].icon;
             document.getElementById('champion-R').src = skills.R[0].icon;
 
-
             initializeChampionStats(championData.stats);
         })
         .catch(error => console.error('Error fetching champion data:', error));
@@ -256,7 +257,6 @@ document.addEventListener('DOMContentLoaded', function () {
         .then(response => response.json())
         .then(itemData => {
             itemsListObject = itemData;
-
             for (const item in itemData) {
 
                 //Add each item to the list with it respective image, tooltip and key.
@@ -304,8 +304,6 @@ function createSelectedItemsList() {
         itemDescription.classList.add('tooltip');
         itemDescription.style.top = '100px';
         itemDescription.style.display = 'none';
-        
-        
 
         itemImage.addEventListener('click', () => {
 
@@ -315,6 +313,7 @@ function createSelectedItemsList() {
             };
 
             itemImage.removeAttribute('src');
+            itemImage.removeAttribute('data-item');
             itemDescription.innerHTML = '';
             itemDescription.style.display = 'none';
             const clickedIdentifier = parseInt(itemImage.dataset.identifier);
