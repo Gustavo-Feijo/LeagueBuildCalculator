@@ -4,7 +4,7 @@
   "name": "Jarvan IV",
   "title": "the Exemplar of Demacia",
   "fullName": "Jarvan Lightshield IV",
-  "icon": "http://ddragon.leagueoflegends.com/cdn/13.24.1/img/champion/JarvanIV.png",
+  "icon": "http://ddragon.leagueoflegends.com/cdn/14.1.1/img/champion/JarvanIV.png",
   "resource": "MANA",
   "attackType": "MELEE",
   "adaptiveType": "PHYSICAL_DAMAGE",
@@ -705,7 +705,7 @@
             ]
           },
           {
-            "description": "Upon impact, he creates a circle of impassable terrain that initially pulls units inside it. The terrain lasts for 3.5 seconds and grants sight of the area. Cataclysm can be recast after 1 second while the terrain is active.",
+            "description": "Upon impact, he creates a circle of impassable terrain that initially pulls units inside it. The terrain lasts for 3.5 seconds and grants sight of the area. Cataclysm can be recast after 0.75 seconds while the terrain is active.",
             "leveling": []
           },
           {
@@ -774,7 +774,7 @@
   },
   "releaseDate": "2011-03-01",
   "releasePatch": "1.0.0.112",
-  "patchLastChanged": "13.23",
+  "patchLastChanged": "14.1",
   "price": {
     "blueEssence": 3150,
     "rp": 790,

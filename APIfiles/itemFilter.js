@@ -1,6 +1,5 @@
 const fs = require('fs');
 const path = require('path');
-const fetch = require('node-fetch'); // Import node-fetch for making HTTP requests
 
 // Function to fetch data from the Riot API
 async function fetchData(url) {
@@ -10,7 +9,7 @@ async function fetchData(url) {
 }
 
 // Fetch data from the Riot API
-fetchData('https://ddragon.leagueoflegends.com/cdn/13.24.1/data/en_US/item.json')
+fetchData('https://ddragon.leagueoflegends.com/cdn/14.1.1/data/en_US/item.json')
   .then(ddragonData => {
     // Use consistent variable name
     let ddragonItems = ddragonData;

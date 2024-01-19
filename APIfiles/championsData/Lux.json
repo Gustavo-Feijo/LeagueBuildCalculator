@@ -4,13 +4,13 @@
   "name": "Lux",
   "title": "the Lady of Luminosity",
   "fullName": "Luxanna Crownguard",
-  "icon": "http://ddragon.leagueoflegends.com/cdn/13.24.1/img/champion/Lux.png",
+  "icon": "http://ddragon.leagueoflegends.com/cdn/14.1.1/img/champion/Lux.png",
   "resource": "MANA",
   "attackType": "RANGED",
   "adaptiveType": "MAGIC_DAMAGE",
   "stats": {
     "health": {
-      "flat": 560,
+      "flat": 580,
       "percent": 0.0,
       "perLevel": 99,
       "percentPerLevel": 0.0
@@ -34,7 +34,7 @@
       "percentPerLevel": 0.0
     },
     "armor": {
-      "flat": 19,
+      "flat": 21,
       "percent": 0.0,
       "perLevel": 5.2,
       "percentPerLevel": 0.0
@@ -96,7 +96,7 @@
     "attackSpeed": {
       "flat": 0.669,
       "percent": 0.0,
-      "perLevel": 2,
+      "perLevel": 3,
       "percentPerLevel": 0.0
     },
     "attackSpeedRatio": {
@@ -374,11 +374,11 @@
                   },
                   {
                     "values": [
-                      35,
-                      35,
-                      35,
-                      35,
-                      35
+                      40,
+                      40,
+                      40,
+                      40,
+                      40
                     ],
                     "units": [
                       "% AP",
@@ -411,11 +411,11 @@
                   },
                   {
                     "values": [
-                      70,
-                      70,
-                      70,
-                      70,
-                      70
+                      80,
+                      80,
+                      80,
+                      80,
+                      80
                     ],
                     "units": [
                       "% AP",
@@ -730,7 +730,7 @@
         "projectile": "FALSE",
         "onHitEffects": null,
         "occurrence": null,
-        "notes": "Final Spark grants sight of its surroundings during the cast time and for 0.5 seconds afterwards.\nThis ability will cast from wherever the caster is at the start of the cast time.\n\n\nType\n\nCast time\n\n\nAttacking\n\nDisabled\n\n\nAbilities\n\n Lucent Singularity can only be recast if it is present.  Light Binding and  Prismatic Barrier are disabled.\n\n\nMovement\n\nDisabled\n\n\nItems\n\nUsable\n\n Shurelya's Battlesong  Turbo Chemtank  Youmuu's Ghostblade  Gargoyle Stoneplate  Randuin's Omen\n\n\nDisabled\n\nAll the other item-actives are disabled\n\n\nInterrupted by\n\nN/A\n\n\nConsumables\n\nUsable\n\n\nSpells\n\nUsable\n\n Barrier  Clarity  Cleanse  Exhaust  Ghost  Heal  Ignite  Smite  Flash\n\n\nDisabled\n\n Teleport  Recall  Hexflash\n\n\nInterrupted by\n\nN/A\n\n\nInterrupted by\n\nDeath, unless protected by  Resurrection",
+        "notes": "Final Spark grants sight of its surroundings during the cast time and for 0.5 seconds afterwards.\nThis ability will cast from wherever the caster is at the start of the cast time.\n\n\nType\n\nCast time\n\n\nAttacking\n\nDisabled\n\n\nAbilities\n\n Lucent Singularity can only be recast if it is present.  Light Binding and  Prismatic Barrier are disabled.\n\n\nMovement\n\nDisabled\n\n\nItems\n\nUsable\n\n Shurelya's Battlesong  Youmuu's Ghostblade  Randuin's Omen\n\n\nDisabled\n\nAll the other item-actives are disabled\n\n\nInterrupted by\n\nN/A\n\n\nConsumables\n\nUsable\n\n\nSpells\n\nUsable\n\n Barrier  Clarity  Cleanse  Exhaust  Ghost  Heal  Ignite  Smite  Flash\n\n\nDisabled\n\n Teleport  Recall  Hexflash\n\n\nInterrupted by\n\nN/A\n\n\nInterrupted by\n\nDeath, unless protected by  Resurrection",
         "blurb": "Active:  Lux fires a massive laser in a line in the target direction that deals magic damage and briefly  reveals enemies hit.",
         "missileSpeed": null,
         "rechargeRate": null,
@@ -749,7 +749,7 @@
   },
   "releaseDate": "2010-10-19",
   "releasePatch": "1.0.0.103",
-  "patchLastChanged": "13.17",
+  "patchLastChanged": "14.1",
   "price": {
     "blueEssence": 450,
     "rp": 260,

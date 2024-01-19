@@ -4,7 +4,7 @@
   "name": "Vi",
   "title": "the Piltover Enforcer",
   "fullName": "",
-  "icon": "http://ddragon.leagueoflegends.com/cdn/13.24.1/img/champion/Vi.png",
+  "icon": "http://ddragon.leagueoflegends.com/cdn/14.1.1/img/champion/Vi.png",
   "resource": "MANA",
   "attackType": "MELEE",
   "adaptiveType": "PHYSICAL_DAMAGE",
@@ -431,7 +431,7 @@
         "projectile": null,
         "onHitEffects": null,
         "occurrence": null,
-        "notes": "Vault Breaker's dash range extends up to 50 units when going through a wall.\nTargets will be hit as soon as they come into contact with Vi.\nThe knockback direction will be toward Vi's facing direction regardless of where she hit the target.\nCasting  Flash during the dash will cause enemies at the destination to be hit by Vault Breaker.\nAs  Flash updates Vi's facing direction, affected champions will be knocked back in the direction the summoner spell was cast in.\nVi may cast spells that change her facing direction during the dash, including certain item actives and her own  Cease and Desist, to knock champions she collides with in a different direction.(bug)\nItems this is possible with include:\n Everfrost\nItems that also initiate their own  dash immediately without delay can only redirect targets struck at Vault Breaker's maximum range. These items include:\n Galeforce\n Hextech Rocketbelt\n Stridebreaker\nStuck targets (including those that block Vault Breaker with a  spell shield) are briefly immune to being affected again by Vault Breaker from this player, for about 1.25 seconds.\nThe following table refers for interactions while Vi is  channeling:\n\n\nType\n\nCharge channel\n\n\nAttacking\n\nDisabled\n\n\nAbilities\n\nDisabled\n\n\nMovement\n\nAllowed\n\n\nItems\n\nUsable\n\nN/A\n\n\nDisabled\n\nAll items are disabled\n\n\nInterrupted by\n\nN/A\n\n\nConsumables\n\nDisabled, but can still use trinkets.\n\n\nSpells\n\nUsable\n\n Barrier  Clarity  Cleanse  Exhaust  Ghost  Heal  Ignite  Smite  Flash\n\n\nDisabled\n\n Teleport  Recall\n\n\nInterrupted by\n\n Hexflash (Recasts)\n\n\nInterrupted by\n\nDeath Grounding effects Immobilizing effects Cast-inhibiting effects",
+        "notes": "Vault Breaker's dash range extends up to 50 units when going through a wall.\nTargets will be hit as soon as they come into contact with Vi.\nThe knockback direction will be toward Vi's facing direction regardless of where she hit the target.\nCasting  Flash during the dash will cause enemies at the destination to be hit by Vault Breaker.\nAs  Flash updates Vi's facing direction, affected champions will be knocked back in the direction the summoner spell was cast in.\nVi may cast spells that change her facing direction during the dash, including certain item actives and her own  Cease and Desist, to knock champions she collides with in a different direction.(bug)\nItems that also initiate their own  dash immediately without delay can only redirect targets struck at Vault Breaker's maximum range. These items include:\n Hextech Rocketbelt\n Stridebreaker\nStuck targets (including those that block Vault Breaker with a  spell shield) are briefly immune to being affected again by Vault Breaker from this player, for about 1.25 seconds.\nThe following table refers for interactions while Vi is  channeling:\n\n\nType\n\nCharge channel\n\n\nAttacking\n\nDisabled\n\n\nAbilities\n\nDisabled\n\n\nMovement\n\nAllowed\n\n\nItems\n\nUsable\n\nN/A\n\n\nDisabled\n\nAll items are disabled\n\n\nInterrupted by\n\nN/A\n\n\nConsumables\n\nDisabled, but can still use trinkets.\n\n\nSpells\n\nUsable\n\n Barrier  Clarity  Cleanse  Exhaust  Ghost  Heal  Ignite  Smite  Flash\n\n\nDisabled\n\n Teleport  Recall\n\n\nInterrupted by\n\n Hexflash (Recasts)\n\n\nInterrupted by\n\nDeath Grounding effects Immobilizing effects Cast-inhibiting effects",
         "blurb": "Active:  Vi charges up to a few seconds to increase the  range, speed, and damage of her punch. Vault Breaker can be recast within the duration and cancels automatically afterwards.",
         "missileSpeed": null,
         "rechargeRate": null,
@@ -1790,6 +1790,210 @@
       ],
       "splashArtist": [
         "Francis Tneh",
+        "West Studio"
+      ]
+    },
+    {
+      "name": "Primal Ambush",
+      "id": 254039,
+      "isBase": false,
+      "availability": "Upcoming",
+      "formatName": "Primal Ambush",
+      "lootEligible": true,
+      "cost": 1350,
+      "sale": 0,
+      "distribution": null,
+      "rarity": "Epic",
+      "chromas": [
+        {
+          "name": "Amethyst",
+          "id": 254041,
+          "chromaPath": "http://raw.communitydragon.org/pbe/plugins/rcp-be-lol-game-data/global/default/v1/champion-chroma-images/254/254041.png",
+          "colors": [
+            "#9C68D7",
+            "#9C68D7"
+          ],
+          "descriptions": [
+            {
+              "description": null,
+              "region": null
+            }
+          ],
+          "rarities": [
+            {
+              "rarity": null,
+              "region": null
+            }
+          ]
+        },
+        {
+          "name": "Obsidian",
+          "id": 254046,
+          "chromaPath": "http://raw.communitydragon.org/pbe/plugins/rcp-be-lol-game-data/global/default/v1/champion-chroma-images/254/254046.png",
+          "colors": [
+            "#27211C",
+            "#27211C"
+          ],
+          "descriptions": [
+            {
+              "description": null,
+              "region": null
+            }
+          ],
+          "rarities": [
+            {
+              "rarity": null,
+              "region": null
+            }
+          ]
+        },
+        {
+          "name": "Pearl",
+          "id": 254047,
+          "chromaPath": "http://raw.communitydragon.org/pbe/plugins/rcp-be-lol-game-data/global/default/v1/champion-chroma-images/254/254047.png",
+          "colors": [
+            "#ECF9F8",
+            "#ECF9F8"
+          ],
+          "descriptions": [
+            {
+              "description": null,
+              "region": null
+            }
+          ],
+          "rarities": [
+            {
+              "rarity": null,
+              "region": null
+            }
+          ]
+        },
+        {
+          "name": "Peridot",
+          "id": 254042,
+          "chromaPath": "http://raw.communitydragon.org/pbe/plugins/rcp-be-lol-game-data/global/default/v1/champion-chroma-images/254/254042.png",
+          "colors": [
+            "#B6E084",
+            "#B6E084"
+          ],
+          "descriptions": [
+            {
+              "description": null,
+              "region": null
+            }
+          ],
+          "rarities": [
+            {
+              "rarity": null,
+              "region": null
+            }
+          ]
+        },
+        {
+          "name": "Rose Quartz",
+          "id": 254044,
+          "chromaPath": "http://raw.communitydragon.org/pbe/plugins/rcp-be-lol-game-data/global/default/v1/champion-chroma-images/254/254044.png",
+          "colors": [
+            "#E58BA5",
+            "#E58BA5"
+          ],
+          "descriptions": [
+            {
+              "description": null,
+              "region": null
+            }
+          ],
+          "rarities": [
+            {
+              "rarity": 1,
+              "region": "TENCENT"
+            }
+          ]
+        },
+        {
+          "name": "Ruby",
+          "id": 254040,
+          "chromaPath": "http://raw.communitydragon.org/pbe/plugins/rcp-be-lol-game-data/global/default/v1/champion-chroma-images/254/254040.png",
+          "colors": [
+            "#D33528",
+            "#D33528"
+          ],
+          "descriptions": [
+            {
+              "description": "This chroma was released as a bundle exclusive in 2024.",
+              "region": "riot"
+            }
+          ],
+          "rarities": [
+            {
+              "rarity": 1,
+              "region": "riot"
+            }
+          ]
+        },
+        {
+          "name": "Sapphire",
+          "id": 254043,
+          "chromaPath": "http://raw.communitydragon.org/pbe/plugins/rcp-be-lol-game-data/global/default/v1/champion-chroma-images/254/254043.png",
+          "colors": [
+            "#2756CE",
+            "#2756CE"
+          ],
+          "descriptions": [
+            {
+              "description": null,
+              "region": null
+            }
+          ],
+          "rarities": [
+            {
+              "rarity": null,
+              "region": null
+            }
+          ]
+        },
+        {
+          "name": "Turquoise",
+          "id": 254045,
+          "chromaPath": "http://raw.communitydragon.org/pbe/plugins/rcp-be-lol-game-data/global/default/v1/champion-chroma-images/254/254045.png",
+          "colors": [
+            "#73BFBE",
+            "#73BFBE"
+          ],
+          "descriptions": [
+            {
+              "description": null,
+              "region": null
+            }
+          ],
+          "rarities": [
+            {
+              "rarity": null,
+              "region": null
+            }
+          ]
+        }
+      ],
+      "lore": "Respected throughout the land for her strength, Vi is known to all as the leader of the Favorclaw. Although many envy her status, she stands above her competitors, unphased and eager for any challengers worthy of her furious fists. Until then, she searches the world for a mythical Wildstripe said to transcend a Favorclaw's power to unfathomable heights.",
+      "release": "0000-00-00",
+      "set": [
+        "Primal Ambush"
+      ],
+      "splashPath": "http://raw.communitydragon.org/pbe/plugins/rcp-be-lol-game-data/global/default/v1/champion-splashes/254/254039.jpg",
+      "uncenteredSplashPath": "http://raw.communitydragon.org/pbe/plugins/rcp-be-lol-game-data/global/default/v1/champion-splashes/uncentered/254/254039.jpg",
+      "tilePath": "http://raw.communitydragon.org/pbe/plugins/rcp-be-lol-game-data/global/default/v1/champion-tiles/254/254039.jpg",
+      "loadScreenPath": "https://raw.communitydragon.org/pbe/plugins/rcp-be-lol-game-data/global/default/assets/characters/vi/skins/skin39/viloadscreen_39.pie_c_14_2.jpg",
+      "loadScreenVintagePath": "https://raw.communitydragon.org/pbe/plugins/rcp-be-lol-game-data/global/default/assets/characters/vi/skins/skin39/viloadscreen_39_le.pie_c_14_2.jpg",
+      "newEffects": true,
+      "newAnimations": true,
+      "newRecall": true,
+      "newVoice": false,
+      "newQuotes": false,
+      "voiceActor": [
+        "Cia Court"
+      ],
+      "splashArtist": [
+        "Nathaniel Himawan",
         "West Studio"
       ]
     }

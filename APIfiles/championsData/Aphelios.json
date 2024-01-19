@@ -4,7 +4,7 @@
   "name": "Aphelios",
   "title": "the Weapon of the Faithful",
   "fullName": "",
-  "icon": "http://ddragon.leagueoflegends.com/cdn/13.24.1/img/champion/Aphelios.png",
+  "icon": "http://ddragon.leagueoflegends.com/cdn/14.1.1/img/champion/Aphelios.png",
   "resource": "MANA",
   "attackType": "RANGED",
   "adaptiveType": "PHYSICAL_DAMAGE",
@@ -48,7 +48,7 @@
     "attackDamage": {
       "flat": 55,
       "percent": 0.0,
-      "perLevel": 3,
+      "perLevel": 2.3,
       "percentPerLevel": 0.0
     },
     "movespeed": {
@@ -1424,7 +1424,7 @@
   },
   "releaseDate": "2019-12-11",
   "releasePatch": "9.24",
-  "patchLastChanged": "13.14",
+  "patchLastChanged": "14.1",
   "price": {
     "blueEssence": 4800,
     "rp": 880,

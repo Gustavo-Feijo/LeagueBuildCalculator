@@ -4,7 +4,7 @@
   "name": "Hwei",
   "title": "the Visionary",
   "fullName": "",
-  "icon": "http://ddragon.leagueoflegends.com/cdn/13.24.1/img/champion/Hwei.png",
+  "icon": "http://ddragon.leagueoflegends.com/cdn/14.1.1/img/champion/Hwei.png",
   "resource": "MANA",
   "attackType": "RANGED",
   "adaptiveType": "MAGIC_DAMAGE",
@@ -12,7 +12,7 @@
     "health": {
       "flat": 580,
       "percent": 0.0,
-      "perLevel": 104,
+      "perLevel": 109,
       "percentPerLevel": 0.0
     },
     "healthRegen": {
@@ -34,7 +34,7 @@
       "percentPerLevel": 0.0
     },
     "armor": {
-      "flat": 18,
+      "flat": 21,
       "percent": 0.0,
       "perLevel": 4.7,
       "percentPerLevel": 0.0
@@ -206,14 +206,14 @@
         "cooldown": null,
         "targeting": "Passive",
         "affects": "Self, Enemies",
-        "spellshieldable": "Unknown",
+        "spellshieldable": "true",
         "resource": null,
         "damageType": "MAGIC_DAMAGE",
         "spellEffects": "aoe",
         "projectile": null,
         "onHitEffects": null,
         "occurrence": null,
-        "notes": "The mark cannot be triggered from the same cast instance by any means, even if the triggering ability was empowered by  Stirring Lights.\nThe indicator for the effect telegraphs an unusually smaller radius than it actually hits.(bug)",
+        "notes": "The mark cannot be triggered from the same cast instance by any means, even if the triggering ability was empowered by  Stirring Lights.\n Spell shield will block both the mark and its consumption as well as the detonation.\nThe indicator for the effect telegraphs an unusually smaller radius than it actually hits.(bug)",
         "blurb": "Innate:  Hwei's damaging abilities mark enemies hit for a short time. Damaging them with a different ability consumes the mark to create an explosion at their location that deals magic damage in an area.",
         "missileSpeed": null,
         "rechargeRate": null,
@@ -332,11 +332,11 @@
                   },
                   {
                     "values": [
-                      70,
-                      70,
-                      70,
-                      70,
-                      70
+                      75,
+                      75,
+                      75,
+                      75,
+                      75
                     ],
                     "units": [
                       "% AP",
@@ -1338,7 +1338,7 @@
         "projectile": null,
         "onHitEffects": null,
         "occurrence": null,
-        "notes": "Stirring Lights'  bonus damage to non-champions is reduced if applied by  Devastating Fire,  Severing Bolt,  Molten Fissure,  Crushing Maw, or  Spiraling Despair.",
+        "notes": "Stirring Lights'  bonus damage to non-champions is reduced if applied by  Devastating Fire,  Severing Bolt,  Molten Fissure,  Crushing Maw, or  Spiraling Despair.\n Spell shield will not block the bonus damage even if it is applied by an ability.(bug)",
         "blurb": "Active - WE:  Hwei surrounds himself in swirling flares that empower his next 3 basic attacks or abilities to deal bonus magic damage and restore  mana.",
         "missileSpeed": null,
         "rechargeRate": null,
@@ -1441,11 +1441,11 @@
                 "modifiers": [
                   {
                     "values": [
-                      60,
-                      90,
-                      120,
+                      70,
+                      110,
                       150,
-                      180
+                      190,
+                      230
                     ],
                     "units": [
                       "",
@@ -1514,11 +1514,11 @@
                 "modifiers": [
                   {
                     "values": [
-                      60,
-                      90,
-                      120,
+                      70,
+                      110,
                       150,
-                      180
+                      190,
+                      230
                     ],
                     "units": [
                       "",
@@ -1608,11 +1608,11 @@
                 "modifiers": [
                   {
                     "values": [
-                      60,
-                      90,
-                      120,
+                      70,
+                      110,
                       150,
-                      180
+                      190,
+                      230
                     ],
                     "units": [
                       "",
@@ -1866,14 +1866,14 @@
         },
         "targeting": "Direction",
         "affects": "Enemies",
-        "spellshieldable": "Unknown",
+        "spellshieldable": "special",
         "resource": "MANA",
         "damageType": "MAGIC_DAMAGE",
         "spellEffects": "special",
         "projectile": "TRUE",
         "onHitEffects": null,
         "occurrence": null,
-        "notes": "Applies  persistent area damage for the aura and deals  area damage for the explosion.\nThis ability will cast from wherever the caster is at the end of the cast time.",
+        "notes": "Applies  persistent area damage for the aura and deals  area damage for the explosion.\n Spell shield can block the aura, explosion, and the application of the first Despair stack.\nThis ability will cast from wherever the caster is at the end of the cast time.",
         "blurb": "Active:  Hwei launches a globule in the target direction that collides with the first enemy  champion hit, afflicting them with an aura that grows over a few seconds. Enemies within are continually dealt magic damage and gradually  slowed.",
         "missileSpeed": null,
         "rechargeRate": null,
@@ -1882,7 +1882,7 @@
         "onTargetCdStatic": null,
         "innerRadius": null,
         "speed": "1400",
-        "width": "160",
+        "width": "180",
         "angle": null,
         "castTime": "0.25",
         "effectRadius": "500",
@@ -1931,7 +1931,7 @@
   },
   "releaseDate": "2023-12-05",
   "releasePatch": "13.24",
-  "patchLastChanged": "13.24",
+  "patchLastChanged": "14.1",
   "price": {
     "blueEssence": 6300,
     "rp": 975,

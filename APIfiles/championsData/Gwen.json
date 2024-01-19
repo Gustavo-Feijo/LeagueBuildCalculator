@@ -4,7 +4,7 @@
   "name": "Gwen",
   "title": "The Hallowed Seamstress",
   "fullName": "",
-  "icon": "http://ddragon.leagueoflegends.com/cdn/13.24.1/img/champion/Gwen.png",
+  "icon": "http://ddragon.leagueoflegends.com/cdn/14.1.1/img/champion/Gwen.png",
   "resource": "MANA",
   "attackType": "MELEE",
   "adaptiveType": "MAGIC_DAMAGE",
@@ -199,7 +199,7 @@
         "icon": "https://cdn.communitydragon.org/latest/champion/Gwen/ability-icon/p",
         "effects": [
           {
-            "description": "Innate: Gwen's basic attacks on-hit, the center of Snip Snip!, and Needlework deal bonus magic damage equal to 1% (+ 0.8% per 100 AP) of the target's maximum health.",
+            "description": "Innate: Gwen's basic attacks on-hit, the center of Snip Snip!, and Needlework deal bonus magic damage equal to 1% (+ 0.65% per 100 AP) of the target's maximum health.",
             "leveling": []
           },
           {

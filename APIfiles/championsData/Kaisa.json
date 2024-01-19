@@ -4,7 +4,7 @@
   "name": "Kai'Sa",
   "title": "Daughter of the Void",
   "fullName": "",
-  "icon": "http://ddragon.leagueoflegends.com/cdn/13.24.1/img/champion/Kaisa.png",
+  "icon": "http://ddragon.leagueoflegends.com/cdn/14.1.1/img/champion/Kaisa.png",
   "resource": "MANA",
   "attackType": "RANGED",
   "adaptiveType": "MAGIC_DAMAGE",
@@ -2268,6 +2268,267 @@
       ],
       "splashArtist": [
         "Jennifer Wuestling"
+      ]
+    },
+    {
+      "name": "Heavenscale",
+      "id": 145059,
+      "isBase": false,
+      "availability": "Upcoming",
+      "formatName": "Heavenscale",
+      "lootEligible": true,
+      "cost": 1350,
+      "sale": 0,
+      "distribution": null,
+      "rarity": "Epic",
+      "chromas": [
+        {
+          "name": "Amethyst",
+          "id": 145063,
+          "chromaPath": "http://raw.communitydragon.org/pbe/plugins/rcp-be-lol-game-data/global/default/v1/champion-chroma-images/145/145063.png",
+          "colors": [
+            "#9C68D7",
+            "#9C68D7"
+          ],
+          "descriptions": [
+            {
+              "description": null,
+              "region": null
+            }
+          ],
+          "rarities": [
+            {
+              "rarity": 2,
+              "region": "TENCENT"
+            },
+            {
+              "rarity": 1,
+              "region": "riot"
+            }
+          ]
+        },
+        {
+          "name": "Catseye",
+          "id": 145061,
+          "chromaPath": "http://raw.communitydragon.org/pbe/plugins/rcp-be-lol-game-data/global/default/v1/champion-chroma-images/145/145061.png",
+          "colors": [
+            "#FFEE59",
+            "#FFEE59"
+          ],
+          "descriptions": [
+            {
+              "description": null,
+              "region": null
+            }
+          ],
+          "rarities": [
+            {
+              "rarity": 2,
+              "region": "TENCENT"
+            },
+            {
+              "rarity": 1,
+              "region": "riot"
+            }
+          ]
+        },
+        {
+          "name": "Emerald",
+          "id": 145062,
+          "chromaPath": "http://raw.communitydragon.org/pbe/plugins/rcp-be-lol-game-data/global/default/v1/champion-chroma-images/145/145062.png",
+          "colors": [
+            "#2DA130",
+            "#2DA130"
+          ],
+          "descriptions": [
+            {
+              "description": null,
+              "region": null
+            }
+          ],
+          "rarities": [
+            {
+              "rarity": 2,
+              "region": "TENCENT"
+            },
+            {
+              "rarity": 1,
+              "region": "riot"
+            }
+          ]
+        },
+        {
+          "name": "Granite",
+          "id": 145064,
+          "chromaPath": "http://raw.communitydragon.org/pbe/plugins/rcp-be-lol-game-data/global/default/v1/champion-chroma-images/145/145064.png",
+          "colors": [
+            "#85827F",
+            "#85827F"
+          ],
+          "descriptions": [
+            {
+              "description": null,
+              "region": null
+            }
+          ],
+          "rarities": [
+            {
+              "rarity": 2,
+              "region": "TENCENT"
+            },
+            {
+              "rarity": 1,
+              "region": "riot"
+            }
+          ]
+        },
+        {
+          "name": "Lustrous",
+          "id": 145067,
+          "chromaPath": "http://raw.communitydragon.org/pbe/plugins/rcp-be-lol-game-data/global/default/v1/champion-chroma-images/145/145067.png",
+          "colors": [
+            "#DFA6DF",
+            "#E0D7D7"
+          ],
+          "descriptions": [
+            {
+              "description": "This chroma was released as a Loot exclusive in the 2024 Heavenscale event.",
+              "region": "riot"
+            }
+          ],
+          "rarities": [
+            {
+              "rarity": 2,
+              "region": "TENCENT"
+            },
+            {
+              "rarity": 2,
+              "region": "riot"
+            }
+          ]
+        },
+        {
+          "name": "Obsidian",
+          "id": 145068,
+          "chromaPath": "http://raw.communitydragon.org/pbe/plugins/rcp-be-lol-game-data/global/default/v1/champion-chroma-images/145/145068.png",
+          "colors": [
+            "#27211C",
+            "#27211C"
+          ],
+          "descriptions": [
+            {
+              "description": null,
+              "region": null
+            }
+          ],
+          "rarities": [
+            {
+              "rarity": 2,
+              "region": "TENCENT"
+            },
+            {
+              "rarity": 1,
+              "region": "riot"
+            }
+          ]
+        },
+        {
+          "name": "Rose Quartz",
+          "id": 145065,
+          "chromaPath": "http://raw.communitydragon.org/pbe/plugins/rcp-be-lol-game-data/global/default/v1/champion-chroma-images/145/145065.png",
+          "colors": [
+            "#E58BA5",
+            "#E58BA5"
+          ],
+          "descriptions": [
+            {
+              "description": null,
+              "region": null
+            }
+          ],
+          "rarities": [
+            {
+              "rarity": 2,
+              "region": "TENCENT"
+            },
+            {
+              "rarity": 1,
+              "region": "riot"
+            }
+          ]
+        },
+        {
+          "name": "Ruby",
+          "id": 145060,
+          "chromaPath": "http://raw.communitydragon.org/pbe/plugins/rcp-be-lol-game-data/global/default/v1/champion-chroma-images/145/145060.png",
+          "colors": [
+            "#D33528",
+            "#D33528"
+          ],
+          "descriptions": [
+            {
+              "description": "This chroma was released as a bundle exclusive in 2024.",
+              "region": "riot"
+            }
+          ],
+          "rarities": [
+            {
+              "rarity": 2,
+              "region": "TENCENT"
+            },
+            {
+              "rarity": 2,
+              "region": "riot"
+            }
+          ]
+        },
+        {
+          "name": "Sapphire",
+          "id": 145066,
+          "chromaPath": "http://raw.communitydragon.org/pbe/plugins/rcp-be-lol-game-data/global/default/v1/champion-chroma-images/145/145066.png",
+          "colors": [
+            "#2756CE",
+            "#2756CE"
+          ],
+          "descriptions": [
+            {
+              "description": null,
+              "region": null
+            }
+          ],
+          "rarities": [
+            {
+              "rarity": 2,
+              "region": "TENCENT"
+            },
+            {
+              "rarity": 1,
+              "region": "riot"
+            }
+          ]
+        }
+      ],
+      "lore": "Royal scout and friend to the prince, Kai'Sa is a tenacious dragon who has spent more time beneath the clouds than any of her peers. Though this is the first time she has interacted with humans directly, her observed knowledge and agile grace are sure to be assets while joining them in the New Year's celebration.",
+      "release": "0000-00-00",
+      "set": [
+        "Heavenscale"
+      ],
+      "splashPath": "http://raw.communitydragon.org/pbe/plugins/rcp-be-lol-game-data/global/default/v1/champion-splashes/145/145059.jpg",
+      "uncenteredSplashPath": "http://raw.communitydragon.org/pbe/plugins/rcp-be-lol-game-data/global/default/v1/champion-splashes/uncentered/145/145059.jpg",
+      "tilePath": "http://raw.communitydragon.org/pbe/plugins/rcp-be-lol-game-data/global/default/v1/champion-tiles/145/145059.jpg",
+      "loadScreenPath": "https://raw.communitydragon.org/pbe/plugins/rcp-be-lol-game-data/global/default/assets/characters/kaisa/skins/skin59/kaisaloadscreen_59.pie_c_14_2.jpg",
+      "loadScreenVintagePath": "https://raw.communitydragon.org/pbe/plugins/rcp-be-lol-game-data/global/default/assets/characters/kaisa/skins/skin59/kaisaloadscreen_59_le.pie_c_14_2.jpg",
+      "newEffects": true,
+      "newAnimations": true,
+      "newRecall": true,
+      "newVoice": false,
+      "newQuotes": false,
+      "voiceActor": [
+        "Natasha Loring"
+      ],
+      "splashArtist": [
+        "Ina Wong",
+        "West Studio"
       ]
     }
   ]

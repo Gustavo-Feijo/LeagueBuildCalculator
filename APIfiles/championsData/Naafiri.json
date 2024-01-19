@@ -4,7 +4,7 @@
   "name": "Naafiri",
   "title": "The Hound of a Hundred Bites",
   "fullName": "",
-  "icon": "http://ddragon.leagueoflegends.com/cdn/13.24.1/img/champion/Naafiri.png",
+  "icon": "http://ddragon.leagueoflegends.com/cdn/14.1.1/img/champion/Naafiri.png",
   "resource": "MANA",
   "attackType": "MELEE",
   "adaptiveType": "PHYSICAL_DAMAGE",
@@ -52,7 +52,7 @@
       "percentPerLevel": 0.0
     },
     "movespeed": {
-      "flat": 335,
+      "flat": 340,
       "percent": 0.0,
       "perLevel": 0.0,
       "percentPerLevel": 0.0
@@ -216,12 +216,10 @@
             {
               "values": [
                 30,
-                25,
                 20,
-                15
+                10
               ],
               "units": [
-                " (based on level)",
                 " (based on level)",
                 " (based on level)",
                 " (based on level)"
@@ -747,7 +745,7 @@
         "projectile": null,
         "onHitEffects": null,
         "occurrence": null,
-        "notes": "Naafiri will track the target if they change locations.\n Spell shield will block one instance of damage.\nNaafiri will be ordered to basic attack the target at the end of the dash.\nNaafiri will windup a basic attack while dashing.(bug)\nThe target is  revealed for another 1.5 seconds after the channel completes.\nPackmates hitting the same target as Naafiri will count as dealing \"additional\" damage.\nThe following table refers for interactions while Naafiri is  channeling:\nIf Naafiri's channel is interrupted, the Packmates'  channels will be canceled as well.\n\n\nType\n\nChannel\n\n\nAttacking\n\nDisabled\n\n\nAbilities\n\nDisabled\n\n\nMovement\n\nDisabled\n\n\nItems\n\nUsable\n\n Shurelya's Battlesong  Turbo Chemtank  Youmuu's Ghostblade  Gargoyle Stoneplate  Randuin's Omen\n\n\nDisabled\n\nAll the other item-actives are disabled\n\n\nInterrupted by\n\nN/A\n\n\nConsumables\n\nUsable\n\n\nSpells\n\nUsable\n\n Barrier  Clarity  Cleanse  Exhaust  Ghost  Heal  Ignite  Smite\n\n\nDisabled\n\n Flash  Teleport  Recall  Hexflash\n\n\nInterrupted by\n\nN/A\n\n\nInterrupted by\n\nDeath Grounding effects Immobilizing effects Cast-inhibiting effects",
+        "notes": "Naafiri will track the target if they change locations.\n Spell shield will block one instance of damage.\nNaafiri will be ordered to basic attack the target at the end of the dash.\nNaafiri will windup a basic attack while dashing.(bug)\nThe target is  revealed for another 1.5 seconds after the channel completes.\nPackmates hitting the same target as Naafiri will count as dealing \"additional\" damage.\nThe following table refers for interactions while Naafiri is  channeling:\nIf Naafiri's channel is interrupted, the Packmates'  channels will be canceled as well.\n\n\nType\n\nChannel\n\n\nAttacking\n\nDisabled\n\n\nAbilities\n\nDisabled\n\n\nMovement\n\nDisabled\n\n\nItems\n\nUsable\n\n Shurelya's Battlesong  Youmuu's Ghostblade  Randuin's Omen\n\n\nDisabled\n\nAll the other item-actives are disabled\n\n\nInterrupted by\n\nN/A\n\n\nConsumables\n\nUsable\n\n\nSpells\n\nUsable\n\n Barrier  Clarity  Cleanse  Exhaust  Ghost  Heal  Ignite  Smite\n\n\nDisabled\n\n Flash  Teleport  Recall  Hexflash\n\n\nInterrupted by\n\nN/A\n\n\nInterrupted by\n\nDeath Grounding effects Immobilizing effects Cast-inhibiting effects",
         "blurb": "Active:  Naafiri briefly  channels to  singles out an enemy. Then she and her  Packmates  dash together toward the target, each colliding with the first enemy champion hit. Upon impact, Naafiri's deals physical damage and briefly  slows the target, while Packmates will deal a small portion of that damage to their own targets.",
         "missileSpeed": null,
         "rechargeRate": null,
@@ -1152,7 +1150,7 @@
   },
   "releaseDate": "2023-07-19",
   "releasePatch": "13.14",
-  "patchLastChanged": "13.23",
+  "patchLastChanged": "14.1",
   "price": {
     "blueEssence": 6300,
     "rp": 975,

@@ -4,7 +4,7 @@
   "name": "Kayle",
   "title": "the Righteous",
   "fullName": "",
-  "icon": "http://ddragon.leagueoflegends.com/cdn/13.24.1/img/champion/Kayle.png",
+  "icon": "http://ddragon.leagueoflegends.com/cdn/14.1.1/img/champion/Kayle.png",
   "resource": "MANA",
   "attackType": "MELEE",
   "adaptiveType": "PHYSICAL_DAMAGE",
@@ -203,7 +203,7 @@
             "leveling": []
           },
           {
-            "description": "Level 1 - Zealous: Kayle's basic attacks on-attack generate a stack of Zeal for 5 seconds, refreshing on subsequent hits and stacking up to 5 times. For each stack, she gains 6% (+ 1% per 100 AP) bonus attack speed, up to a maximum 30% (+ 5% per 100 AP). At max stacks, she becomes Exalted, gaining 10% bonus movement speed.",
+            "description": "Level 1 - Zealous: Kayle's basic attacks on-attack generate a stack of Zeal for 5 seconds, refreshing on subsequent hits and stacking up to 5 times. For each stack, she gains 6% (+ 0.5% per 100 AP) bonus attack speed, up to a maximum 30% (+ 2.5% per 100 AP). At max stacks, she becomes Exalted, gaining 10% bonus movement speed.",
             "leveling": []
           },
           {

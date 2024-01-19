@@ -4,7 +4,7 @@
   "name": "Corki",
   "title": "the Daring Bombardier",
   "fullName": "",
-  "icon": "http://ddragon.leagueoflegends.com/cdn/13.24.1/img/champion/Corki.png",
+  "icon": "http://ddragon.leagueoflegends.com/cdn/14.1.1/img/champion/Corki.png",
   "resource": "MANA",
   "attackType": "RANGED",
   "adaptiveType": "PHYSICAL_DAMAGE",
@@ -46,7 +46,7 @@
       "percentPerLevel": 0.0
     },
     "attackDamage": {
-      "flat": 59,
+      "flat": 61,
       "percent": 0.0,
       "perLevel": 2.5,
       "percentPerLevel": 0.0
@@ -236,7 +236,7 @@
         "projectile": null,
         "onHitEffects": null,
         "occurrence": null,
-        "notes": "The mixed damage is dealt in two simultaneous instances of damage, but will pretend to be a single instance for most effects (such as  Conqueror's stacks).\nThe magic damage is dealt in an instance before the physical damage.\nBoth instances deal  basic damage and thus natively apply  life steal.\nThe attack applies on-hit effects only once, right at the start.\nEven if the target dies from the magic damage, the physical damage will still be applied to it.\nIf the target dies from on-hit damage, the magic damage portion will be skipped and only the physical damage applied.(bug)\nSpellblade damage is special cased to be converted to magic damage.\nThe damage from  Runaan's Hurricane's Wind's Fury is affected by Hextech Munitions' modifier.\n Critical strikes amplify the damage as usual, multiplying both instances of damage.\n\n\nAll players are alerted by Corki emitting a global siren upon picking up The Package.\nCorki can pick up the package even if he does not have a skill point in  Valkyrie.\nThe following table refers for interactions while Corki is  channeling:\n\n\nType\n\nChannel\n\n\nAttacking\n\nInterrupts\n\n\nAbilities\n\nInterrupts\n\n\nMovement\n\nInterrupts\n\n\nItems\n\nUsable\n\n Shurelya's Battlesong  Turbo Chemtank  Youmuu's Ghostblade  Gargoyle Stoneplate  Randuin's Omen\n\n\nDisabled\n\n Hextech Rocketbelt\n\n\nInterrupted by\n\nAll item-actives not specified above interrupt\n\n\nConsumables\n\nUsable\n\n\nSpells\n\nUsable\n\n Barrier  Clarity  Cleanse  Exhaust  Ghost  Heal  Ignite  Smite\n\n\nDisabled\n\nN/A\n\n\nInterrupted by\n\n Flash  Teleport  Recall  Hexflash\n\n\nInterrupted by\n\nDeath Cast-inhibiting effects",
+        "notes": "The mixed damage is dealt in two simultaneous instances of damage, but will pretend to be a single instance for most effects (such as  Conqueror's stacks).\nThe magic damage is dealt in an instance before the physical damage.\nBoth instances deal  basic damage and thus natively apply  life steal.\nThe attack applies on-hit effects only once, right at the start.\nEven if the target dies from the magic damage, the physical damage will still be applied to it.\nIf the target dies from on-hit damage, the magic damage portion will be skipped and only the physical damage applied.(bug)\nSpellblade damage is special cased to be converted to magic damage.\nThe damage from  Runaan's Hurricane's Wind's Fury is affected by Hextech Munitions' modifier.\n Critical strikes amplify the damage as usual, multiplying both instances of damage.\n\n\nAll players are alerted by Corki emitting a global siren upon picking up The Package.\nCorki can pick up the package even if he does not have a skill point in  Valkyrie.\nThe following table refers for interactions while Corki is  channeling:\n\n\nType\n\nChannel\n\n\nAttacking\n\nInterrupts\n\n\nAbilities\n\nInterrupts\n\n\nMovement\n\nInterrupts\n\n\nItems\n\nUsable\n\n Shurelya's Battlesong  Youmuu's Ghostblade  Randuin's Omen\n\n\nDisabled\n\n Hextech Rocketbelt\n\n\nInterrupted by\n\nAll item-actives not specified above interrupt\n\n\nConsumables\n\nUsable\n\n\nSpells\n\nUsable\n\n Barrier  Clarity  Cleanse  Exhaust  Ghost  Heal  Ignite  Smite\n\n\nDisabled\n\nN/A\n\n\nInterrupted by\n\n Flash  Teleport  Recall  Hexflash\n\n\nInterrupted by\n\nDeath Cast-inhibiting effects",
         "blurb": "Innate:  Corki's basic attacks deal a percentage of their damage as magic instead of physical.",
         "missileSpeed": null,
         "rechargeRate": null,
@@ -884,8 +884,8 @@
                   },
                   {
                     "values": [
-                      15,
-                      45,
+                      25,
+                      50,
                       75
                     ],
                     "units": [
@@ -934,8 +934,8 @@
                   },
                   {
                     "values": [
-                      30,
-                      90,
+                      50,
+                      100,
                       150
                     ],
                     "units": [
@@ -1026,7 +1026,7 @@
   },
   "releaseDate": "2009-09-19",
   "releasePatch": "0.9.25.21",
-  "patchLastChanged": "13.23",
+  "patchLastChanged": "14.1",
   "price": {
     "blueEssence": 3150,
     "rp": 790,

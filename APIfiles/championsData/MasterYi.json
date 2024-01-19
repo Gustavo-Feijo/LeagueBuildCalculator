@@ -4,7 +4,7 @@
   "name": "Master Yi",
   "title": "the Wuju Bladesman",
   "fullName": "",
-  "icon": "http://ddragon.leagueoflegends.com/cdn/13.24.1/img/champion/MasterYi.png",
+  "icon": "http://ddragon.leagueoflegends.com/cdn/14.1.1/img/champion/MasterYi.png",
   "resource": "MANA",
   "attackType": "MELEE",
   "adaptiveType": "PHYSICAL_DAMAGE",
@@ -854,7 +854,7 @@
         "projectile": null,
         "onHitEffects": null,
         "occurrence": null,
-        "notes": "Meditate's healing amount updates dynamically as he heals himself, making Master Yi heal for less as his current health increases.\nThe following table refers for interactions while Master Yi is  channeling:\n\n\nType\n\nChannel\n\n\nAttacking\n\nInterrupts\n\n\nAbilities\n\nInterrupts\n\n\nMovement\n\nInterrupts\n\n\nItems\n\nUsable\n\n Shurelya's Battlesong  Turbo Chemtank  Youmuu's Ghostblade  Gargoyle Stoneplate  Randuin's Omen\n\n\nDisabled\n\n Hextech Rocketbelt\n\n\nInterrupted by\n\nAll item-actives not specified above interrupt\n\n\nConsumables\n\nUsable\n\n\nSpells\n\nUsable\n\n Barrier  Clarity  Cleanse  Exhaust  Ghost  Heal  Ignite  Smite\n\n\nDisabled\n\nN/A\n\n\nInterrupted by\n\n Flash  Teleport  Recall  Hexflash\n\n\nInterrupted by\n\nDeath Cast-inhibiting effects",
+        "notes": "Meditate's healing amount updates dynamically as he heals himself, making Master Yi heal for less as his current health increases.\nThe following table refers for interactions while Master Yi is  channeling:\n\n\nType\n\nChannel\n\n\nAttacking\n\nInterrupts\n\n\nAbilities\n\nInterrupts\n\n\nMovement\n\nInterrupts\n\n\nItems\n\nUsable\n\n Shurelya's Battlesong  Youmuu's Ghostblade  Randuin's Omen\n\n\nDisabled\n\n Hextech Rocketbelt\n\n\nInterrupted by\n\nAll item-actives not specified above interrupt\n\n\nConsumables\n\nUsable\n\n\nSpells\n\nUsable\n\n Barrier  Clarity  Cleanse  Exhaust  Ghost  Heal  Ignite  Smite\n\n\nDisabled\n\nN/A\n\n\nInterrupted by\n\n Flash  Teleport  Recall  Hexflash\n\n\nInterrupted by\n\nDeath Cast-inhibiting effects",
         "blurb": "Active:  Master Yi  channels for a few seconds, rapidly  healing himself based on his missing health.",
         "missileSpeed": null,
         "rechargeRate": null,
@@ -2749,6 +2749,266 @@
       ],
       "splashArtist": [
         "West Studio"
+      ]
+    },
+    {
+      "name": "Heavenscale",
+      "id": 11096,
+      "isBase": false,
+      "availability": "Upcoming",
+      "formatName": "Heavenscale",
+      "lootEligible": true,
+      "cost": 1350,
+      "sale": 0,
+      "distribution": null,
+      "rarity": "Epic",
+      "chromas": [
+        {
+          "name": "Amethyst",
+          "id": 11101,
+          "chromaPath": "http://raw.communitydragon.org/pbe/plugins/rcp-be-lol-game-data/global/default/v1/champion-chroma-images/11/11101.png",
+          "colors": [
+            "#9C68D7",
+            "#9C68D7"
+          ],
+          "descriptions": [
+            {
+              "description": null,
+              "region": null
+            }
+          ],
+          "rarities": [
+            {
+              "rarity": 2,
+              "region": "TENCENT"
+            },
+            {
+              "rarity": 1,
+              "region": "riot"
+            }
+          ]
+        },
+        {
+          "name": "Citrine",
+          "id": 11098,
+          "chromaPath": "http://raw.communitydragon.org/pbe/plugins/rcp-be-lol-game-data/global/default/v1/champion-chroma-images/11/11098.png",
+          "colors": [
+            "#DF9117",
+            "#DF9117"
+          ],
+          "descriptions": [
+            {
+              "description": null,
+              "region": null
+            }
+          ],
+          "rarities": [
+            {
+              "rarity": 2,
+              "region": "TENCENT"
+            },
+            {
+              "rarity": 1,
+              "region": "riot"
+            }
+          ]
+        },
+        {
+          "name": "Emerald",
+          "id": 11099,
+          "chromaPath": "http://raw.communitydragon.org/pbe/plugins/rcp-be-lol-game-data/global/default/v1/champion-chroma-images/11/11099.png",
+          "colors": [
+            "#2DA130",
+            "#2DA130"
+          ],
+          "descriptions": [
+            {
+              "description": null,
+              "region": null
+            }
+          ],
+          "rarities": [
+            {
+              "rarity": 2,
+              "region": "TENCENT"
+            },
+            {
+              "rarity": 1,
+              "region": "riot"
+            }
+          ]
+        },
+        {
+          "name": "Lustrous",
+          "id": 11104,
+          "chromaPath": "http://raw.communitydragon.org/pbe/plugins/rcp-be-lol-game-data/global/default/v1/champion-chroma-images/11/11104.png",
+          "colors": [
+            "#DFA6DF",
+            "#E0D7D7"
+          ],
+          "descriptions": [
+            {
+              "description": "This chroma was released as a Loot exclusive in the 2024 Heavenscale event.",
+              "region": "riot"
+            }
+          ],
+          "rarities": [
+            {
+              "rarity": 2,
+              "region": "TENCENT"
+            },
+            {
+              "rarity": 2,
+              "region": "riot"
+            }
+          ]
+        },
+        {
+          "name": "Meteorite",
+          "id": 11103,
+          "chromaPath": "http://raw.communitydragon.org/pbe/plugins/rcp-be-lol-game-data/global/default/v1/champion-chroma-images/11/11103.png",
+          "colors": [
+            "#5F432B",
+            "#5F432B"
+          ],
+          "descriptions": [
+            {
+              "description": null,
+              "region": null
+            }
+          ],
+          "rarities": [
+            {
+              "rarity": 2,
+              "region": "TENCENT"
+            },
+            {
+              "rarity": 1,
+              "region": "riot"
+            }
+          ]
+        },
+        {
+          "name": "Obsidian",
+          "id": 11105,
+          "chromaPath": "http://raw.communitydragon.org/pbe/plugins/rcp-be-lol-game-data/global/default/v1/champion-chroma-images/11/11105.png",
+          "colors": [
+            "#27211C",
+            "#27211C"
+          ],
+          "descriptions": [
+            {
+              "description": null,
+              "region": null
+            }
+          ],
+          "rarities": [
+            {
+              "rarity": 2,
+              "region": "TENCENT"
+            },
+            {
+              "rarity": 1,
+              "region": "riot"
+            }
+          ]
+        },
+        {
+          "name": "Rose Quartz",
+          "id": 11100,
+          "chromaPath": "http://raw.communitydragon.org/pbe/plugins/rcp-be-lol-game-data/global/default/v1/champion-chroma-images/11/11100.png",
+          "colors": [
+            "#E58BA5",
+            "#E58BA5"
+          ],
+          "descriptions": [
+            {
+              "description": null,
+              "region": null
+            }
+          ],
+          "rarities": [
+            {
+              "rarity": 2,
+              "region": "TENCENT"
+            },
+            {
+              "rarity": 1,
+              "region": "riot"
+            }
+          ]
+        },
+        {
+          "name": "Ruby",
+          "id": 11097,
+          "chromaPath": "http://raw.communitydragon.org/pbe/plugins/rcp-be-lol-game-data/global/default/v1/champion-chroma-images/11/11097.png",
+          "colors": [
+            "#D33528",
+            "#D33528"
+          ],
+          "descriptions": [
+            {
+              "description": "This chroma was released as a bundle exclusive in 2024.",
+              "region": "riot"
+            }
+          ],
+          "rarities": [
+            {
+              "rarity": 2,
+              "region": "TENCENT"
+            },
+            {
+              "rarity": 2,
+              "region": "riot"
+            }
+          ]
+        },
+        {
+          "name": "Sapphire",
+          "id": 11102,
+          "chromaPath": "http://raw.communitydragon.org/pbe/plugins/rcp-be-lol-game-data/global/default/v1/champion-chroma-images/11/11102.png",
+          "colors": [
+            "#2756CE",
+            "#2756CE"
+          ],
+          "descriptions": [
+            {
+              "description": null,
+              "region": null
+            }
+          ],
+          "rarities": [
+            {
+              "rarity": 2,
+              "region": "TENCENT"
+            },
+            {
+              "rarity": 1,
+              "region": "riot"
+            }
+          ]
+        }
+      ],
+      "lore": "A prince requires a master of the highest caliber to teach him martial arts, and there is no dragon of greater skill than Master Yi. A true master must be both warrior and poet, champion and artist—and in the spirit of learning, must always be ready for anything.",
+      "release": "0000-00-00",
+      "set": [
+        "Heavenscale"
+      ],
+      "splashPath": "http://raw.communitydragon.org/pbe/plugins/rcp-be-lol-game-data/global/default/v1/champion-splashes/11/11096.jpg",
+      "uncenteredSplashPath": "http://raw.communitydragon.org/pbe/plugins/rcp-be-lol-game-data/global/default/v1/champion-splashes/uncentered/11/11096.jpg",
+      "tilePath": "http://raw.communitydragon.org/pbe/plugins/rcp-be-lol-game-data/global/default/v1/champion-tiles/11/11096.jpg",
+      "loadScreenPath": "https://raw.communitydragon.org/pbe/plugins/rcp-be-lol-game-data/global/default/assets/characters/masteryi/skins/skin96/masteryiloadscreen_96.pie_c_14_2.jpg",
+      "loadScreenVintagePath": "https://raw.communitydragon.org/pbe/plugins/rcp-be-lol-game-data/global/default/assets/characters/masteryi/skins/skin96/masteryiloadscreen_96_le.pie_c_14_2.jpg",
+      "newEffects": true,
+      "newAnimations": true,
+      "newRecall": true,
+      "newVoice": false,
+      "newQuotes": false,
+      "voiceActor": [
+        "Micha Berman"
+      ],
+      "splashArtist": [
+        "Pandart Studio"
       ]
     }
   ]

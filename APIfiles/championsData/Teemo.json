@@ -4,7 +4,7 @@
   "name": "Teemo",
   "title": "the Swift Scout",
   "fullName": "",
-  "icon": "http://ddragon.leagueoflegends.com/cdn/13.24.1/img/champion/Teemo.png",
+  "icon": "http://ddragon.leagueoflegends.com/cdn/14.1.1/img/champion/Teemo.png",
   "resource": "MANA",
   "attackType": "RANGED",
   "adaptiveType": "PHYSICAL_DAMAGE",
@@ -263,11 +263,11 @@
                   },
                   {
                     "values": [
-                      80,
-                      80,
-                      80,
-                      80,
-                      80
+                      70,
+                      70,
+                      70,
+                      70,
+                      70
                     ],
                     "units": [
                       "% AP",
@@ -879,9 +879,9 @@
                   },
                   {
                     "values": [
-                      13.75,
-                      13.75,
-                      13.75
+                      12.5,
+                      12.5,
+                      12.5
                     ],
                     "units": [
                       "% AP",
@@ -908,9 +908,9 @@
                   },
                   {
                     "values": [
-                      55,
-                      55,
-                      55
+                      50,
+                      50,
+                      50
                     ],
                     "units": [
                       "% AP",

@@ -4,7 +4,7 @@
   "name": "Taric",
   "title": "the Shield of Valoran",
   "fullName": "",
-  "icon": "http://ddragon.leagueoflegends.com/cdn/13.24.1/img/champion/Taric.png",
+  "icon": "http://ddragon.leagueoflegends.com/cdn/14.1.1/img/champion/Taric.png",
   "resource": "MANA",
   "attackType": "MELEE",
   "adaptiveType": "PHYSICAL_DAMAGE",
@@ -36,7 +36,7 @@
     "armor": {
       "flat": 40,
       "percent": 0.0,
-      "perLevel": 4.6,
+      "perLevel": 4.3,
       "percentPerLevel": 0.0
     },
     "magicResistance": {
@@ -352,11 +352,11 @@
                 "modifiers": [
                   {
                     "values": [
+                      9,
                       10,
                       11,
                       12,
-                      13,
-                      14
+                      13
                     ],
                     "units": [
                       "% of Taric's armor",
@@ -672,7 +672,7 @@
   },
   "releaseDate": "2009-08-19",
   "releasePatch": "0.9.22.15",
-  "patchLastChanged": "12.17",
+  "patchLastChanged": "14.1",
   "price": {
     "blueEssence": 1350,
     "rp": 585,

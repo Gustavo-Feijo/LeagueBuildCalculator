@@ -4,7 +4,7 @@
   "name": "Fizz",
   "title": "the Tidal Trickster",
   "fullName": "",
-  "icon": "http://ddragon.leagueoflegends.com/cdn/13.24.1/img/champion/Fizz.png",
+  "icon": "http://ddragon.leagueoflegends.com/cdn/14.1.1/img/champion/Fizz.png",
   "resource": "MANA",
   "attackType": "MELEE",
   "adaptiveType": "MAGIC_DAMAGE",
@@ -258,11 +258,11 @@
                   },
                   {
                     "values": [
-                      55,
-                      55,
-                      55,
-                      55,
-                      55
+                      50,
+                      50,
+                      50,
+                      50,
+                      50
                     ],
                     "units": [
                       "% AP",
@@ -455,11 +455,11 @@
                   },
                   {
                     "values": [
-                      50,
-                      50,
-                      50,
-                      50,
-                      50
+                      40,
+                      40,
+                      40,
+                      40,
+                      40
                     ],
                     "units": [
                       "% AP",
@@ -966,7 +966,7 @@
   },
   "releaseDate": "2011-11-15",
   "releasePatch": "1.0.0.129",
-  "patchLastChanged": "13.5",
+  "patchLastChanged": "14.1",
   "price": {
     "blueEssence": 1350,
     "rp": 585,

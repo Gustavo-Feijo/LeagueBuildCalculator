@@ -4,7 +4,7 @@
   "name": "Shaco",
   "title": "the Demon Jester",
   "fullName": "",
-  "icon": "http://ddragon.leagueoflegends.com/cdn/13.24.1/img/champion/Shaco.png",
+  "icon": "http://ddragon.leagueoflegends.com/cdn/14.1.1/img/champion/Shaco.png",
   "resource": "MANA",
   "attackType": "MELEE",
   "adaptiveType": "PHYSICAL_DAMAGE",
@@ -1074,7 +1074,7 @@
   },
   "releaseDate": "2009-10-10",
   "releasePatch": "0.9.25.34",
-  "patchLastChanged": "13.16",
+  "patchLastChanged": "14.1",
   "price": {
     "blueEssence": 3150,
     "rp": 790,

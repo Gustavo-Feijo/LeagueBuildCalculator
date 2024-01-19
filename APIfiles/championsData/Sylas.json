@@ -4,7 +4,7 @@
   "name": "Sylas",
   "title": "the Unshackled",
   "fullName": "",
-  "icon": "http://ddragon.leagueoflegends.com/cdn/13.24.1/img/champion/Sylas.png",
+  "icon": "http://ddragon.leagueoflegends.com/cdn/14.1.1/img/champion/Sylas.png",
   "resource": "MANA",
   "attackType": "MELEE",
   "adaptiveType": "MAGIC_DAMAGE",
@@ -964,7 +964,7 @@
   },
   "releaseDate": "2019-01-25",
   "releasePatch": "9.2",
-  "patchLastChanged": "13.24",
+  "patchLastChanged": "14.1",
   "price": {
     "blueEssence": 3150,
     "rp": 790,

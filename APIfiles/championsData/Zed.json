@@ -4,7 +4,7 @@
   "name": "Zed",
   "title": "the Master of Shadows",
   "fullName": "",
-  "icon": "http://ddragon.leagueoflegends.com/cdn/13.24.1/img/champion/Zed.png",
+  "icon": "http://ddragon.leagueoflegends.com/cdn/14.1.1/img/champion/Zed.png",
   "resource": "ENERGY",
   "attackType": "MELEE",
   "adaptiveType": "PHYSICAL_DAMAGE",
@@ -456,10 +456,10 @@
             {
               "values": [
                 20,
-                19.25,
-                18.5,
-                17.75,
-                17
+                19,
+                18,
+                17,
+                16
               ],
               "units": [
                 "",
@@ -511,10 +511,10 @@
                   {
                     "values": [
                       65,
-                      85,
-                      105,
-                      125,
-                      145
+                      90,
+                      115,
+                      140,
+                      165
                     ],
                     "units": [
                       "",
@@ -683,9 +683,9 @@
                 "modifiers": [
                   {
                     "values": [
-                      65,
-                      65,
-                      65
+                      100,
+                      100,
+                      100
                     ],
                     "units": [
                       "% AD",

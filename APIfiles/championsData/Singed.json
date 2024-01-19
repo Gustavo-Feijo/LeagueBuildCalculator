@@ -4,7 +4,7 @@
   "name": "Singed",
   "title": "the Mad Chemist",
   "fullName": "",
-  "icon": "http://ddragon.leagueoflegends.com/cdn/13.24.1/img/champion/Singed.png",
+  "icon": "http://ddragon.leagueoflegends.com/cdn/14.1.1/img/champion/Singed.png",
   "resource": "MANA",
   "attackType": "MELEE",
   "adaptiveType": "MAGIC_DAMAGE",
@@ -271,11 +271,11 @@
                   },
                   {
                     "values": [
-                      11.25,
-                      11.25,
-                      11.25,
-                      11.25,
-                      11.25
+                      10,
+                      10,
+                      10,
+                      10,
+                      10
                     ],
                     "units": [
                       "% AP",
@@ -308,11 +308,11 @@
                   },
                   {
                     "values": [
-                      90,
-                      90,
-                      90,
-                      90,
-                      90
+                      80,
+                      80,
+                      80,
+                      80,
+                      80
                     ],
                     "units": [
                       "% AP",

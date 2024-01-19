@@ -4,7 +4,7 @@
   "name": "Ezreal",
   "title": "the Prodigal Explorer",
   "fullName": "",
-  "icon": "http://ddragon.leagueoflegends.com/cdn/13.24.1/img/champion/Ezreal.png",
+  "icon": "http://ddragon.leagueoflegends.com/cdn/14.1.1/img/champion/Ezreal.png",
   "resource": "MANA",
   "attackType": "RANGED",
   "adaptiveType": "PHYSICAL_DAMAGE",
@@ -463,11 +463,11 @@
           "modifiers": [
             {
               "values": [
-                12,
-                12,
-                12,
-                12,
-                12
+                8,
+                8,
+                8,
+                8,
+                8
               ],
               "units": [
                 "",
@@ -581,11 +581,11 @@
           "modifiers": [
             {
               "values": [
-                90,
-                90,
-                90,
-                90,
-                90
+                70,
+                70,
+                70,
+                70,
+                70
               ],
               "units": [
                 "",
@@ -2208,6 +2208,327 @@
         "Bo 'chenbowow' Chen",
         "Julia Yurtsev",
         "Jennifer Wuestling"
+      ]
+    },
+    {
+      "name": "Heavenscale",
+      "id": 81044,
+      "isBase": false,
+      "availability": "Upcoming",
+      "formatName": "Heavenscale",
+      "lootEligible": true,
+      "cost": 1350,
+      "sale": 0,
+      "distribution": null,
+      "rarity": "Epic",
+      "chromas": [
+        {
+          "name": "Amethyst",
+          "id": 81060,
+          "chromaPath": "http://raw.communitydragon.org/pbe/plugins/rcp-be-lol-game-data/global/default/v1/champion-chroma-images/81/81060.png",
+          "colors": [
+            "#9C68D7",
+            "#9C68D7"
+          ],
+          "descriptions": [
+            {
+              "description": null,
+              "region": null
+            }
+          ],
+          "rarities": [
+            {
+              "rarity": 2,
+              "region": "TENCENT"
+            },
+            {
+              "rarity": 1,
+              "region": "riot"
+            }
+          ]
+        },
+        {
+          "name": "Auspacious",
+          "id": 81061,
+          "chromaPath": "http://raw.communitydragon.org/pbe/plugins/rcp-be-lol-game-data/global/default/v1/champion-chroma-images/81/81061.png",
+          "colors": [
+            "#ECEAD3",
+            "#DC7515"
+          ],
+          "descriptions": [
+            {
+              "description": "This chroma was released as a Loot exclusive in the 2024 Heavenscale event.",
+              "region": "riot"
+            }
+          ],
+          "rarities": [
+            {
+              "rarity": 2,
+              "region": "TENCENT"
+            },
+            {
+              "rarity": 2,
+              "region": "riot"
+            }
+          ]
+        },
+        {
+          "name": "Catseye",
+          "id": 81057,
+          "chromaPath": "http://raw.communitydragon.org/pbe/plugins/rcp-be-lol-game-data/global/default/v1/champion-chroma-images/81/81057.png",
+          "colors": [
+            "#FFEE59",
+            "#FFEE59"
+          ],
+          "descriptions": [
+            {
+              "description": null,
+              "region": null
+            }
+          ],
+          "rarities": [
+            {
+              "rarity": 2,
+              "region": "TENCENT"
+            },
+            {
+              "rarity": 1,
+              "region": "riot"
+            }
+          ]
+        },
+        {
+          "name": "Emerald",
+          "id": 81059,
+          "chromaPath": "http://raw.communitydragon.org/pbe/plugins/rcp-be-lol-game-data/global/default/v1/champion-chroma-images/81/81059.png",
+          "colors": [
+            "#2DA130",
+            "#2DA130"
+          ],
+          "descriptions": [
+            {
+              "description": null,
+              "region": null
+            }
+          ],
+          "rarities": [
+            {
+              "rarity": 2,
+              "region": "TENCENT"
+            },
+            {
+              "rarity": 1,
+              "region": "riot"
+            }
+          ]
+        },
+        {
+          "name": "Lustrous",
+          "id": 81063,
+          "chromaPath": "http://raw.communitydragon.org/pbe/plugins/rcp-be-lol-game-data/global/default/v1/champion-chroma-images/81/81063.png",
+          "colors": [
+            "#DFA6DF",
+            "#E0D7D7"
+          ],
+          "descriptions": [
+            {
+              "description": "This chroma was released as a Loot exclusive in the 2024 Heavenscale event.",
+              "region": "riot"
+            }
+          ],
+          "rarities": [
+            {
+              "rarity": 2,
+              "region": "TENCENT"
+            },
+            {
+              "rarity": 2,
+              "region": "riot"
+            }
+          ]
+        },
+        {
+          "name": "Obsidian",
+          "id": 81064,
+          "chromaPath": "http://raw.communitydragon.org/pbe/plugins/rcp-be-lol-game-data/global/default/v1/champion-chroma-images/81/81064.png",
+          "colors": [
+            "#27211C",
+            "#27211C"
+          ],
+          "descriptions": [
+            {
+              "description": null,
+              "region": null
+            }
+          ],
+          "rarities": [
+            {
+              "rarity": 2,
+              "region": "TENCENT"
+            },
+            {
+              "rarity": 1,
+              "region": "riot"
+            }
+          ]
+        },
+        {
+          "name": "Rose Quartz",
+          "id": 81056,
+          "chromaPath": "http://raw.communitydragon.org/pbe/plugins/rcp-be-lol-game-data/global/default/v1/champion-chroma-images/81/81056.png",
+          "colors": [
+            "#E58BA5",
+            "#E58BA5"
+          ],
+          "descriptions": [
+            {
+              "description": null,
+              "region": null
+            }
+          ],
+          "rarities": [
+            {
+              "rarity": 2,
+              "region": "TENCENT"
+            },
+            {
+              "rarity": 1,
+              "region": "riot"
+            }
+          ]
+        },
+        {
+          "name": "Ruby",
+          "id": 81055,
+          "chromaPath": "http://raw.communitydragon.org/pbe/plugins/rcp-be-lol-game-data/global/default/v1/champion-chroma-images/81/81055.png",
+          "colors": [
+            "#D33528",
+            "#D33528"
+          ],
+          "descriptions": [
+            {
+              "description": "This chroma was released as a bundle exclusive in 2024.",
+              "region": "riot"
+            }
+          ],
+          "rarities": [
+            {
+              "rarity": 2,
+              "region": "TENCENT"
+            },
+            {
+              "rarity": 2,
+              "region": "riot"
+            }
+          ]
+        },
+        {
+          "name": "Sapphire",
+          "id": 81058,
+          "chromaPath": "http://raw.communitydragon.org/pbe/plugins/rcp-be-lol-game-data/global/default/v1/champion-chroma-images/81/81058.png",
+          "colors": [
+            "#2756CE",
+            "#2756CE"
+          ],
+          "descriptions": [
+            {
+              "description": null,
+              "region": null
+            }
+          ],
+          "rarities": [
+            {
+              "rarity": 2,
+              "region": "TENCENT"
+            },
+            {
+              "rarity": 1,
+              "region": "riot"
+            }
+          ]
+        },
+        {
+          "name": "Tanzanite",
+          "id": 81062,
+          "chromaPath": "http://raw.communitydragon.org/pbe/plugins/rcp-be-lol-game-data/global/default/v1/champion-chroma-images/81/81062.png",
+          "colors": [
+            "#54209B",
+            "#54209B"
+          ],
+          "descriptions": [
+            {
+              "description": null,
+              "region": null
+            }
+          ],
+          "rarities": [
+            {
+              "rarity": 2,
+              "region": "TENCENT"
+            },
+            {
+              "rarity": 1,
+              "region": "riot"
+            }
+          ]
+        }
+      ],
+      "lore": "Wherever chaos is sown, dragons across the kingdom know to listen for Ezreal's mischievous laughter. His japes are harmless, but don't let that merry spirit fool you: he is a shrewd royal scout alongside Kai'Sa who has braved many adventures between bouts of pranking. Dressing up like a human to go party? Now that sounds like his idea of a good time.",
+      "release": "0000-00-00",
+      "set": [
+        "Heavenscale"
+      ],
+      "splashPath": "http://raw.communitydragon.org/pbe/plugins/rcp-be-lol-game-data/global/default/v1/champion-splashes/81/81044.jpg",
+      "uncenteredSplashPath": "http://raw.communitydragon.org/pbe/plugins/rcp-be-lol-game-data/global/default/v1/champion-splashes/uncentered/81/81044.jpg",
+      "tilePath": "http://raw.communitydragon.org/pbe/plugins/rcp-be-lol-game-data/global/default/v1/champion-tiles/81/81044.jpg",
+      "loadScreenPath": "https://raw.communitydragon.org/pbe/plugins/rcp-be-lol-game-data/global/default/assets/characters/ezreal/skins/skin44/ezrealloadscreen_44.pie_c_14_2.jpg",
+      "loadScreenVintagePath": "https://raw.communitydragon.org/pbe/plugins/rcp-be-lol-game-data/global/default/assets/characters/ezreal/skins/skin44/ezrealloadscreen_44_le.pie_c_14_2.jpg",
+      "newEffects": true,
+      "newAnimations": true,
+      "newRecall": true,
+      "newVoice": false,
+      "newQuotes": false,
+      "voiceActor": [
+        "Daniel Amerman"
+      ],
+      "splashArtist": [
+        "Joshua Raphael",
+        "West Studio"
+      ]
+    },
+    {
+      "name": "Prestige Heavenscale",
+      "id": 81054,
+      "isBase": false,
+      "availability": "Upcoming",
+      "formatName": "Prestige Heavenscale",
+      "lootEligible": true,
+      "cost": "Special",
+      "sale": 0,
+      "distribution": "2000 Lunar New Year 2024 Tokens",
+      "rarity": "Mythic",
+      "chromas": [],
+      "lore": "Ezreal's gilded gala garb is fit for royalty. Adorned in hand-crafted scales and crystal horns, this tastemaker came to the party with a mission: ring in the New Year not just with a bang, but a roar.",
+      "release": "0000-00-00",
+      "set": [
+        "Heavenscale"
+      ],
+      "splashPath": "http://raw.communitydragon.org/pbe/plugins/rcp-be-lol-game-data/global/default/v1/champion-splashes/81/81054.jpg",
+      "uncenteredSplashPath": "http://raw.communitydragon.org/pbe/plugins/rcp-be-lol-game-data/global/default/v1/champion-splashes/uncentered/81/81054.jpg",
+      "tilePath": "http://raw.communitydragon.org/pbe/plugins/rcp-be-lol-game-data/global/default/v1/champion-tiles/81/81054.jpg",
+      "loadScreenPath": "https://raw.communitydragon.org/pbe/plugins/rcp-be-lol-game-data/global/default/assets/characters/ezreal/skins/skin54/ezrealloadscreen_54.pie_c_14_2.jpg",
+      "loadScreenVintagePath": "https://raw.communitydragon.org/pbe/plugins/rcp-be-lol-game-data/global/default/assets/characters/ezreal/skins/skin54/ezrealloadscreen_54_le.pie_c_14_2.jpg",
+      "newEffects": true,
+      "newAnimations": true,
+      "newRecall": true,
+      "newVoice": false,
+      "newQuotes": false,
+      "voiceActor": [
+        "Daniel Amerman"
+      ],
+      "splashArtist": [
+        "Exia Xiatong",
+        "West Studio"
       ]
     }
   ]

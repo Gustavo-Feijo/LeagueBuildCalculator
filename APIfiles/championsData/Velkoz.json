@@ -4,7 +4,7 @@
   "name": "Vel'Koz",
   "title": "the Eye of the Void",
   "fullName": "",
-  "icon": "http://ddragon.leagueoflegends.com/cdn/13.24.1/img/champion/Velkoz.png",
+  "icon": "http://ddragon.leagueoflegends.com/cdn/14.1.1/img/champion/Velkoz.png",
   "resource": "MANA",
   "attackType": "RANGED",
   "adaptiveType": "MAGIC_DAMAGE",
@@ -628,7 +628,7 @@
         "icon": "https://cdn.communitydragon.org/latest/champion/Velkoz/ability-icon/e",
         "effects": [
           {
-            "description": "Active: Vel'Koz hurls a disruptive anomaly that lands to the target location after 0.825 seconds, dealing magic damage to enemies hit and knocking them up and stunning them for 0.75 seconds, as well as granting sight of the area briefly.",
+            "description": "Active: Vel'Koz hurls a disruptive anomaly that lands to the target location after 0.25 − 0.5 (based on cast distance) seconds, dealing magic damage to enemies hit and knocking them up and stunning them for 0.75 seconds, as well as granting sight of the area briefly.",
             "leveling": [
               {
                 "attribute": "Magic Damage",
@@ -724,7 +724,7 @@
         "projectile": "SPECIAL",
         "onHitEffects": null,
         "occurrence": null,
-        "notes": "The required proximity for the  knock back is relative to Vel'Koz's position when casting and not his current one.\nWhile the effect is fully prevented by blocking the missile (e.g. with  Unbreakable and  Wind Wall), the missile may not be destroyed visually.(bug)\nThe area of effect indicator appears at the start of the cast time.\nIt will persist even if the cast cancels (e.g. Vel'Koz dies before cast time completes) despite the projectile not firing.\n Displacement immunity will also resist the application of the  stun.",
+        "notes": "The required proximity for the  knock back is relative to Vel'Koz's position when casting and not his current one.\nWhile the effect is fully prevented by blocking the missile (e.g. with  Unbreakable and  Wind Wall), the missile may not be destroyed visually.(bug)\nThe area of effect indicator appears at the end of the cast time.\nIt will persist even if the cast cancels (e.g. Vel'Koz dies before cast time completes) despite the projectile not firing.\n Displacement immunity will also resist the application of the  stun.",
         "blurb": "Active:  Vel'Koz hurls a disruptive anomaly at the target location that deals magic damage to enemies hit, briefly  knocks them up and  stuns them.",
         "missileSpeed": null,
         "rechargeRate": null,
@@ -732,7 +732,7 @@
         "tetherRadius": null,
         "onTargetCdStatic": null,
         "innerRadius": null,
-        "speed": "0.55 fixed",
+        "speed": null,
         "width": null,
         "angle": null,
         "castTime": "0.25",
@@ -863,7 +863,7 @@
         "projectile": "FALSE",
         "onHitEffects": null,
         "occurrence": null,
-        "notes": "Life Form Disintegration Ray's direction updates gradually (moving the cursor from one side of Vel'Koz to the other will not make him rotate instantly).\nVel'Koz will  reveal himself if the ray is near an enemy champion.\nThe beam hits in a rectangular shape, intersecting with the edge of an enemy  gameplay radius.\nBecause of this, the effect will hit enemies whose center location is to the sides and/or slightly behind Vel'Koz, as long as their radius intersects with the area.\nThe following table refers for interactions while Vel'Koz is  channeling:\n\n\nType\n\nChannel\n\n\nAttacking\n\nDisabled\n\n\nAbilities\n\nDisabled\n\n\nMovement\n\nDisabled\n\n\nItems\n\nUsable\n\n Shurelya's Battlesong  Turbo Chemtank  Youmuu's Ghostblade  Gargoyle Stoneplate  Randuin's Omen\n\n\nDisabled\n\n Hextech Rocketbelt\n\n\nInterrupted by\n\nAll item-actives not specified above interrupt\n\n\nConsumables\n\nUsable\n\n\nSpells\n\nUsable\n\n Barrier  Clarity  Cleanse  Exhaust  Ghost  Heal  Ignite  Smite\n\n\nDisabled\n\n Flash  Hexflash\n\n\nInterrupted by\n\n Teleport  Recall\n\n\nInterrupted by\n\nDeath Cast-inhibiting effects",
+        "notes": "Life Form Disintegration Ray's direction updates gradually (moving the cursor from one side of Vel'Koz to the other will not make him rotate instantly).\nVel'Koz will  reveal himself if the ray is near an enemy champion.\nThe beam hits in a rectangular shape, intersecting with the edge of an enemy  gameplay radius.\nBecause of this, the effect will hit enemies whose center location is to the sides and/or slightly behind Vel'Koz, as long as their radius intersects with the area.\nThe following table refers for interactions while Vel'Koz is  channeling:\n\n\nType\n\nChannel\n\n\nAttacking\n\nDisabled\n\n\nAbilities\n\nDisabled\n\n\nMovement\n\nDisabled\n\n\nItems\n\nUsable\n\n Shurelya's Battlesong  Youmuu's Ghostblade  Randuin's Omen\n\n\nDisabled\n\n Hextech Rocketbelt\n\n\nInterrupted by\n\nAll item-actives not specified above interrupt\n\n\nConsumables\n\nUsable\n\n\nSpells\n\nUsable\n\n Barrier  Clarity  Cleanse  Exhaust  Ghost  Heal  Ignite  Smite\n\n\nDisabled\n\n Flash  Hexflash\n\n\nInterrupted by\n\n Teleport  Recall\n\n\nInterrupted by\n\nDeath Cast-inhibiting effects",
         "blurb": "Passive - Researched: Applying 3  Deconstruction stacks will mark the target Researched for a few seconds, which refreshes on basic attacks and ability hits.",
         "missileSpeed": null,
         "rechargeRate": null,
@@ -882,7 +882,7 @@
   },
   "releaseDate": "2014-02-27",
   "releasePatch": "4.3",
-  "patchLastChanged": "13.24",
+  "patchLastChanged": "14.1",
   "price": {
     "blueEssence": 3141,
     "rp": 880,

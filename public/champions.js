@@ -205,7 +205,7 @@ function handleItemStats(item, callback) {
     champion.bonus.mr = callback(champion.bonus.mr, itemStats.magicResistance.flat);
     
     //Update directly the total values, since those are mostly only obtained through items and doesn't need to be calculated.
-    champion.total.ah = callback(champion.bonus.ah, itemStats.abilityHaste.flat);
+    champion.total.ah = callback(champion.total.ah, itemStats.abilityHaste.flat);
     champion.total.ap = callback(champion.total.ap, itemStats.abilityPower.flat);
     champion.total.armorpen = callback(champion.total.armorpen, itemStats.armorPenetration.percent);
     champion.total.critical = callback(champion.total.critical, itemStats.criticalStrikeChance.percent);

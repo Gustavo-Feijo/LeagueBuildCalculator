@@ -4,7 +4,7 @@
   "name": "Akshan",
   "title": "the Rogue Sentinel",
   "fullName": "",
-  "icon": "http://ddragon.leagueoflegends.com/cdn/13.24.1/img/champion/Akshan.png",
+  "icon": "http://ddragon.leagueoflegends.com/cdn/14.1.1/img/champion/Akshan.png",
   "resource": "MANA",
   "attackType": "RANGED",
   "adaptiveType": "PHYSICAL_DAMAGE",
@@ -722,7 +722,7 @@
         "projectile": "TRUE",
         "onHitEffects": null,
         "occurrence": null,
-        "notes": "Akshan will not stop swinging until his dash is stopped.\nThe swing will end prematurely if the terrain the hook was attached to no longer exists, such as player-generated terrain.\nAkshan will prioritize firing at enemies he damaged with any unit-targeted ability or spell within the last 4 seconds, such as  Comeuppance or  Ignite.\nHeroic Swing grants a buff to Akshan for 2 seconds that indicates and determines the first cast's duration.\nThis buff starts as soon as the ability is cast, and lingers for 0.125 seconds after it expires.\nThis means the hook can be attached to terrain for longer if it hits it earlier in the duration, and vice versa.\nIf Akshan  dashes (excluding second cast's dash) or  blinks or becomes affected by  immobilization,  ground, or  polymorph in the duration, the buff is removed immediately, causing the first cast to be lost and cancelling Heroic Swing entirely.\nAkshan immediately fires one shot at the beginning of his swing, one shot every 0.231 seconds during the swing, and a final shot while dismounting from the swing.\nThe fire rate is not affected by attack speed.\nAkshan can fire at any targetable enemy unit excluding structures and jungle plants.\nOnly Heroic Swing's first cast is disabled while  grounded or  rooted. The third cast is still usable during those effects.\nHeroic Swing's second and third cast can both be used while  silenced.\n Takedowns against  clones do not count for resetting Heroic Swing's cooldown.\nIf a  takedown is scored while Heroic Swing is active, the cooldown afterwards will be 0.5 seconds.\nAkshan will attempt to basic attack the target he fired at with the last shot after the third cast's dash ends, if there is no other input given.\nEach shot generates a stack of  Conqueror.\n Spell shield will only block a single shot.\nThe attack speed scaling on the damage of the attacks includes the bonus attack speed gained from Akshan's innate attack speed growth.\nAt level 18, each shot at minimum deals 108.36 (+ 21.07% bonus AD) physical damage.\nDespite this ability not applying on-attack effects, it does apply  Navori Quickblades' Transcendence.(bug)\nUnder certain circumstances, upon attaching the hook to terrain, Akshan will create a particle on the location permanently.(bug)\nThis particle can be attacked by minions.\n PENDING FOR TEST: Hook range including lollipop against walls, automated attacks range while swinging, final dash distance and speed.\nThe following table refers for interactions while the hook is attached or in flight:\n\n\nAttacking\n\nAutomatically initiates the second cast.\n\n\nAbilities\n\n Avengerang and  Going Rogue are disabled.  Comeuppance is usable.\n\n\nMovement\n\nAutomatically initiates the second cast.\n\n\nItems\n\nUsable\n\nN/A\n\n\nDisabled\n\nAll items are disabled\n\n\nInterrupted by\n\nN/A\n\n\nConsumables\n\nDisabled\n\n\nSpells\n\nUsable\n\nN/A\n\n\nDisabled\n\n Barrier  Clarity  Cleanse  Exhaust  Ghost  Heal  Ignite  Smite  Teleport  Recall  Hexflash\n\n\nInterrupted by\n\n Flash\n\n\nInterrupted by\n\nDeath Grounding effects Immobilizing effects\n\nThe following table refers for interactions while Akshan is swinging:\n\n\nAttacking\n\nAutomatically initiates the third cast.\n\n\nAbilities\n\n Avengerang and  Going Rogue are disabled.  Comeuppance is usable.\n\n\nMovement\n\nAutomatically initiates the third cast.\n\n\nItems\n\nUsable\n\nAll the other item-actives are usable\n\n\nDisabled\n\nN/A\n\n\nInterrupted by\n\n Stopwatch  Zhonya's Hourglass  Hextech Rocketbelt  Galeforce  Goredrinker  Stridebreaker  Ironspike Whip\n\n\nConsumables\n\nUsable\n\n\nSpells\n\nUsable\n\n Barrier  Clarity  Cleanse  Exhaust  Ghost  Heal  Ignite  Smite  Hexflash\n\n\nDisabled\n\n Teleport  Recall\n\n\nInterrupted by\n\n Flash\n\n\nInterrupted by\n\nDeath Immobilizing effects",
+        "notes": "Akshan will not stop swinging until his dash is stopped.\nThe swing will end prematurely if the terrain the hook was attached to no longer exists, such as player-generated terrain.\nAkshan will prioritize firing at enemies he damaged with any unit-targeted ability or spell within the last 4 seconds, such as  Comeuppance or  Ignite.\nHeroic Swing grants a buff to Akshan for 2 seconds that indicates and determines the first cast's duration.\nThis buff starts as soon as the ability is cast, and lingers for 0.125 seconds after it expires.\nThis means the hook can be attached to terrain for longer if it hits it earlier in the duration, and vice versa.\nIf Akshan  dashes (excluding second cast's dash) or  blinks or becomes affected by  immobilization,  ground, or  polymorph in the duration, the buff is removed immediately, causing the first cast to be lost and cancelling Heroic Swing entirely.\nAkshan immediately fires one shot at the beginning of his swing, one shot every 0.231 seconds during the swing, and a final shot while dismounting from the swing.\nThe fire rate is not affected by attack speed.\nAkshan can fire at any targetable enemy unit excluding structures and jungle plants.\nOnly Heroic Swing's first cast is disabled while  grounded or  rooted. The third cast is still usable during those effects.\nHeroic Swing's second and third cast can both be used while  silenced.\n Takedowns against  clones do not count for resetting Heroic Swing's cooldown.\nIf a  takedown is scored while Heroic Swing is active, the cooldown afterwards will be 0.5 seconds.\nAkshan will attempt to basic attack the target he fired at with the last shot after the third cast's dash ends, if there is no other input given.\nEach shot generates a stack of  Conqueror.\n Spell shield will only block a single shot.\nThe attack speed scaling on the damage of the attacks includes the bonus attack speed gained from Akshan's innate attack speed growth.\nAt level 18, each shot at minimum deals 108.36 (+ 21.07% bonus AD) physical damage.\nDespite this ability not applying on-attack effects, it does apply  Navori Quickblades' Transcendence.(bug)\nUnder certain circumstances, upon attaching the hook to terrain, Akshan will create a particle on the location permanently.(bug)\nThis particle can be attacked by minions.\n PENDING FOR TEST: Hook range including lollipop against walls, automated attacks range while swinging, final dash distance and speed.\nThe following table refers for interactions while the hook is attached or in flight:\n\n\nAttacking\n\nAutomatically initiates the second cast.\n\n\nAbilities\n\n Avengerang and  Going Rogue are disabled.  Comeuppance is usable.\n\n\nMovement\n\nAutomatically initiates the second cast.\n\n\nItems\n\nUsable\n\nN/A\n\n\nDisabled\n\nAll items are disabled\n\n\nInterrupted by\n\nN/A\n\n\nConsumables\n\nDisabled\n\n\nSpells\n\nUsable\n\nN/A\n\n\nDisabled\n\n Barrier  Clarity  Cleanse  Exhaust  Ghost  Heal  Ignite  Smite  Teleport  Recall  Hexflash\n\n\nInterrupted by\n\n Flash\n\n\nInterrupted by\n\nDeath Grounding effects Immobilizing effects\n\nThe following table refers for interactions while Akshan is swinging:\n\n\nAttacking\n\nAutomatically initiates the third cast.\n\n\nAbilities\n\n Avengerang and  Going Rogue are disabled.  Comeuppance is usable.\n\n\nMovement\n\nAutomatically initiates the third cast.\n\n\nItems\n\nUsable\n\nAll the other item-actives are usable\n\n\nDisabled\n\nN/A\n\n\nInterrupted by\n\n Zhonya's Hourglass  Hextech Rocketbelt  Stridebreaker\n\n\nConsumables\n\nUsable\n\n\nSpells\n\nUsable\n\n Barrier  Clarity  Cleanse  Exhaust  Ghost  Heal  Ignite  Smite  Hexflash\n\n\nDisabled\n\n Teleport  Recall\n\n\nInterrupted by\n\n Flash\n\n\nInterrupted by\n\nDeath Immobilizing effects",
         "blurb": "First Cast:  Akshan prepares to swing by firing a hook that embeds in the first terrain hit. Heroic Swing's second cast can be used while the hook is attached.",
         "missileSpeed": null,
         "rechargeRate": null,
@@ -1477,6 +1477,41 @@
         "Sunil Malhotra"
       ],
       "splashArtist": [
+        "West Studio"
+      ]
+    },
+    {
+      "name": "Three Honors",
+      "id": 166020,
+      "isBase": false,
+      "availability": "Upcoming",
+      "formatName": "Three Honors",
+      "lootEligible": false,
+      "cost": "Special",
+      "sale": 0,
+      "distribution": "Reward for finishing the ranked season with Honor level 5.",
+      "rarity": "NoRarity",
+      "chromas": [],
+      "lore": "When the Order of Solace found Akshan, he was a soulless weapon of death caught in a cycle of revenge following his mentor's murder. Even with his despair, the Order's teachings were able to fill the endless hole within Akshan and rejuvenate him. Now he stands with Malzahar as a Three Honors stalwart, ready to fight the Essents with harmony and quips.",
+      "release": "0000-00-00",
+      "set": [
+        "Three Honors"
+      ],
+      "splashPath": "http://raw.communitydragon.org/pbe/plugins/rcp-be-lol-game-data/global/default/v1/champion-splashes/166/166020.jpg",
+      "uncenteredSplashPath": "http://raw.communitydragon.org/pbe/plugins/rcp-be-lol-game-data/global/default/v1/champion-splashes/uncentered/166/166020.jpg",
+      "tilePath": "http://raw.communitydragon.org/pbe/plugins/rcp-be-lol-game-data/global/default/v1/champion-tiles/166/166020.jpg",
+      "loadScreenPath": "https://raw.communitydragon.org/pbe/plugins/rcp-be-lol-game-data/global/default/assets/characters/akshan/skins/skin20/akshanloadscreen_20.pie_c_14_2.jpg",
+      "loadScreenVintagePath": null,
+      "newEffects": false,
+      "newAnimations": false,
+      "newRecall": false,
+      "newVoice": false,
+      "newQuotes": false,
+      "voiceActor": [
+        "Sunil Malhotra"
+      ],
+      "splashArtist": [
+        "Marie Magny",
         "West Studio"
       ]
     }
