@@ -5,7 +5,7 @@ const app = express();
 const port = process.env.PORT || 5500;
 
 //Setting up express public folder.
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'public'), { maxAge: 86400000 }));
 
 //Sends the first screen on request.
 app.get('/', (req, res) => {
